@@ -12,8 +12,7 @@
  * Отвечает за имя игрока, его текущий счет, а также хранит историю
  * последних ответов для реализации механики динамической сложности.
  */
-class Player
-{
+class Player {
 public:
     /**
      * @brief Конструктор класса Player.
@@ -59,8 +58,13 @@ public:
      * Анализирует историю последних ответов.
      * @return true, если последние N ответов были правильными и быстрыми, иначе false.
      */
-    bool shouldIncreaseDifficulty() const;
+    bool shouldLockEasyQuestions() const;
 
+    void setPointsThreshold(int threshold);
+
+    int getPointsThreshold() const;
+
+    void clearAnswerHistory();
 
 private:
     // --- Константы для логики усложнения ---
@@ -81,8 +85,9 @@ private:
 
     /// История последних ответов. Хранит пары: <правильность ответа, время ответа>.
     /// Используется для определения необходимости усложнения вопросов.
-    std::vector<std::pair<bool, double>> m_answerHistory;
+    std::vector<std::pair<bool, double> > m_answerHistory;
 
+    int m_pointsThreshold;
 };
 
 #endif // PLAYER_H

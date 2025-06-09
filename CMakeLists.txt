@@ -45,6 +45,10 @@ add_executable(SvojaIgra
         src/ui/QuestionDialog.h
         src/core/FileManager.cpp
         resources/resources.qrc
+        src/ui/SettingsDialog.cpp
+        src/ui/SettingsDialog.h
+        src/ui/PlayerNameDialog.cpp
+        src/ui/PlayerNameDialog.h
 )
 
 target_link_libraries(SvojaIgra PRIVATE

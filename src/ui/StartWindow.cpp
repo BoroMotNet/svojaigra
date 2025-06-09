@@ -1,6 +1,10 @@
-#include "./StartWindow.h" // Включаем собственный заголовочный файл
+#include "./StartWindow.h"
+#include "./MainWindow.h"
+#include "./AdminEditor.h"
+#include "./PlayerNameDialog.h"
+#include "./SettingsDialog.h"
+#include "../core/GameManager.h"
 
-// Включаем заголовочные файлы для всех классов Qt, которые мы используем
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QFont>
@@ -8,92 +12,79 @@
 #include <QMessageBox>
 #include <QLineEdit>
 
-// Включаем заголовочные файлы для окон, которые мы будем создавать.
-// Теперь, когда они реализованы, эти строки должны работать без ошибок.
-#include "./MainWindow.h"
-#include "./AdminEditor.h"
-
-
-// --- Реализация конструктора ---
 StartWindow::StartWindow(QWidget *parent)
-    : QWidget(parent), // Вызов конструктора родительского класса
+    : QWidget(parent),
       gameWindow(nullptr),
       adminWindow(nullptr)
 {
-    // 1. Создание виджетов
-    // tr() - функция для поддержки локализации (перевода).
     startButton = new QPushButton(tr("Начать"));
+    settingsButton = new QPushButton(tr("Настройки"));
     editButton = new QPushButton(tr("Редактирование"));
 
-    // Устанавливаем стили для кнопок, чтобы они выглядели лучше
     QFont buttonFont("Arial", 14);
     startButton->setFont(buttonFont);
+    settingsButton->setFont(buttonFont);
     editButton->setFont(buttonFont);
+
     startButton->setMinimumHeight(50);
+    settingsButton->setMinimumHeight(50);
     editButton->setMinimumHeight(50);
 
-    // 2. Создание менеджера компоновки (layout)
-    // QVBoxLayout располагает виджеты друг под другом.
-    mainLayout = new QVBoxLayout(this); // `this` указывает, что layout будет управлять этим окном
-
-    // 3. Добавление виджетов в layout
+    mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(startButton);
+    mainLayout->addWidget(settingsButton);
     mainLayout->addWidget(editButton);
 
-    // 4. Соединение сигналов со слотами (привязка логики к нажатиям)
     connect(startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
+    connect(settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
     connect(editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
 
-    // 5. Настройка самого окна
     setWindowTitle(tr("Своя Игра - Меню"));
-    setFixedSize(400, 200); // Зафиксируем размер, чтобы окно не растягивалось
+    setFixedSize(400, 250);
 }
 
-// --- Реализация деструктора ---
 StartWindow::~StartWindow()
 {
-    // Этот код не является строго обязательным, т.к. программа закроется,
-    // но это хорошая практика для управления памятью в более сложных приложениях.
     delete gameWindow;
     delete adminWindow;
 }
 
-// --- Реализация слотов ---
-
-// Слот, который выполняется при нажатии кнопки "Начать"
 void StartWindow::handleStart()
 {
-    // Создаем и показываем главное игровое окно
-    gameWindow = new MainWindow();
-    gameWindow->show(); // Показать новое окно
+    PlayerNameDialog dialog(4, this);
+    if (dialog.exec() == QDialog::Accepted) {
+        QStringList playerNames = dialog.getPlayerNames();
+        GameManager::instance().startGame(playerNames);
 
-    this->close(); // Закрыть текущее окно (меню)
+        gameWindow = new MainWindow();
+        gameWindow->show();
+
+        this->close();
+    }
 }
 
-// Слот, который выполняется при нажатии кнопки "Редактирование"
+void StartWindow::handleSettings()
+{
+    SettingsDialog dialog(this);
+    dialog.exec();
+}
+
 void StartWindow::handleEdit()
 {
-    // ВАЖНО: В реальном приложении пароль должен храниться
-    // в зашифрованном виде (хеш) в файле настроек.
-    const QString adminPassword = "Ivan"; //TODO: Hash
+    const QString adminPassword = "Ivan";
 
-    bool ok; // Переменная для отслеживания, нажал ли пользователь "OK" или "Cancel"
-
-    // Вызываем стандартный диалог Qt для ввода текста
+    bool ok;
     QString password = QInputDialog::getText(this, tr("Авторизация"),
                                              tr("Введите пароль администратора:"),
-                                             QLineEdit::Password, // Режим ввода пароля (скрывает символы)
+                                             QLineEdit::Password,
                                              "", &ok);
 
-    // Если пользователь нажал "OK" и поле ввода не пустое
     if (ok && !password.isEmpty()) {
         if (password == adminPassword) {
-            // Пароль верный: создаем и показываем окно администратора
             adminWindow = new AdminEditor();
             adminWindow->show();
-            this->close(); // Закрыть текущее окно (меню)
+            this->close();
         } else {
-            // Пароль неверный: показываем сообщение об ошибке
             QMessageBox::warning(this, tr("Ошибка"), tr("Неверный пароль!"));
         }
     }
