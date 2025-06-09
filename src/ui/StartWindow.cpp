@@ -75,7 +75,7 @@ void StartWindow::handleEdit()
 {
     // ВАЖНО: В реальном приложении пароль должен храниться
     // в зашифрованном виде (хеш) в файле настроек.
-    const QString adminPassword = "1234";
+    const QString adminPassword = "Ivan"; //TODO: Hash
 
     bool ok; // Переменная для отслеживания, нажал ли пользователь "OK" или "Cancel"
 

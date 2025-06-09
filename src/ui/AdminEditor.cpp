@@ -1,5 +1,7 @@
 #include "AdminEditor.h" // Включаем заголовочный файл для этого класса
 
+#include <QPushButton>
+
 // Реализация конструктора AdminEditor
 AdminEditor::AdminEditor(QWidget *parent) : QWidget(parent)
 {

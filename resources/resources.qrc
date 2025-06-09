@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/">
+        <file alias="questions/questions_ru.json">questions/questions_ru.json</file>
+        <file alias="questions/questions_en.json">questions/questions_en.json</file>
+        <file alias="questions/questions_be.json">questions/questions_be.json</file>
+    </qresource>
+</RCC>

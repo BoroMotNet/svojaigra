@@ -37,6 +37,14 @@ add_executable(SvojaIgra
         src/ui/AdminEditor.cpp
         src/core/Question.cpp
         src/core/Player.cpp
+        src/core/GameManager.cpp
+        src/core/FileManager.h
+        src/core/GameManager.h
+        src/core/Player.h
+        src/ui/QuestionDialog.cpp
+        src/ui/QuestionDialog.h
+        src/core/FileManager.cpp
+        resources/resources.qrc
 )
 
 target_link_libraries(SvojaIgra PRIVATE
