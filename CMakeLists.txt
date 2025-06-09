@@ -16,6 +16,7 @@ qt_add_translations(SvojaIgra # Название вашего проекта (ц
         TS_FILES
         resources/translations/svojaigra_en.ts
         resources/translations/svojaigra_be.ts
+        resources/translations/svojaigra_ru.ts
 
         SOURCES
         src/main.cpp
