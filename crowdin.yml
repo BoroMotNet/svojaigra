@@ -1,0 +1,3 @@
+files:
+  - source: /resources/translations
+    translation: svojaigra_*.ts
