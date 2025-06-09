@@ -1,0 +1,29 @@
+﻿# ===================================================================
+# Crowdin Configuration for the SvojaIgra Project
+# ===================================================================
+
+# A personal access token is required for authentication.
+# It's recommended to set this as an environment variable for security.
+# On Linux/macOS: export CROWDIN_PERSONAL_TOKEN="your_token"
+# On Windows: set CROWDIN_PERSONAL_TOKEN="your_token"
+api_token_env: CROWDIN_PERSONAL_TOKEN
+
+# The Project ID from your Crowdin project URL: https://crowdin.com/project/{project_id}
+project_id: "svojaigra"
+
+# The root directory of your project (where this yaml file is located).
+base_path: "."
+
+# This section defines which files to upload to Crowdin (sources)
+# and where to place the downloaded translations.
+files:
+  -
+    # This is the source file that will be uploaded to Crowdin.
+    # It contains the original strings that need to be translated.
+    # We are using the English .ts file as the source.
+    source: '/resources/translations/svojaigra_en.ts'
+
+    # This pattern tells Crowdin where to place the downloaded translation files.
+    # %two_letters_code% is a placeholder that Crowdin will replace with the
+    # language code of the translation (e.g., "be" for Belarusian).
+    translation: '/resources/translations/svojaigra_%two_letters_code%.ts'
