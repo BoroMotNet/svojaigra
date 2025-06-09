@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
     // Это должно быть сделано в первую очередь в любом Qt GUI приложении.
     QApplication app(argc, argv);
 
-    QCoreApplication::setOrganizationName("MyCompany"); // Укажите название вашей "компании"
-    QCoreApplication::setApplicationName("JeopardyGame"); // Название вашего приложения
+    QCoreApplication::setOrganizationName("Borovik Ivan T-391"); // Укажите название вашей "компании"
+    QCoreApplication::setApplicationName("Своя Игра"); // Название вашего приложения
 
     // 3. Логика локализации (переключения языков).
     QSettings settings;
@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     QTranslator appTranslator;
     // Загружаем файл перевода в зависимости от выбранного языка.
     // Файлы .qm должны находиться в подпапке translations.
-    if (appTranslator.load("jeopardy_" + lang, "translations")) {
+    if (appTranslator.load("svojaigra_" + lang, "translations")) {
         app.installTranslator(&appTranslator);
     }
 
@@ -49,6 +49,7 @@ int main(int argc, char *argv[])
     // В нашем случае это StartWindow, так как с него начинается работа.
     StartWindow startWindow;
     startWindow.show(); // Показываем окно пользователю
+
 
     // 5. Запуск цикла обработки событий.
     // Программа будет "жить" на этой строке, пока пользователь ее не закроет.
