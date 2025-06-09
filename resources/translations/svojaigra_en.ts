@@ -24,7 +24,7 @@
     <message>
       <location filename="../../src/core/GameManager.cpp" line="93"/>
       <source>не может выбрать этот вопрос (порог сложности)!</source>
-      <translation>can&apos;t choose this question (difficulty threshold)!</translation>
+      <translation>can't choose this question (difficulty threshold)!</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="101"/>
@@ -83,57 +83,57 @@
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="24"/>
       <source>Настройки</source>
-      <translation type="unfinished">Настройки</translation>
+      <translation>Settings</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="30"/>
       <source>Русский</source>
-      <translation type="unfinished">Русский</translation>
+      <translation>Русский</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="31"/>
       <source>English</source>
-      <translation type="unfinished">English</translation>
+      <translation>English</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="32"/>
       <source>Беларуская</source>
-      <translation type="unfinished">Беларуская</translation>
+      <translation>Беларуская</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="39"/>
       <source>Выбрать цвет...</source>
-      <translation type="unfinished">Выбрать цвет...</translation>
+      <translation>Set color...</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="47"/>
       <source>Язык (требует перезапуска):</source>
-      <translation type="unfinished">Язык (требует перезапуска):</translation>
+      <translation>Language (requires restart):</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="52"/>
       <source>Громкость:</source>
-      <translation type="unfinished">Громкость:</translation>
+      <translation>Volume:</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="53"/>
       <source>Цвет фона:</source>
-      <translation type="unfinished">Цвет фона:</translation>
+      <translation>Background color:</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="91"/>
       <source>Смена языка</source>
-      <translation type="unfinished">Смена языка</translation>
+      <translation>Change Language</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="91"/>
       <source>Язык будет изменен после перезапуска приложения.</source>
-      <translation type="unfinished">Язык будет изменен после перезапуска приложения.</translation>
+      <translation>The language will be changed after restarting the application.</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="98"/>
       <source>Выбор цвет фона</source>
-      <translation type="unfinished">Выбор цвет фона</translation>
+      <translation>Choose background color</translation>
     </message>
   </context>
   <context>
@@ -146,7 +146,7 @@
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="21"/>
       <source>Настройки</source>
-      <translation type="unfinished">Настройки</translation>
+      <translation>Settings</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="22"/>
