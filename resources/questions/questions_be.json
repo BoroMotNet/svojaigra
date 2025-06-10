@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 100,
     "difficulty": 1,
     "type": "Text",
@@ -11,7 +11,7 @@
   },
   {
     "id": 2,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 200,
     "difficulty": 2,
     "type": "Text",
@@ -21,7 +21,7 @@
   },
   {
     "id": 3,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 300,
     "difficulty": 3,
     "type": "Text",
@@ -31,7 +31,7 @@
   },
   {
     "id": 4,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 400,
     "difficulty": 4,
     "type": "Text",
@@ -41,7 +41,7 @@
   },
   {
     "id": 5,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 500,
     "difficulty": 5,
     "type": "Text",
@@ -51,7 +51,7 @@
   },
   {
     "id": 6,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 600,
     "difficulty": 6,
     "type": "Text",
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "category": "География",
+    "category": "Геаграфія",
     "points": 800,
     "difficulty": 7,
     "type": "Text",
@@ -71,7 +71,7 @@
   },
   {
     "id": 8,
-    "category": "Наука",
+    "category": "Навука",
     "points": 100,
     "difficulty": 1,
     "type": "Text",
@@ -81,7 +81,7 @@
   },
   {
     "id": 9,
-    "category": "Наука",
+    "category": "Навука",
     "points": 200,
     "difficulty": 2,
     "type": "Text",
@@ -91,7 +91,7 @@
   },
   {
     "id": 10,
-    "category": "Наука",
+    "category": "Навука",
     "points": 300,
     "difficulty": 3,
     "type": "Text",
@@ -101,7 +101,7 @@
   },
   {
     "id": 11,
-    "category": "Наука",
+    "category": "Навука",
     "points": 400,
     "difficulty": 4,
     "type": "Text",
@@ -111,7 +111,7 @@
   },
   {
     "id": 12,
-    "category": "Наука",
+    "category": "Навука",
     "points": 500,
     "difficulty": 5,
     "type": "Text",
@@ -121,7 +121,7 @@
   },
   {
     "id": 13,
-    "category": "Наука",
+    "category": "Навука",
     "points": 600,
     "difficulty": 6,
     "type": "SoundAndText",
@@ -131,7 +131,7 @@
   },
   {
     "id": 14,
-    "category": "Наука",
+    "category": "Навука",
     "points": 800,
     "difficulty": 7,
     "type": "Text",
@@ -141,7 +141,7 @@
   },
   {
     "id": 15,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 100,
     "difficulty": 1,
     "type": "Text",
@@ -151,7 +151,7 @@
   },
   {
     "id": 16,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 200,
     "difficulty": 2,
     "type": "Text",
@@ -161,7 +161,7 @@
   },
   {
     "id": 17,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 300,
     "difficulty": 3,
     "type": "Text",
@@ -171,7 +171,7 @@
   },
   {
     "id": 18,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 400,
     "difficulty": 4,
     "type": "Text",
@@ -181,7 +181,7 @@
   },
   {
     "id": 19,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 500,
     "difficulty": 5,
     "type": "Text",
@@ -191,7 +191,7 @@
   },
   {
     "id": 20,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 600,
     "difficulty": 6,
     "type": "Text",
@@ -201,7 +201,7 @@
   },
   {
     "id": 21,
-    "category": "История",
+    "category": "Гісторыя",
     "points": 800,
     "difficulty": 7,
     "type": "ImageAndText",
@@ -211,7 +211,7 @@
   },
   {
     "id": 22,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 100,
     "difficulty": 1,
     "type": "Text",
@@ -221,7 +221,7 @@
   },
   {
     "id": 23,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 200,
     "difficulty": 2,
     "type": "Text",
@@ -231,7 +231,7 @@
   },
   {
     "id": 24,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 300,
     "difficulty": 3,
     "type": "Text",
@@ -241,7 +241,7 @@
   },
   {
     "id": 25,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 400,
     "difficulty": 4,
     "type": "Text",
@@ -251,7 +251,7 @@
   },
   {
     "id": 26,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 500,
     "difficulty": 5,
     "type": "Text",
@@ -261,7 +261,7 @@
   },
   {
     "id": 27,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 600,
     "difficulty": 6,
     "type": "Text",
@@ -271,7 +271,7 @@
   },
   {
     "id": 28,
-    "category": "Литература",
+    "category": "Літаратура",
     "points": 800,
     "difficulty": 7,
     "type": "Text",
@@ -281,7 +281,7 @@
   },
   {
     "id": 29,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 100,
     "difficulty": 1,
     "type": "Text",
@@ -291,7 +291,7 @@
   },
   {
     "id": 30,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 200,
     "difficulty": 2,
     "type": "Text",
@@ -301,7 +301,7 @@
   },
   {
     "id": 31,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 300,
     "difficulty": 3,
     "type": "Text",
@@ -311,7 +311,7 @@
   },
   {
     "id": 32,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 400,
     "difficulty": 4,
     "type": "Text",
@@ -321,7 +321,7 @@
   },
   {
     "id": 33,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 500,
     "difficulty": 5,
     "type": "ImageAndText",
@@ -331,7 +331,7 @@
   },
   {
     "id": 34,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 600,
     "difficulty": 6,
     "type": "Text",
@@ -341,7 +341,7 @@
   },
   {
     "id": 35,
-    "category": "Искусство",
+    "category": "Мастацтва",
     "points": 800,
     "difficulty": 7,
     "type": "SoundAndText",
