@@ -10,6 +10,7 @@
 
 int main(int argc, char *argv[])
 {
+    system("chcp 1251");
     QApplication app(argc, argv);
 
     QCoreApplication::setOrganizationName("Borovik Ivan T-391");

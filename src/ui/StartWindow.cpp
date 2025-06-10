@@ -1,4 +1,6 @@
-#include "./StartWindow.h"
+﻿#include "./StartWindow.h"
+#include "ui_StartWindow.h"
+
 #include "./MainWindow.h"
 #include "./AdminEditor.h"
 #include "./PlayerNameDialog.h"
@@ -7,49 +9,27 @@
 
 #include <QApplication>
 #include <QPushButton>
-#include <QVBoxLayout>
-#include <QFont>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QLineEdit>
 
-StartWindow::StartWindow(QWidget *parent)
-    : QWidget(parent),
-      gameWindow(nullptr),
-      adminWindow(nullptr)
+StartWindow::StartWindow(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::StartWindow)
 {
-    startButton = new QPushButton(tr("Пачаць"));
-    settingsButton = new QPushButton(tr("Налады"));
-    editButton = new QPushButton(tr("Рэдагаванне"));
-    exitButton = new QPushButton(tr("Выхад"));
+    ui->setupUi(this);
 
-    QFont buttonFont("Arial", 14);
-    startButton->setFont(buttonFont);
-    settingsButton->setFont(buttonFont);
-    editButton->setFont(buttonFont);
-    exitButton->setFont(buttonFont);
-
-    startButton->setMinimumHeight(50);
-    settingsButton->setMinimumHeight(50);
-    editButton->setMinimumHeight(50);
-    exitButton->setMinimumHeight(50);
-
-    mainLayout = new QVBoxLayout(this);
-    mainLayout->addWidget(startButton);
-    mainLayout->addWidget(settingsButton);
-    mainLayout->addWidget(editButton);
-    mainLayout->addWidget(exitButton);
-
-    connect(startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
-    connect(settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
-    connect(editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
-    connect(exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
+    connect(ui->startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
+    connect(ui->settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
+    connect(ui->editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
+    connect(ui->exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
 
     setWindowTitle(tr("Своя Игра - Меню"));
 }
 
 StartWindow::~StartWindow()
 {
+    delete ui;
     delete gameWindow;
     delete adminWindow;
 }
@@ -63,7 +43,7 @@ void StartWindow::handleStart()
 
         gameWindow = new MainWindow();
         gameWindow->showFullScreen();
-        
+
         this->close();
     }
 }

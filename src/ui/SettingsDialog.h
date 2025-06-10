@@ -4,11 +4,9 @@
 #include <QDialog>
 #include <QColor>
 
-class QComboBox;
-class QSlider;
-class QPushButton;
-class QDialogButtonBox;
-class QLabel;
+namespace Ui {
+    class SettingsDialog;
+}
 
 class SettingsDialog : public QDialog
 {
@@ -16,6 +14,7 @@ class SettingsDialog : public QDialog
 
 public:
     explicit SettingsDialog(QWidget *parent = nullptr);
+    ~SettingsDialog();
 
     QColor selectedColor() const;
     int volumeLevel() const;
@@ -25,17 +24,13 @@ private slots:
     void onColorButtonClicked();
     void onVolumeSliderChanged(int value);
     void onAccepted();
+    void onResetButtonClicked();
 
 private:
-    void setupUi();
     void loadSettings();
     void saveSettings();
 
-    QComboBox* m_languageComboBox;
-    QSlider* m_volumeSlider;
-    QPushButton* m_colorButton;
-    QDialogButtonBox* m_buttonBox;
-    QLabel* m_volumeValueLabel;
+    Ui::SettingsDialog *ui;
 
     QColor m_selectedColor;
     int m_volumeLevel;
