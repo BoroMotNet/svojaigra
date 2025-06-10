@@ -103,27 +103,27 @@
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="14"/>
       <source>Своя Игра - Настройки</source>
-      <translation type="unfinished">Своя Игра - Настройки</translation>
+      <translation>Свая Гульня - Налады</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="33"/>
       <source>Язык</source>
-      <translation type="unfinished">Язык</translation>
+      <translation>Мова</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="47"/>
       <source>Громкость</source>
-      <translation type="unfinished">Громкость</translation>
+      <translation>Гучнасць</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="64"/>
       <source>100%</source>
-      <translation type="unfinished">100%</translation>
+      <translation>100%</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="75"/>
       <source>Цвет</source>
-      <translation type="unfinished">Цвет</translation>
+      <translation>Колер</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="82"/>
@@ -152,12 +152,12 @@
       <location filename="../../src/ui/StartWindow.ui" line="14"/>
       <location filename="../../src/ui/StartWindow.ui" line="59"/>
       <source>Своя Игра</source>
-      <translation type="unfinished">Своя Игра</translation>
+      <translation>Свая Гульня</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="74"/>
       <source>Иван Боровик, Т-391</source>
-      <translation type="unfinished">Иван Боровик, Т-391</translation>
+      <translation>Іван Баравік, Т-391</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="111"/>
@@ -177,7 +177,7 @@
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="165"/>
       <source>Выход</source>
-      <translation type="unfinished">Выход</translation>
+      <translation>Выхад</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="27"/>
