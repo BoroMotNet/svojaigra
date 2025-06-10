@@ -102,7 +102,7 @@
     </message>
     <message>
         <location filename="../../src/ui/SettingsDialog.ui" line="14"/>
-        <source>SettingsDialog</source>
+        <source>Своя Игра - Настройки</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -162,10 +162,6 @@
     <name>StartWindow</name>
     <message>
         <location filename="../../src/ui/StartWindow.ui" line="14"/>
-        <source>Form</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../../src/ui/StartWindow.ui" line="59"/>
         <source>Своя Игра</source>
         <translation type="unfinished">Jeopardy</translation>
