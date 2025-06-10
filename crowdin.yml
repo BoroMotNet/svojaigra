@@ -3,3 +3,10 @@ files:
     translation: /resources/translations/svojaigra_%two_letters_code%.ts
   - source: /resources/questions/questions_ru.json
     translation: /resources/questions/questions_%two_letters_code%.json
+    json:
+      exclude_keys:
+        - "*.id"
+        - "*.mediaPath"
+        - "*.difficulty"
+        - "*.points"
+        - "*.type"
