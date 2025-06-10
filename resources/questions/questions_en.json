@@ -5,7 +5,7 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Назовите столицу Беларуси.",
+    "questionText": "Name the capital of Belarus.",
     "answerText": "Minsk",
     "mediaPath": ""
   },
@@ -16,7 +16,7 @@
     "difficulty": 2,
     "type": "Text",
     "questionText": "Which ocean is the largest by area?",
-    "answerText": "Тихий",
+    "answerText": "Pacific",
     "mediaPath": ""
   },
   {
@@ -55,8 +55,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "Как называется пролив, который разделяет Азию и Северную Америку?",
-    "answerText": "Берингов пролив",
+    "questionText": "What is the name of the strait that separates Asia and North America?",
+    "answerText": "Bering Strait",
     "mediaPath": ""
   },
   {
@@ -65,8 +65,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "Text",
-    "questionText": "Как называется самая южная точка Южной Америки?",
-    "answerText": "Мыс Горн",
+    "questionText": "What is the name of the southernmost point of South America?",
+    "answerText": "Cape Horn",
     "mediaPath": ""
   },
   {
@@ -75,7 +75,7 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Химическая формула воды.",
+    "questionText": "Chemical formula of water.",
     "answerText": "H2O",
     "mediaPath": ""
   },
@@ -85,8 +85,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Какой газ является самым распространённым в атмосфере Земли?",
-    "answerText": "Азот",
+    "questionText": "What gas is the most common in the Earth's atmosphere?",
+    "answerText": "Nitrogen",
     "mediaPath": ""
   },
   {
@@ -95,8 +95,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "Кто сформулировал закон всемирного тяготения?",
-    "answerText": "Исаак Ньютон",
+    "questionText": "Who formulated the law of universal gravitation?",
+    "answerText": "Isaac Newton",
     "mediaPath": ""
   },
   {
@@ -105,8 +105,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Как называется процесс превращения света в энергию у растений?",
-    "answerText": "Фотосинтез",
+    "questionText": "What is the name of the process of turning light into energy in plants?",
+    "answerText": "Photosynthesis",
     "mediaPath": ""
   },
   {
@@ -115,8 +115,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Какой элемент периодической таблицы имеет атомный номер 1?",
-    "answerText": "Водород",
+    "questionText": "What element of the periodic table has atomic number 1?",
+    "answerText": "Hydrogen",
     "mediaPath": ""
   },
   {
@@ -125,8 +125,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "SoundAndText",
-    "questionText": "Какой звук известного эффекта вы слышите?",
-    "answerText": "Эффект Доплера",
+    "questionText": "What famous sound effect do you hear?",
+    "answerText": "Doppler effect",
     "mediaPath": "media/doppler_effect.mp3"
   },
   {
@@ -135,8 +135,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "Text",
-    "questionText": "Что изучает наука микология?",
-    "answerText": "Грибы",
+    "questionText": "What does the science of mycology study?",
+    "answerText": "Mushrooms",
     "mediaPath": ""
   },
   {
@@ -145,7 +145,7 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "В каком году началась Вторая мировая война?",
+    "questionText": "In what year did the Second World War begin?",
     "answerText": "1939",
     "mediaPath": ""
   },
@@ -155,8 +155,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Кто был первым президентом США?",
-    "answerText": "Джордж Вашингтон",
+    "questionText": "Who was the first president of the USA?",
+    "answerText": "George Washington",
     "mediaPath": ""
   },
   {
@@ -165,8 +165,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "В результате какой битвы Наполеон окончательно потерял власть?",
-    "answerText": "Битва при Ватерлоо",
+    "questionText": "As a result of which battle did Napoleon finally lose power?",
+    "answerText": "Battle of Waterloo",
     "mediaPath": ""
   },
   {
@@ -175,8 +175,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Как называлось первое государство восточных славян?",
-    "answerText": "Киевская Русь",
+    "questionText": "What was the name of the first state of the Eastern Slavs?",
+    "answerText": "Kievan Rus'",
     "mediaPath": ""
   },
   {
@@ -185,8 +185,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Какая империя считается самой большой по площади в истории?",
-    "answerText": "Монгольская империя",
+    "questionText": "Which empire is considered the largest in history?",
+    "answerText": "Mongol Empire",
     "mediaPath": ""
   },
   {
@@ -195,7 +195,7 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "В каком столетии произошла Грюнвальдская битва?",
+    "questionText": "In what century did the Battle of Grunwald take place?",
     "answerText": "XV",
     "mediaPath": ""
   },
@@ -205,8 +205,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "ImageAndText",
-    "questionText": "Какое изобретение вы видите на изображении — одно из чудес древнего мира?",
-    "answerText": "Пирамиды Гизы",
+    "questionText": "What invention do you see in the picture — one of the wonders of the ancient world?",
+    "answerText": "Pyramids of Giza",
     "mediaPath": "media/pyramids.jpg"
   },
   {
@@ -215,8 +215,8 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Кто является автором пьесы «Ромео и Джульетта»?",
-    "answerText": "Уильям Шекспир",
+    "questionText": "Who is the author of the play \"Romeo and Juliet\"?",
+    "answerText": "William Shakespeare",
     "mediaPath": ""
   },
   {
@@ -225,8 +225,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Кто написал роман «Война и мир»?",
-    "answerText": "Лев Толстой",
+    "questionText": "Who wrote the novel \"War and Peace\"?",
+    "answerText": "Lev Tolstoi",
     "mediaPath": ""
   },
   {
@@ -235,8 +235,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "Назовите главного героя романа «Дон Кихот».",
-    "answerText": "Дон Кихот",
+    "questionText": "Name the main character of the novel \"Don Quixote\".",
+    "answerText": "Don Quichotte",
     "mediaPath": ""
   },
   {
@@ -245,8 +245,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Какой белорусский поэт написал поэму «Новая земля»?",
-    "answerText": "Якуб Колас",
+    "questionText": "Which Belarusian poet wrote the poem \"New Land\"?",
+    "answerText": "Jakub Kolas",
     "mediaPath": ""
   },
   {
@@ -255,8 +255,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Из какого произведения Шекспира фраза «Быть или не быть, вот в чём вопрос»?",
-    "answerText": "Гамлет",
+    "questionText": "From which Shakespeare's work is the phrase \"To be or not to be, what is the question\"?",
+    "answerText": "Hamlet",
     "mediaPath": ""
   },
   {
@@ -265,8 +265,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "Кто является автором «Мастера и Маргариты»?",
-    "answerText": "Михаил Булгаков",
+    "questionText": "Who is the author of \"The Master and Margarita\"?",
+    "answerText": "Mikhail Bulgakov",
     "mediaPath": ""
   },
   {
@@ -275,8 +275,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "Text",
-    "questionText": "Как зовут капитана подводной лодки «Наутилус» в произведениях Жюля Верна?",
-    "answerText": "Капитан Немо",
+    "questionText": "What is the name of the captain of the submarine \"Nautilus\" in the works of Jules Verne?",
+    "answerText": "Captain Nemo",
     "mediaPath": ""
   },
   {
@@ -285,8 +285,8 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Кто написал картину «Чёрный квадрат»?",
-    "answerText": "Казимир Малевич",
+    "questionText": "Who wrote the painting \"Black Square\"?",
+    "answerText": "Kazimir Malevich",
     "mediaPath": ""
   },
   {
@@ -295,8 +295,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "В каком городе находится музей Лувр?",
-    "answerText": "Париж",
+    "questionText": "In which city is the Louvre Museum located?",
+    "answerText": "Paris",
     "mediaPath": ""
   },
   {
@@ -305,8 +305,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "Назовите автора знаменитой скульптуры «Давид».",
-    "answerText": "Микеланджело",
+    "questionText": "Name the author of the famous David sculpture.",
+    "answerText": "Michelangelo",
     "mediaPath": ""
   },
   {
@@ -315,8 +315,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "К какому направлению в искусстве относится творчество Сальвадора Дали?",
-    "answerText": "Сюрреализм",
+    "questionText": "What direction in art does the work of Salvador Dalí belong to?",
+    "answerText": "Surrealism",
     "mediaPath": ""
   },
   {
@@ -325,8 +325,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "ImageAndText",
-    "questionText": "Как называется эта картина Винсента ван Гога?",
-    "answerText": "Звёздная ночь",
+    "questionText": "What is the name of this painting by Vincent van Gogh?",
+    "answerText": "The Starry Night",
     "mediaPath": "media/starry_night.jpg"
   },
   {
@@ -335,8 +335,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "Назовите белорусского художника, известного своими работами на тему родного города Витебска.",
-    "answerText": "Марк Шагал",
+    "questionText": "Name a Belarusian artist known for his works on the theme of his native city of Vitebsk.",
+    "answerText": "Marc Chagall",
     "mediaPath": ""
   },
   {
@@ -345,8 +345,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "SoundAndText",
-    "questionText": "Фрагмент из какого балета Петра Чайковского вы слышите?",
-    "answerText": "Лебединое озеро",
+    "questionText": "Fragment from which ballet of Pyotr Tchaikovsky do you hear?",
+    "answerText": "Swan lake",
     "mediaPath": "media/swan_lake.mp3"
   }
 ]
