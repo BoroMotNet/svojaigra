@@ -1,10 +1,12 @@
-#ifndef STARTWINDOW_H
+﻿#ifndef STARTWINDOW_H
 #define STARTWINDOW_H
 
-#include <QWidget>
+#include "MainWindow.h"
 
-class QPushButton;
-class QVBoxLayout;
+namespace Ui {
+    class StartWindow;
+}
+
 class MainWindow;
 class AdminEditor;
 
@@ -22,10 +24,7 @@ private slots:
     void handleEdit();
 
 private:
-    QPushButton *startButton;
-    QPushButton *settingsButton;
-    QPushButton *editButton;
-    QVBoxLayout *mainLayout;
+    Ui::StartWindow *ui;
 
     MainWindow  *gameWindow;
     AdminEditor *adminWindow;

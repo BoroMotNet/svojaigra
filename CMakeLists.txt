@@ -20,8 +20,8 @@ qt_add_translations(SvojaIgra # Название вашего проекта (ц
 
         SOURCES
         src/main.cpp
-        src/ui/StartWindow.cpp
-        src/ui/StartWindow.h
+        src/ui/startwindow.cpp
+        src/ui/startwindow.h
         src/ui/MainWindow.cpp
         src/ui/MainWindow.h
         src/ui/AdminEditor.cpp
@@ -30,8 +30,8 @@ qt_add_translations(SvojaIgra # Название вашего проекта (ц
 
 add_executable(SvojaIgra
         src/main.cpp
-        src/ui/StartWindow.h
-        src/ui/StartWindow.cpp
+        src/ui/startwindow.h
+        src/ui/startwindow.cpp
         src/ui/MainWindow.h   
         src/ui/MainWindow.cpp 
         src/ui/AdminEditor.h  
@@ -46,10 +46,14 @@ add_executable(SvojaIgra
         src/ui/QuestionDialog.h
         src/core/FileManager.cpp
         resources/resources.qrc
-        src/ui/SettingsDialog.cpp
-        src/ui/SettingsDialog.h
         src/ui/PlayerNameDialog.cpp
         src/ui/PlayerNameDialog.h
+        src/ui/settingsdialog.cpp
+        src/ui/settingsdialog.h
+        src/ui/SettingsDialog.ui
+        src/ui/startwindow.cpp
+        src/ui/startwindow.h
+        src/ui/StartWindow.ui
 )
 
 target_link_libraries(SvojaIgra PRIVATE

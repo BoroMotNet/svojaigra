@@ -1,116 +1,121 @@
-﻿//
-// Created by ruthen on 10.06.25.
-//
+﻿#include "./SettingsDialog.h"
 
-#include "SettingsDialog.h"
-#include "./SettingsDialog.h"
+#include <iostream>
+
+#include "ui_SettingsDialog.h"
+
 #include "../core/FileManager.h"
-
-#include <QVBoxLayout>
-#include <QFormLayout>
-#include <QComboBox>
-#include <QSlider>
-#include <QPushButton>
-#include <QDialogButtonBox>
 #include <QColorDialog>
-#include <QLabel>
 #include <QSettings>
 #include <QMessageBox>
+#include <QSlider>
+#include <QPushButton>
+#include <QComboBox>
+#include <QLabel>
+#include <QDialogButtonBox>
 
-SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent)
-{
-    setupUi();
+SettingsDialog::SettingsDialog(QWidget *parent) : QDialog(parent),
+                                                  ui(new Ui::SettingsDialog) {
+    ui->setupUi(this);
+
+    ui->languageComboBox->addItem(tr("Русский"), "ru");
+    ui->languageComboBox->addItem(tr("English"), "en");
+    ui->languageComboBox->addItem(tr("Беларуская"), "be");
+
+    QPushButton *resetButton = ui->buttonBox->button(QDialogButtonBox::RestoreDefaults);
+    if (resetButton) {
+        connect(resetButton, &QPushButton::clicked, this, &SettingsDialog::onResetButtonClicked);
+    }
+
+    connect(ui->volumeSlider, &QSlider::valueChanged, this, &SettingsDialog::onVolumeSliderChanged);
+    connect(ui->colorButton, &QPushButton::clicked, this, &SettingsDialog::onColorButtonClicked);
+    connect(ui->buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::onAccepted);
+    connect(ui->buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::reject);
+
     loadSettings();
     setWindowTitle(tr("Настройки"));
 }
 
-void SettingsDialog::setupUi()
-{
-    m_languageComboBox = new QComboBox(this);
-    m_languageComboBox->addItem(tr("Русский"), "ru");
-    m_languageComboBox->addItem(tr("English"), "en");
-    m_languageComboBox->addItem(tr("Беларуская"), "be");
-
-    m_volumeSlider = new QSlider(Qt::Horizontal, this);
-    m_volumeSlider->setRange(0, 100);
-    m_volumeValueLabel = new QLabel("100%", this);
-    connect(m_volumeSlider, &QSlider::valueChanged, this, &SettingsDialog::onVolumeSliderChanged);
-
-    m_colorButton = new QPushButton(tr("Выбрать цвет..."), this);
-    connect(m_colorButton, &QPushButton::clicked, this, &SettingsDialog::onColorButtonClicked);
-
-    m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    connect(m_buttonBox, &QDialogButtonBox::accepted, this, &SettingsDialog::onAccepted);
-    connect(m_buttonBox, &QDialogButtonBox::rejected, this, &SettingsDialog::reject);
-
-    QFormLayout *formLayout = new QFormLayout;
-    formLayout->addRow(tr("Язык (требует перезапуска):"), m_languageComboBox);
-
-    QHBoxLayout *volumeLayout = new QHBoxLayout;
-    volumeLayout->addWidget(m_volumeSlider);
-    volumeLayout->addWidget(m_volumeValueLabel);
-    formLayout->addRow(tr("Громкость:"), volumeLayout);
-    formLayout->addRow(tr("Цвет фона:"), m_colorButton);
-
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mainLayout->addLayout(formLayout);
-    mainLayout->addWidget(m_buttonBox);
+SettingsDialog::~SettingsDialog() {
+    delete ui;
 }
 
-void SettingsDialog::loadSettings()
-{
+void SettingsDialog::loadSettings() {
     QSettings settings;
-    m_volumeLevel = settings.value("volume", 100).toInt();
-    m_selectedColor.setNamedColor(settings.value("backgroundColor", "#FFFFFF").toString());
+    m_volumeLevel = settings.value("volume", 50).toInt();
+    m_selectedColor = QColor(settings.value("backgroundColor", "#0825ed").toString());
     m_initialLanguage = FileManager::loadLanguageSetting();
 
-    m_volumeSlider->setValue(m_volumeLevel);
-    m_volumeValueLabel->setText(QString::number(m_volumeLevel) + "%");
+    ui->volumeSlider->setValue(m_volumeLevel);
+    if (ui->volumeValueLabel) {
+        ui->volumeValueLabel->setText(QString::number(m_volumeLevel) + "%");
+    }
 
-    int index = m_languageComboBox->findData(m_initialLanguage);
+    int index = ui->languageComboBox->findData(m_initialLanguage);
     if (index != -1) {
-        m_languageComboBox->setCurrentIndex(index);
+        ui->languageComboBox->setCurrentIndex(index);
     }
 
     QString style = QString("background-color: %1;").arg(m_selectedColor.name());
-    m_colorButton->setStyleSheet(style);
+    ui->colorButton->setStyleSheet(style);
 }
 
-void SettingsDialog::saveSettings()
-{
+void SettingsDialog::saveSettings() {
     QSettings settings;
     settings.setValue("volume", m_volumeLevel);
     settings.setValue("backgroundColor", m_selectedColor.name());
-    FileManager::saveLanguageSetting(m_languageComboBox->currentData().toString());
+    FileManager::saveLanguageSetting(ui->languageComboBox->currentData().toString());
 }
 
-void SettingsDialog::onAccepted()
-{
+void SettingsDialog::onAccepted() {
     saveSettings();
     if (isLanguageChanged()) {
-        QMessageBox::information(this, tr("Смена языка"), tr("Язык будет изменен после перезапуска приложения."));
+        QMessageBox::warning(this, tr("Смена языка"), tr("Язык будет изменен после перезапуска приложения."));
     }
     accept();
 }
 
-void SettingsDialog::onColorButtonClicked()
-{
+void SettingsDialog::onColorButtonClicked() {
     QColor color = QColorDialog::getColor(m_selectedColor, this, tr("Выбор цвет фона"));
     if (color.isValid()) {
         m_selectedColor = color;
         QString style = QString("background-color: %1;").arg(m_selectedColor.name());
-        m_colorButton->setStyleSheet(style);
+        ui->colorButton->setStyleSheet(style);
     }
 }
 
-void SettingsDialog::onVolumeSliderChanged(int value)
-{
+void SettingsDialog::onVolumeSliderChanged(int value) {
     m_volumeLevel = value;
-    m_volumeValueLabel->setText(QString::number(value) + "%");
+    if (ui->volumeValueLabel) {
+        ui->volumeValueLabel->setText(QString::number(value) + "%");
+    }
+}
+
+void SettingsDialog::onResetButtonClicked() {
+    const int defaultVolume = 50;
+    const QColor defaultColor("#0825ed");
+    const QString defaultLanguage = QLocale::languageToCode(QLocale::system().language());
+
+    m_volumeLevel = defaultVolume;
+    m_selectedColor = defaultColor;
+
+    ui->volumeSlider->setValue(defaultVolume);
+    if (ui->volumeValueLabel) {
+        ui->volumeValueLabel->setText(QString::number(defaultVolume) + "%");
+    }
+
+    int index = ui->languageComboBox->findData(defaultLanguage);
+    if (index != -1) {
+        ui->languageComboBox->setCurrentIndex(index);
+    }
+
+    QString style = QString("background-color: %1;").arg(defaultColor.name());
+    ui->colorButton->setStyleSheet(style);
 }
 
 QColor SettingsDialog::selectedColor() const { return m_selectedColor; }
 int SettingsDialog::volumeLevel() const { return m_volumeLevel; }
+
 bool SettingsDialog::isLanguageChanged() const {
-    return m_initialLanguage != m_languageComboBox->currentData().toString();
+    return m_initialLanguage != ui->languageComboBox->currentData().toString();
 }
