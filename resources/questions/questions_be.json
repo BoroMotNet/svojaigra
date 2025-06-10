@@ -5,8 +5,8 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Назовите столицу Беларуси.",
-    "answerText": "Минск",
+    "questionText": "Назавіце сталіцу Беларусі.",
+    "answerText": "Мінск",
     "mediaPath": ""
   },
   {
@@ -15,8 +15,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Какой океан является самым большим по площади?",
-    "answerText": "Тихий",
+    "questionText": "Які акіян з'яўляецца самым вялікім па плошчы?",
+    "answerText": "Ціхі",
     "mediaPath": ""
   },
   {
@@ -25,8 +25,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "На каком континенте находится пустыня Сахара?",
-    "answerText": "Африка",
+    "questionText": "На якім кантыненце знаходзіцца пустыня Сахара?",
+    "answerText": "Афрыка",
     "mediaPath": ""
   },
   {
@@ -35,7 +35,7 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Назовите самое глубокое озеро в мире.",
+    "questionText": "Назавіце самае глыбокае возера ў свеце.",
     "answerText": "Байкал",
     "mediaPath": ""
   },
@@ -45,7 +45,7 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Какая страна имеет самую длинную береговую линию?",
+    "questionText": "Якая краіна мае самую доўгую берагавую лінію?",
     "answerText": "Канада",
     "mediaPath": ""
   },
@@ -55,8 +55,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "Как называется пролив, который разделяет Азию и Северную Америку?",
-    "answerText": "Берингов пролив",
+    "questionText": "Як называецца праліў, які падзяляе Азію і Паўночную Амерыку?",
+    "answerText": "Берынгаў праліў",
     "mediaPath": ""
   },
   {
@@ -65,7 +65,7 @@
     "points": 800,
     "difficulty": 7,
     "type": "Text",
-    "questionText": "Как называется самая южная точка Южной Америки?",
+    "questionText": "Як называецца самая паўднёвая кропка Паўднёвай Амерыкі?",
     "answerText": "Мыс Горн",
     "mediaPath": ""
   },
@@ -75,7 +75,7 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Химическая формула воды.",
+    "questionText": "Хімічная формула вады.",
     "answerText": "H2O",
     "mediaPath": ""
   },
@@ -85,7 +85,7 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Какой газ является самым распространённым в атмосфере Земли?",
+    "questionText": "Які газ з'яўляецца самым распаўсюджаным у атмасферы Зямлі?",
     "answerText": "Азот",
     "mediaPath": ""
   },
@@ -95,8 +95,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "Кто сформулировал закон всемирного тяготения?",
-    "answerText": "Исаак Ньютон",
+    "questionText": "Хто сфармуляваў закон сусветнага прыцягнення?",
+    "answerText": "Ісаак Ньютан",
     "mediaPath": ""
   },
   {
@@ -105,8 +105,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Как называется процесс превращения света в энергию у растений?",
-    "answerText": "Фотосинтез",
+    "questionText": "Як называецца працэс ператварэння святла ў энергію ў раслін?",
+    "answerText": "Фотасінтэз",
     "mediaPath": ""
   },
   {
@@ -115,8 +115,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Какой элемент периодической таблицы имеет атомный номер 1?",
-    "answerText": "Водород",
+    "questionText": "Які элемент перыядычнай табліцы мае атамны нумар 1?",
+    "answerText": "Вадарод",
     "mediaPath": ""
   },
   {
@@ -125,8 +125,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "SoundAndText",
-    "questionText": "Какой звук известного эффекта вы слышите?",
-    "answerText": "Эффект Доплера",
+    "questionText": "Які гук вядомага эфекту вы чуеце?",
+    "answerText": "Эфект Доплера",
     "mediaPath": "media/doppler_effect.mp3"
   },
   {
@@ -135,8 +135,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "Text",
-    "questionText": "Что изучает наука микология?",
-    "answerText": "Грибы",
+    "questionText": "Што вывучае навука мікалогія?",
+    "answerText": "Грыбы",
     "mediaPath": ""
   },
   {
@@ -145,7 +145,7 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "В каком году началась Вторая мировая война?",
+    "questionText": "У якім годзе пачалася Другая сусветная вайна?",
     "answerText": "1939",
     "mediaPath": ""
   },
@@ -155,8 +155,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Кто был первым президентом США?",
-    "answerText": "Джордж Вашингтон",
+    "questionText": "Хто быў першым прэзідэнтам ЗША?",
+    "answerText": "Джордж Вашынгтон",
     "mediaPath": ""
   },
   {
@@ -165,8 +165,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "В результате какой битвы Наполеон окончательно потерял власть?",
-    "answerText": "Битва при Ватерлоо",
+    "questionText": "У выніку якой бітвы Напалеон канчаткова страціў уладу?",
+    "answerText": "Бітва пры Ватэрлоо",
     "mediaPath": ""
   },
   {
@@ -175,8 +175,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Как называлось первое государство восточных славян?",
-    "answerText": "Киевская Русь",
+    "questionText": "Як называлася першая дзяржава ўсходніх славян?",
+    "answerText": "Кіеўская Русь",
     "mediaPath": ""
   },
   {
@@ -185,8 +185,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Какая империя считается самой большой по площади в истории?",
-    "answerText": "Монгольская империя",
+    "questionText": "Якая імпэрыя лічыцца самай вялікай па плошчы ў гісторыі?",
+    "answerText": "Мангольская імперыя",
     "mediaPath": ""
   },
   {
@@ -195,7 +195,7 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "В каком столетии произошла Грюнвальдская битва?",
+    "questionText": "У якім стагоддзі адбылася Грунвальдская бітва?",
     "answerText": "XV",
     "mediaPath": ""
   },
@@ -205,8 +205,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "ImageAndText",
-    "questionText": "Какое изобретение вы видите на изображении — одно из чудес древнего мира?",
-    "answerText": "Пирамиды Гизы",
+    "questionText": "Якое вынаходства вы бачыце на малюнку — адно з цудаў старажытнага свету?",
+    "answerText": "Піраміды Гізы",
     "mediaPath": "media/pyramids.jpg"
   },
   {
@@ -215,8 +215,8 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Кто является автором пьесы «Ромео и Джульетта»?",
-    "answerText": "Уильям Шекспир",
+    "questionText": "Хто з'яўляецца аўтарам п'есы «Рамэа і Джульета»?",
+    "answerText": "Уільям Шэкспір",
     "mediaPath": ""
   },
   {
@@ -225,8 +225,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "Кто написал роман «Война и мир»?",
-    "answerText": "Лев Толстой",
+    "questionText": "Хто напісаў раман \"Вайна і мір\"?",
+    "answerText": "Леў Талстой",
     "mediaPath": ""
   },
   {
@@ -235,8 +235,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "Назовите главного героя романа «Дон Кихот».",
-    "answerText": "Дон Кихот",
+    "questionText": "Назавіце галоўнага героя рамана «Дон Кіхот»",
+    "answerText": "Дон Кіхот",
     "mediaPath": ""
   },
   {
@@ -245,7 +245,7 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "Какой белорусский поэт написал поэму «Новая земля»?",
+    "questionText": "Які беларускі паэт напісаў паэму \"Новая зямля\"?",
     "answerText": "Якуб Колас",
     "mediaPath": ""
   },
@@ -255,7 +255,7 @@
     "points": 500,
     "difficulty": 5,
     "type": "Text",
-    "questionText": "Из какого произведения Шекспира фраза «Быть или не быть, вот в чём вопрос»?",
+    "questionText": "З якога твора Шэкспіра фраза \"Быць ці не быць, вось у чым пытанне\"?",
     "answerText": "Гамлет",
     "mediaPath": ""
   },
@@ -265,8 +265,8 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "Кто является автором «Мастера и Маргариты»?",
-    "answerText": "Михаил Булгаков",
+    "questionText": "Хто з'яўляецца аўтарам «Майстра і Маргарыты»?",
+    "answerText": "Міхаіл Булгакаў",
     "mediaPath": ""
   },
   {
@@ -275,8 +275,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "Text",
-    "questionText": "Как зовут капитана подводной лодки «Наутилус» в произведениях Жюля Верна?",
-    "answerText": "Капитан Немо",
+    "questionText": "Як клічуць капітана падводнай лодкі \"Наўтылус\" у творах Жуля Верна?",
+    "answerText": "Капітан Нэма",
     "mediaPath": ""
   },
   {
@@ -285,8 +285,8 @@
     "points": 100,
     "difficulty": 1,
     "type": "Text",
-    "questionText": "Кто написал картину «Чёрный квадрат»?",
-    "answerText": "Казимир Малевич",
+    "questionText": "Хто напісаў карціну \"Чорны квадрат\"",
+    "answerText": "Казімір Малевіч",
     "mediaPath": ""
   },
   {
@@ -295,8 +295,8 @@
     "points": 200,
     "difficulty": 2,
     "type": "Text",
-    "questionText": "В каком городе находится музей Лувр?",
-    "answerText": "Париж",
+    "questionText": "У якім горадзе знаходзіцца музей Луўр?",
+    "answerText": "Парыж",
     "mediaPath": ""
   },
   {
@@ -305,8 +305,8 @@
     "points": 300,
     "difficulty": 3,
     "type": "Text",
-    "questionText": "Назовите автора знаменитой скульптуры «Давид».",
-    "answerText": "Микеланджело",
+    "questionText": "Назавіце аўтара знакамітай скульптуры «Давід».",
+    "answerText": "Мікеланджэла",
     "mediaPath": ""
   },
   {
@@ -315,8 +315,8 @@
     "points": 400,
     "difficulty": 4,
     "type": "Text",
-    "questionText": "К какому направлению в искусстве относится творчество Сальвадора Дали?",
-    "answerText": "Сюрреализм",
+    "questionText": "Да якога кірунку ў мастацтве адносіцца творчасць Сальвадора Далі?",
+    "answerText": "Сюррэалізм",
     "mediaPath": ""
   },
   {
@@ -325,8 +325,8 @@
     "points": 500,
     "difficulty": 5,
     "type": "ImageAndText",
-    "questionText": "Как называется эта картина Винсента ван Гога?",
-    "answerText": "Звёздная ночь",
+    "questionText": "Як называецца гэтая карціна Вінцэнта ван Гога?",
+    "answerText": "Зорная ноч",
     "mediaPath": "media/starry_night.jpg"
   },
   {
@@ -335,7 +335,7 @@
     "points": 600,
     "difficulty": 6,
     "type": "Text",
-    "questionText": "Назовите белорусского художника, известного своими работами на тему родного города Витебска.",
+    "questionText": "Назавіце беларускага мастака, вядомага сваімі работамі на тэму роднага горада Віцебска.",
     "answerText": "Марк Шагал",
     "mediaPath": ""
   },
@@ -345,8 +345,8 @@
     "points": 800,
     "difficulty": 7,
     "type": "SoundAndText",
-    "questionText": "Фрагмент из какого балета Петра Чайковского вы слышите?",
-    "answerText": "Лебединое озеро",
+    "questionText": "Фрагмент з якога балета Пятра Чайкоўскага вы чуеце?",
+    "answerText": "Лебядзінае возера",
     "mediaPath": "media/swan_lake.mp3"
   }
 ]
