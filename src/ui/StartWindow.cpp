@@ -5,6 +5,7 @@
 #include "./SettingsDialog.h"
 #include "../core/GameManager.h"
 
+#include <QApplication>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QFont>
@@ -17,30 +18,34 @@ StartWindow::StartWindow(QWidget *parent)
       gameWindow(nullptr),
       adminWindow(nullptr)
 {
-    startButton = new QPushButton(tr("Начать"));
-    settingsButton = new QPushButton(tr("Настройки"));
-    editButton = new QPushButton(tr("Редактирование"));
+    startButton = new QPushButton(tr("Пачаць"));
+    settingsButton = new QPushButton(tr("Налады"));
+    editButton = new QPushButton(tr("Рэдагаванне"));
+    exitButton = new QPushButton(tr("Выхад"));
 
     QFont buttonFont("Arial", 14);
     startButton->setFont(buttonFont);
     settingsButton->setFont(buttonFont);
     editButton->setFont(buttonFont);
+    exitButton->setFont(buttonFont);
 
     startButton->setMinimumHeight(50);
     settingsButton->setMinimumHeight(50);
     editButton->setMinimumHeight(50);
+    exitButton->setMinimumHeight(50);
 
     mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(startButton);
     mainLayout->addWidget(settingsButton);
     mainLayout->addWidget(editButton);
+    mainLayout->addWidget(exitButton);
 
     connect(startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
     connect(settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
     connect(editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
+    connect(exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
 
     setWindowTitle(tr("Своя Игра - Меню"));
-    setFixedSize(400, 250);
 }
 
 StartWindow::~StartWindow()
@@ -57,8 +62,8 @@ void StartWindow::handleStart()
         GameManager::instance().startGame(playerNames);
 
         gameWindow = new MainWindow();
-        gameWindow->show();
-
+        gameWindow->showFullScreen();
+        
         this->close();
     }
 }
@@ -82,7 +87,7 @@ void StartWindow::handleEdit()
     if (ok && !password.isEmpty()) {
         if (password == adminPassword) {
             adminWindow = new AdminEditor();
-            adminWindow->show();
+            adminWindow->showFullScreen();
             this->close();
         } else {
             QMessageBox::warning(this, tr("Ошибка"), tr("Неверный пароль!"));

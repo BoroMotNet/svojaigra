@@ -88,7 +88,7 @@ void SettingsDialog::onAccepted()
 {
     saveSettings();
     if (isLanguageChanged()) {
-        QMessageBox::information(this, tr("Смена языка"), tr("Язык будет изменен после перезапуска приложения."));
+        QMessageBox::warning(this, tr("Смена языка"), tr("Язык будет изменен после перезапуска приложения."));
     }
     accept();
 }

@@ -25,6 +25,7 @@ private:
     QPushButton *startButton;
     QPushButton *settingsButton;
     QPushButton *editButton;
+    QPushButton *exitButton;
     QVBoxLayout *mainLayout;
 
     MainWindow  *gameWindow;
