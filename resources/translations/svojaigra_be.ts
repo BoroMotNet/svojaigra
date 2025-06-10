@@ -128,7 +128,7 @@
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="91"/>
       <source>Язык будет изменен после перезапуска приложения.</source>
-      <translation>Мова будзе зменены пасля перазапуску прыкладання.</translation>
+      <translation>Мова будзе зменена пасля перазапуску прыкладання.</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.cpp" line="98"/>
