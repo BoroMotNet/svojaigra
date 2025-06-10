@@ -81,57 +81,67 @@
   <context>
     <name>SettingsDialog</name>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="24"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="36"/>
       <source>Настройки</source>
       <translation>Налады</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="30"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="21"/>
       <source>Русский</source>
       <translation>Русский</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="31"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="22"/>
       <source>English</source>
       <translation>English</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="32"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="23"/>
       <source>Беларуская</source>
       <translation>Беларуская</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="39"/>
+      <location filename="../../src/ui/SettingsDialog.ui" line="14"/>
+      <source>SettingsDialog</source>
+      <translation type="unfinished">SettingsDialog</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/SettingsDialog.ui" line="33"/>
+      <source>Язык</source>
+      <translation type="unfinished">Язык</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/SettingsDialog.ui" line="47"/>
+      <source>Громкость</source>
+      <translation type="unfinished">Громкость</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/SettingsDialog.ui" line="64"/>
+      <source>100%</source>
+      <translation type="unfinished">100%</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/SettingsDialog.ui" line="75"/>
+      <source>Цвет</source>
+      <translation type="unfinished">Цвет</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/SettingsDialog.ui" line="82"/>
       <source>Выбрать цвет...</source>
       <translation>Выбраць колер...</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="47"/>
-      <source>Язык (требует перезапуска):</source>
-      <translation>Мова (патрабуе перазапуску):</translation>
-    </message>
-    <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="52"/>
-      <source>Громкость:</source>
-      <translation>Гучнасць:</translation>
-    </message>
-    <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="53"/>
-      <source>Цвет фона:</source>
-      <translation>Колер фону:</translation>
-    </message>
-    <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="91"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="73"/>
       <source>Смена языка</source>
       <translation>Пераключыць мову</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="91"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="73"/>
       <source>Язык будет изменен после перезапуска приложения.</source>
       <translation>Мова будзе зменена пасля перазапуску прыкладання.</translation>
     </message>
     <message>
-      <location filename="../../src/ui/SettingsDialog.cpp" line="98"/>
+      <location filename="../../src/ui/SettingsDialog.cpp" line="79"/>
       <source>Выбор цвет фона</source>
       <translation>Выбар колеру фону</translation>
     </message>
@@ -139,42 +149,62 @@
   <context>
     <name>StartWindow</name>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="20"/>
+      <location filename="../../src/ui/StartWindow.ui" line="14"/>
+      <source>Form</source>
+      <translation type="unfinished">Form</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/StartWindow.ui" line="59"/>
+      <source>Своя Игра</source>
+      <translation type="unfinished">Своя Игра</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/StartWindow.ui" line="74"/>
+      <source>Иван Боровик, Т-391</source>
+      <translation type="unfinished">Иван Боровик, Т-391</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/StartWindow.ui" line="111"/>
       <source>Начать</source>
       <translation>Пачаць</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="21"/>
+      <location filename="../../src/ui/StartWindow.ui" line="129"/>
       <source>Настройки</source>
       <translation>Налады</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="22"/>
+      <location filename="../../src/ui/StartWindow.ui" line="147"/>
       <source>Редактирование</source>
       <translation>Рэдагаванне</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="42"/>
+      <location filename="../../src/ui/StartWindow.ui" line="165"/>
+      <source>Выход</source>
+      <translation type="unfinished">Выход</translation>
+    </message>
+    <message>
+      <location filename="../../src/ui/StartWindow.cpp" line="27"/>
       <source>Своя Игра - Меню</source>
       <translation>Свая Гульня - Меню</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="77"/>
+      <location filename="../../src/ui/StartWindow.cpp" line="62"/>
       <source>Авторизация</source>
       <translation>Аўтарызацыя</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="78"/>
+      <location filename="../../src/ui/StartWindow.cpp" line="63"/>
       <source>Введите пароль администратора:</source>
       <translation>Увядзіце пароль адміністратара:</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="88"/>
+      <location filename="../../src/ui/StartWindow.cpp" line="73"/>
       <source>Ошибка</source>
       <translation>Памылка</translation>
     </message>
     <message>
-      <location filename="../../src/ui/StartWindow.cpp" line="88"/>
+      <location filename="../../src/ui/StartWindow.cpp" line="73"/>
       <source>Неверный пароль!</source>
       <translation>Няправільны пароль!</translation>
     </message>
