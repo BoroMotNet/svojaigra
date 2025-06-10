@@ -102,8 +102,8 @@
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="14"/>
-      <source>SettingsDialog</source>
-      <translation type="unfinished">SettingsDialog</translation>
+      <source>Своя Игра - Настройки</source>
+      <translation type="unfinished">Своя Игра - Настройки</translation>
     </message>
     <message>
       <location filename="../../src/ui/SettingsDialog.ui" line="33"/>
@@ -150,10 +150,6 @@
     <name>StartWindow</name>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="14"/>
-      <source>Form</source>
-      <translation type="unfinished">Form</translation>
-    </message>
-    <message>
       <location filename="../../src/ui/StartWindow.ui" line="59"/>
       <source>Своя Игра</source>
       <translation type="unfinished">Своя Игра</translation>
