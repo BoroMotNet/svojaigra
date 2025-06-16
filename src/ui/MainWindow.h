@@ -6,6 +6,7 @@
 #include <map>
 #include "../core/Question.h"
 #include "../core/Player.h"
+#include <QKeyEvent>
 
 class QGridLayout;
 class QLabel;
@@ -29,16 +30,25 @@ private slots:
     void handleQuestionClicked();
     void showGameResults(const std::vector<Player>& finalResults);
 
+    // New slots for the buttons
+    void handleRandomQuestionClicked();
+    void handleExitClicked();
+
 private:
     void setupUi();
     void setupPlayerBar();
     void setupGameBoard();
     void applyCurrentSettings();
+    void keyPressEvent(QKeyEvent *event) override;
 
     QWidget* m_centralWidget;
     QVBoxLayout* m_mainLayout;
     QHBoxLayout* m_playerLayout;
     QGridLayout* m_boardLayout;
+
+    // New buttons
+    QPushButton* m_randomQuestionButton;
+    QPushButton* m_exitButton;
 
     std::vector<QLabel*> m_playerNameLabels;
     std::vector<QLabel*> m_playerScoreLabels;

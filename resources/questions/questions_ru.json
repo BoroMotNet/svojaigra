@@ -127,7 +127,7 @@
     "type": "SoundAndText",
     "questionText": "Какой звук известного эффекта вы слышите?",
     "answerText": "Эффект Доплера",
-    "mediaPath": "media/doppler_effect.mp3"
+    "mediaPath": "sounds/doppler_effect.mp3"
   },
   {
     "id": 14,
@@ -207,7 +207,7 @@
     "type": "ImageAndText",
     "questionText": "Какое изобретение вы видите на изображении — одно из чудес древнего мира?",
     "answerText": "Пирамиды Гизы",
-    "mediaPath": "media/pyramids.jpg"
+    "mediaPath": "images/pyramids.jpg"
   },
   {
     "id": 22,
@@ -327,7 +327,7 @@
     "type": "ImageAndText",
     "questionText": "Как называется эта картина Винсента ван Гога?",
     "answerText": "Звёздная ночь",
-    "mediaPath": "media/starry_night.jpg"
+    "mediaPath": "images/starry_night.jpg"
   },
   {
     "id": 34,
@@ -347,6 +347,6 @@
     "type": "SoundAndText",
     "questionText": "Фрагмент из какого балета Петра Чайковского вы слышите?",
     "answerText": "Лебединое озеро",
-    "mediaPath": "media/swan_lake.mp3"
+    "mediaPath": "images/swan_lake.mp3"
   }
 ]

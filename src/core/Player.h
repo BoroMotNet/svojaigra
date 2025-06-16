@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <vector>
-#include <utility>
+#include <utility> // For std::pair
 
 /**
  * @class Player
@@ -60,11 +60,36 @@ public:
      */
     bool shouldLockEasyQuestions() const;
 
+    /**
+     * @brief Устанавливает пороговое значение очков для вопросов.
+     * Игрок не сможет выбирать вопросы с меньшим количеством очков.
+     * @param threshold Новое пороговое значение.
+     */
     void setPointsThreshold(int threshold);
 
+    /**
+     * @brief Возвращает текущий пороговый уровень сложности для игрока.
+     * @return int Текущий порог очков.
+     */
     int getPointsThreshold() const;
 
+    /**
+     * @brief Очищает историю ответов игрока.
+     * Используется для сброса стрик-счетчика при неправильном ответе или установке порога.
+     */
     void clearAnswerHistory();
+
+    /**
+     * @brief Проверяет, был ли порог сложности уже установлен для этого игрока.
+     * @return true, если порог уже установлен, иначе false.
+     */
+    bool hasThresholdBeenSet() const;
+
+    /**
+     * @brief Устанавливает флаг, указывающий, что порог сложности был установлен.
+     * @param set Значение флага (true - установлен, false - не установлен).
+     */
+    void setThresholdSet(bool set);
 
 private:
     // --- Константы для логики усложнения ---
@@ -87,7 +112,12 @@ private:
     /// Используется для определения необходимости усложнения вопросов.
     std::vector<std::pair<bool, double> > m_answerHistory;
 
+    /// Минимальное количество очков, которое должен иметь вопрос, чтобы игрок мог его выбрать.
     int m_pointsThreshold;
+
+    /// Флаг, указывающий, был ли порог сложности для этого игрока уже установлен.
+    /// Если true, порог больше не будет изменяться.
+    bool m_thresholdSet;
 };
 
 #endif // PLAYER_H

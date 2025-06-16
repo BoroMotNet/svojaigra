@@ -9,6 +9,7 @@
 #include <QPushButton>
 #include <QMessageBox>
 #include <QSettings>
+#include <QKeyEvent> // QKeyEvent должен быть включен в MainWindow.h
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -37,11 +38,29 @@ void MainWindow::setupUi()
     m_playerLayout = new QHBoxLayout();
     m_boardLayout = new QGridLayout();
 
+    QHBoxLayout* controlButtonLayout = new QHBoxLayout();
+    controlButtonLayout->setSpacing(10);
+
+    m_randomQuestionButton = new QPushButton(tr("Случайный вопрос"), this);
+    m_exitButton = new QPushButton(tr("Выход"), this);
+
+    QFont buttonFont("Arial", 12, QFont::Bold);
+    m_randomQuestionButton->setFont(buttonFont);
+    m_exitButton->setFont(buttonFont);
+
+    controlButtonLayout->addWidget(m_randomQuestionButton);
+    controlButtonLayout->addStretch(1);
+    controlButtonLayout->addWidget(m_exitButton);
+
     m_boardLayout->setSpacing(10);
     m_mainLayout->setSpacing(20);
 
     m_mainLayout->addLayout(m_playerLayout, 1);
-    m_mainLayout->addLayout(m_boardLayout, 9);
+    m_mainLayout->addLayout(m_boardLayout, 8);
+    m_mainLayout->addLayout(controlButtonLayout, 1);
+
+    connect(m_randomQuestionButton, &QPushButton::clicked, this, &MainWindow::handleRandomQuestionClicked);
+    connect(m_exitButton, &QPushButton::clicked, this, &MainWindow::handleExitClicked);
 
     setupPlayerBar();
     setupGameBoard();
@@ -134,8 +153,10 @@ void MainWindow::updateBoardState()
     for (auto const& [category, pointsMap] : m_questionButtons) {
         for (auto const& [points, button] : pointsMap) {
             if (GameManager::instance().isQuestionAnswered(category, points)) {
-                button->setVisible(false);
+                button->setStyleSheet("background-color: gray;");
+                button->setEnabled(false);
             } else {
+                button->setStyleSheet("");
                 button->setVisible(true);
                 button->setEnabled(GameManager::instance().isQuestionSelectable(category, points));
             }
@@ -152,7 +173,9 @@ void MainWindow::updatePlayerInfo(int playerIndex)
             m_playerNameLabels[i]->setStyleSheet("color: white; border: none;");
         }
     }
-    m_playerScoreLabels[playerIndex]->setStyleSheet("color: yellow;");
+    if (playerIndex < m_playerScoreLabels.size()) {
+        m_playerScoreLabels[playerIndex]->setStyleSheet("color: yellow;");
+    }
 }
 
 void MainWindow::updatePlayerScore(int playerIndex, int newScore)
@@ -183,12 +206,54 @@ void MainWindow::handleQuestionClicked()
     GameManager::instance().selectQuestion(category, points);
 }
 
-void MainWindow::showGameResults(const std::vector<Player>& finalResults)
-{
+// Изменения здесь:
+void MainWindow::showGameResults(const std::vector<Player>& finalResults) {
     QString resultsText;
     for(const auto& player : finalResults) {
         resultsText += QString("%1: %2\n").arg(player.getName()).arg(player.getScore());
     }
+    // Показываем результаты игры.
     QMessageBox::information(this, tr("Игра окончена!"), resultsText);
-    close();
+
+    // После того как пользователь нажмет OK на окне результатов,
+    // просто возвращаемся в главное меню, без дополнительного подтверждения.
+    if (parentWidget()) {
+        parentWidget()->showFullScreen(); // Показываем родительское окно (StartWindow)
+        this->hide(); // Скрываем текущее окно (MainWindow)
+    } else {
+        // Если родителя нет, то нет куда возвращаться, поэтому выходим из приложения.
+        qApp->quit();
+    }
+}
+
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if (event->key() == Qt::Key_Escape) {
+        handleExitClicked();
+    } else {
+        QMainWindow::keyPressEvent(event);
+    }
+}
+
+void MainWindow::handleRandomQuestionClicked()
+{
+    GameManager::instance().selectRandomQuestion();
+}
+
+// Изменения здесь:
+void MainWindow::handleExitClicked()
+{
+    // Этот метод теперь используется ТОЛЬКО для ДОСРОЧНОГО выхода из игры.
+    // Поэтому подтверждение здесь уместно.
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("Завершение игры"),
+                                  tr("Вы уверены, что хотите завершить игру досрочно?"),
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        GameManager::instance().endGame(); // Завершаем игру (это вызовет showGameResults)
+        // После вызова endGame(), showGameResults возьмёт на себя логику возврата в меню,
+        // поэтому здесь нам больше ничего не нужно делать.
+        // Удаляем this->hide() и parentWidget()->show() отсюда, так как это делает showGameResults.
+    }
 }

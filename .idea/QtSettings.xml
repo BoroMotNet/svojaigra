@@ -7,8 +7,16 @@
         <entry key="Debug">
           <value>
             <PerProfileState>
-              <option name="myQmlPath" value="$USER_HOME$/Qt/6.5.3/macos/./qml" />
-              <option name="myQtBinPath" value="$USER_HOME$/Qt/6.5.3/macos/bin" />
+              <option name="myQmlPath" value="D:/Qt/6.9.1/mingw_64/qml" />
+              <option name="myQtBinPath" value="D:/Qt/6.9.1/mingw_64/bin" />
+            </PerProfileState>
+          </value>
+        </entry>
+        <entry key="Release">
+          <value>
+            <PerProfileState>
+              <option name="myQmlPath" value="D:/Qt/6.9.1/mingw_64/qml" />
+              <option name="myQtBinPath" value="D:/Qt/6.9.1/mingw_64/bin" />
             </PerProfileState>
           </value>
         </entry>

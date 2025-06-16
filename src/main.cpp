@@ -4,13 +4,15 @@
 #include <QLibraryInfo>
 #include <QDebug>
 #include <QDir>
+#include <QLocale>
+#include <QStringLiteral> // Добавляем для QStringLiteral
 
 #include "ui/StartWindow.h"
 #include "core/FileManager.h"
 
 int main(int argc, char *argv[])
 {
-    system("chcp 1251");
+    system("chcp 1251"); // Установка кодовой страницы для консоли
     QApplication app(argc, argv);
 
     QCoreApplication::setOrganizationName("Borovik Ivan T-391");
@@ -23,7 +25,8 @@ int main(int argc, char *argv[])
     qDebug() << "[INFO] Мова, загружаная з налад:" << lang;
 
     // --- 2. Дзе праграма шукае файлы? ---
-    QString workingDir = QDir::currentPath();
+    // QCoreApplication::applicationDirPath() возвращает путь к директории, где находится исполняемый файл
+    QString workingDir = QCoreApplication::applicationDirPath();
     qDebug() << "[INFO] Рабочая дырэкторыя праграмы:" << workingDir;
 
     // --- 3. Правяраем існаванне папкі `translations` ---
@@ -45,15 +48,16 @@ int main(int argc, char *argv[])
     if (QFile::exists(fullQmPath)) {
         qDebug() << "[OK] Файл" << qmFileName << "існуе.";
     } else {
-        qWarning() << "[ERROR] Файл" << qmFileName << "НЕ ЗНОЙДЗЕНЫ па ўказаным шляху!";
+        // ИСПРАВЛЕНИЕ: Используем QStringLiteral для строкового литерала перед .arg()
+        qWarning() << QStringLiteral("[ERROR] Файл \"%1\" НЕ ЗНОЙДЗЕНЫ па ўказаным шляху!").arg(qmFileName);
     }
 
     // --- 5. Спрабуем загрузіць пераклад ---
     QTranslator appTranslator;
-    // .load() патрабуе назву файла без пашырэння і шлях да папкі
+    // .load() требует имя файла без расширения и путь к папке
     if (appTranslator.load("svojaigra_" + lang, translationsPath)) {
         app.installTranslator(&appTranslator);
-        qDebug() << "[OK] Файл перакладу паспяхова загружаны!";
+        qDebug() << "[OK] Файл перакладу паспяхова загружаны з дыска!";
     } else {
         qWarning() << "[ERROR] Спроба загрузкі файла не атрымалася!";
     }
@@ -63,6 +67,8 @@ int main(int argc, char *argv[])
     // Загрузка стандартных перакладаў Qt
     QTranslator qtTranslator;
     #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        // Note: QLibraryInfo::path(QLibraryInfo::TranslationsPath) points to Qt's installation translations,
+        // typically not in your build directory. This part is correct for Qt's own translations.
         if (qtTranslator.load("qtbase_" + lang, QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
             app.installTranslator(&qtTranslator);
         }

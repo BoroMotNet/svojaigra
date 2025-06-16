@@ -8,7 +8,7 @@
 #include "./Player.h"
 #include "./Question.h"
 #include <QElapsedTimer>
-
+#include <QRandomGenerator> // Add this include for random number generation
 
 /**
  * @enum GameState
@@ -66,6 +66,12 @@ public slots:
      * @param points Стоимость вопроса.
      */
     void selectQuestion(const QString &category, int points);
+
+    /**
+     * @brief Выбирает случайный вопрос из доступных на поле.
+     * Учитывает порог сложности текущего игрока.
+     */
+    void selectRandomQuestion(); // New slot
 
     /**
      * @brief Обрабатывает ответ, данный игроком.
