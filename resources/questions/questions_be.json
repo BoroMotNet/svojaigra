@@ -127,7 +127,7 @@
     "type": "SoundAndText",
     "questionText": "Які гук вядомага эфекту вы чуеце?",
     "answerText": "Эфект Доплера",
-    "mediaPath": "media/doppler_effect.mp3"
+    "mediaPath": "sounds/doppler_effect.mp3"
   },
   {
     "id": 14,
@@ -207,7 +207,7 @@
     "type": "ImageAndText",
     "questionText": "Якое вынаходства вы бачыце на малюнку — адно з цудаў старажытнага свету?",
     "answerText": "Піраміды Гізы",
-    "mediaPath": "media/pyramids.jpg"
+    "mediaPath": "images/pyramids.jpg"
   },
   {
     "id": 22,
@@ -327,7 +327,7 @@
     "type": "ImageAndText",
     "questionText": "Як называецца гэтая карціна Вінцэнта ван Гога?",
     "answerText": "Зорная ноч",
-    "mediaPath": "media/starry_night.jpg"
+    "mediaPath": "images/starry_night.jpg"
   },
   {
     "id": 34,
@@ -347,6 +347,6 @@
     "type": "SoundAndText",
     "questionText": "Фрагмент з якога балета Пятра Чайкоўскага вы чуеце?",
     "answerText": "Лебядзінае возера",
-    "mediaPath": "media/swan_lake.mp3"
+    "mediaPath": "images/swan_lake.mp3"
   }
 ]
