@@ -40,6 +40,7 @@ private:
 
     QMediaPlayer* m_mediaPlayer;
     QAudioOutput* m_audioOutput;
+    QString m_tempMediaFilePath;
 };
 
 #endif

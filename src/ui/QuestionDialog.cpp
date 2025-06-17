@@ -4,6 +4,9 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
+#include <QTemporaryFile>
+#include <QStandardPaths>
+#include <QDir>
 #include <QDialogButtonBox>
 #include <QPushButton>
 #include <QSlider>
@@ -16,7 +19,7 @@
 #include <QStyle>
 #include <QMediaDevices>
 #include <QAudioDevice>
-
+#include <QFileInfo>
 QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
     : QDialog(parent),
       m_mediaPlayer(nullptr),
@@ -105,16 +108,44 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
 
                     m_mediaPlayer = new QMediaPlayer(this);
                     m_mediaPlayer->setAudioOutput(m_audioOutput);
-                    m_mediaPlayer->setSource(QUrl::fromLocalFile(resourcePath));
 
-                    qDebug() << "Попытка установить источник аудио:" << resourcePath;
+                    QString tempFilePath;
+                    QString fileName = QFileInfo(resourcePath).fileName();
+                    QString tempDir = QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/SvojaIgraTempMedia";
 
-                    m_playPauseButton->show();
-                    m_stopButton->show();
-                    m_volumeSlider->show();
-                    m_volumeLabel->show();
+                    QDir dir(tempDir);
+                    if (!dir.exists()) {
+                        dir.mkpath(".");
+                    }
 
-                    mediaSuccessfullyDisplayed = true;
+                    tempFilePath = tempDir + "/" + fileName;
+
+                    QFile resourceFile(resourcePath);
+                    if (resourceFile.open(QIODevice::ReadOnly)) {
+                        QFile tempFile(tempFilePath);
+                        if (tempFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+                            tempFile.write(resourceFile.readAll());
+                            tempFile.close();
+                            resourceFile.close();
+                            qDebug() << "Медиафайл успешно извлечен в временный файл:" << tempFilePath;
+                            m_mediaPlayer->setSource(QUrl::fromLocalFile(tempFilePath));
+                            m_tempMediaFilePath = tempFilePath;
+                            mediaSuccessfullyDisplayed = true;
+                        } else {
+                            qWarning() << "Ошибка: Не удалось открыть временный файл для записи:" << tempFilePath;
+                        }
+                    } else {
+                        qWarning() << "Ошибка: Не удалось открыть ресурсный файл для чтения:" << resourcePath;
+                    }
+
+                    if (mediaSuccessfullyDisplayed) {
+                        m_playPauseButton->show();
+                        m_stopButton->show();
+                        m_volumeSlider->show();
+                        m_volumeLabel->show();
+                    } else {
+                        qWarning() << "Медиафайл не был успешно извлечен. Плеер не будет работать.";
+                    }
 
                     connect(m_mediaPlayer, &QMediaPlayer::errorOccurred, this, &QuestionDialog::handleMediaPlayerError);
                     connect(m_mediaPlayer, &QMediaPlayer::playbackStateChanged, this, &QuestionDialog::handleMediaPlayerStateChanged);
@@ -172,6 +203,16 @@ QuestionDialog::~QuestionDialog() {
         m_mediaPlayer = nullptr;
     }
     m_audioOutput = nullptr;
+
+    if (!m_tempMediaFilePath.isEmpty()) {
+        QFile::remove(m_tempMediaFilePath);
+        qDebug() << "Временный медиафайл удален:" << m_tempMediaFilePath;
+
+        QDir tempDir(QStandardPaths::writableLocation(QStandardPaths::TempLocation) + "/SvojaIgraTempMedia");
+        if (tempDir.exists() && tempDir.isEmpty()) {
+            tempDir.removeRecursively();
+        }
+    }
 }
 
 QString QuestionDialog::getAnswer() const
