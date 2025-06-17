@@ -62,7 +62,7 @@
   {
     "id": 7,
     "category": "География",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "Как называется самая южная точка Южной Америки?",
@@ -132,7 +132,7 @@
   {
     "id": 14,
     "category": "Наука",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "Что изучает наука микология?",
@@ -202,7 +202,7 @@
   {
     "id": 21,
     "category": "История",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "ImageAndText",
     "questionText": "Какое изобретение вы видите на изображении — одно из чудес древнего мира?",
@@ -272,7 +272,7 @@
   {
     "id": 28,
     "category": "Литература",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "Как зовут капитана подводной лодки «Наутилус» в произведениях Жюля Верна?",
@@ -342,11 +342,11 @@
   {
     "id": 35,
     "category": "Искусство",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "SoundAndText",
     "questionText": "Фрагмент из какого балета Петра Чайковского вы слышите?",
     "answerText": "Лебединое озеро",
-    "mediaPath": "images/swan_lake.mp3"
+    "mediaPath": "sounds/swan_lake.mp3"
   }
 ]

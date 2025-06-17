@@ -105,7 +105,7 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
 
                     m_mediaPlayer = new QMediaPlayer(this);
                     m_mediaPlayer->setAudioOutput(m_audioOutput);
-                    m_mediaPlayer->setSource(QUrl(resourcePath));
+                    m_mediaPlayer->setSource(QUrl::fromLocalFile(resourcePath));
 
                     qDebug() << "Попытка установить источник аудио:" << resourcePath;
 

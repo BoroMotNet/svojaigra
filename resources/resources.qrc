@@ -4,8 +4,7 @@
         <file alias="questions/questions_en.json">questions/questions_en.json</file>
         <file alias="questions/questions_be.json">questions/questions_be.json</file>
         <file alias="media/images/pyramids.jpg">media/images/pyramids.jpg</file>
-    </qresource>
-    <qresource prefix="/media/sounds">
         <file>media/sounds/doppler_effect.mp3</file>
+        <file>media/sounds/swan_lake.mp3</file>
     </qresource>
 </RCC>

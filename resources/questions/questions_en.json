@@ -62,7 +62,7 @@
   {
     "id": 7,
     "category": "Geography",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "What is the name of the southernmost point of South America?",
@@ -127,12 +127,12 @@
     "type": "SoundAndText",
     "questionText": "What famous sound effect do you hear?",
     "answerText": "Doppler effect",
-    "mediaPath": "media/doppler_effect.mp3"
+    "mediaPath": "sounds/doppler_effect.mp3"
   },
   {
     "id": 14,
     "category": "Science",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "What does the science of mycology study?",
@@ -202,12 +202,12 @@
   {
     "id": 21,
     "category": "History",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "ImageAndText",
     "questionText": "What invention do you see in the picture — one of the wonders of the ancient world?",
     "answerText": "Pyramids of Giza",
-    "mediaPath": "media/pyramids.jpg"
+    "mediaPath": "images/pyramids.jpg"
   },
   {
     "id": 22,
@@ -272,7 +272,7 @@
   {
     "id": 28,
     "category": "Literature",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "What is the name of the captain of the submarine \"Nautilus\" in the works of Jules Verne?",
@@ -327,7 +327,7 @@
     "type": "ImageAndText",
     "questionText": "What is the name of this painting by Vincent van Gogh?",
     "answerText": "The Starry Night",
-    "mediaPath": "media/starry_night.jpg"
+    "mediaPath": "images/starry_night.jpg"
   },
   {
     "id": 34,
@@ -342,11 +342,11 @@
   {
     "id": 35,
     "category": "Art",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "SoundAndText",
     "questionText": "Fragment from which ballet of Pyotr Tchaikovsky do you hear?",
     "answerText": "Swan lake",
-    "mediaPath": "media/swan_lake.mp3"
+    "mediaPath": "sounds/swan_lake.mp3"
   }
 ]
