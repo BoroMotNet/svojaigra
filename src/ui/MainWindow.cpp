@@ -9,8 +9,7 @@
 #include <QPushButton>
 #include <QMessageBox>
 #include <QSettings>
-#include <QKeyEvent> // QKeyEvent должен быть включен в MainWindow.h
-
+#include <QKeyEvent>
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
     setupUi();
@@ -206,22 +205,17 @@ void MainWindow::handleQuestionClicked()
     GameManager::instance().selectQuestion(category, points);
 }
 
-// Изменения здесь:
 void MainWindow::showGameResults(const std::vector<Player>& finalResults) {
     QString resultsText;
     for(const auto& player : finalResults) {
         resultsText += QString("%1: %2\n").arg(player.getName()).arg(player.getScore());
     }
-    // Показываем результаты игры.
     QMessageBox::information(this, tr("Игра окончена!"), resultsText);
 
-    // После того как пользователь нажмет OK на окне результатов,
-    // просто возвращаемся в главное меню, без дополнительного подтверждения.
     if (parentWidget()) {
-        parentWidget()->showFullScreen(); // Показываем родительское окно (StartWindow)
-        this->hide(); // Скрываем текущее окно (MainWindow)
+        parentWidget()->showFullScreen();
+        this->hide();
     } else {
-        // Если родителя нет, то нет куда возвращаться, поэтому выходим из приложения.
         qApp->quit();
     }
 }
@@ -241,19 +235,13 @@ void MainWindow::handleRandomQuestionClicked()
     GameManager::instance().selectRandomQuestion();
 }
 
-// Изменения здесь:
 void MainWindow::handleExitClicked()
 {
-    // Этот метод теперь используется ТОЛЬКО для ДОСРОЧНОГО выхода из игры.
-    // Поэтому подтверждение здесь уместно.
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("Завершение игры"),
                                   tr("Вы уверены, что хотите завершить игру досрочно?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
-        GameManager::instance().endGame(); // Завершаем игру (это вызовет showGameResults)
-        // После вызова endGame(), showGameResults возьмёт на себя логику возврата в меню,
-        // поэтому здесь нам больше ничего не нужно делать.
-        // Удаляем this->hide() и parentWidget()->show() отсюда, так как это делает showGameResults.
-    }
+        GameManager::instance().endGame();
+        }
 }

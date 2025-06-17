@@ -30,8 +30,7 @@ private slots:
     void handleQuestionClicked();
     void showGameResults(const std::vector<Player>& finalResults);
 
-    // New slots for the buttons
-    void handleRandomQuestionClicked();
+void handleRandomQuestionClicked();
     void handleExitClicked();
 
 private:
@@ -46,7 +45,6 @@ private:
     QHBoxLayout* m_playerLayout;
     QGridLayout* m_boardLayout;
 
-    // New buttons
     QPushButton* m_randomQuestionButton;
     QPushButton* m_exitButton;
 
@@ -55,4 +53,4 @@ private:
     std::map<QString, std::map<int, QPushButton*>> m_questionButtons;
 };
 
-#endif //MAINWINDOW_H
+#endif

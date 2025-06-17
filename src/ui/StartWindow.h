@@ -30,4 +30,4 @@ private:
     AdminEditor *adminWindow;
 };
 
-#endif // STARTWINDOW_H
+#endif

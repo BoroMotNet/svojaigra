@@ -14,9 +14,8 @@
 #include <QDebug>
 #include <QFile>
 #include <QStyle>
-// #include <QMessageBox>
-#include <QMediaDevices> // !!! ДОБАВЛЕНО/ПЕРЕМЕЩЕНО СЮДА
-#include <QAudioDevice>  // !!! ДОБАВЛЕНО СЮДА ДЛЯ ПОЛНОГО ОПРЕДЕЛЕНИЯ QAudioDevice
+#include <QMediaDevices>
+#include <QAudioDevice>
 
 QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
     : QDialog(parent),
@@ -78,9 +77,7 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
         qWarning() << "QFile::exists() вернул FALSE для пути:" << resourcePath;
     }
 
-    // --- Дополнительная проверка на доступность аудиосистемы ---
-    // Теперь QMediaDevices и QAudioDevice должны быть полностью определены
-    if (!QMediaDevices::defaultAudioOutput().isNull()) { // Правильная проверка на валидность QAudioDevice
+    if (!QMediaDevices::defaultAudioOutput().isNull()) {
         qDebug() << "Аудиовыход по умолчанию доступен.";
     } else {
         qWarning() << "ОШИБКА: Нет доступного аудиовыхода! Проверьте драйвера или устройства.";
@@ -101,8 +98,7 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
                     qWarning() << "Ошибка загрузки изображения из ресурсов (pixmap.isNull()):" << resourcePath;
                 }
             } else if (question.type == QuestionType::SoundAndText) {
-                // Если нет аудиовыхода, не создаем плеер
-                if (!QMediaDevices::defaultAudioOutput().isNull()) { // Повторная проверка перед созданием
+                if (!QMediaDevices::defaultAudioOutput().isNull()) {
                     m_audioOutput = new QAudioOutput(this);
                     m_audioOutput->setVolume(m_volumeSlider->value() / 100.0f);
                     qDebug() << "QAudioOutput создан. Громкость по умолчанию:" << m_audioOutput->volume();
@@ -175,7 +171,6 @@ QuestionDialog::~QuestionDialog() {
         delete m_mediaPlayer;
         m_mediaPlayer = nullptr;
     }
-    // m_audioOutput удаляется автоматически, так как у него есть родитель (this)
     m_audioOutput = nullptr;
 }
 

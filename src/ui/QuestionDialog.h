@@ -42,4 +42,4 @@ private:
     QAudioOutput* m_audioOutput;
 };
 
-#endif // QUESTIONDIALOG_H
+#endif

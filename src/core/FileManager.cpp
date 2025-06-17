@@ -6,14 +6,12 @@
 #include <QStandardPaths>
 #include <QDir>
 #include <QDateTime>
-#include <QDebug> // Для вывода сообщений об ошибках
+#include <QDebug>
 
-// Для работы с JSON
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
 
-// Для работы с настройками
 #include <QSettings>
 
 #include "Player.h"
@@ -22,16 +20,13 @@ namespace FileManager {
     std::vector<Question> loadQuestions(const QString &languageCode) {
         std::vector<Question> questions;
 
-        // Формируем путь к файлу в системе ресурсов Qt.
-        // ":/" - префикс для ресурсов.
-        // Файлы должны быть добавлены в resources.qrc
         const QString fileName = QString(":/questions/questions_%1.json").arg(languageCode);
 
         QFile file(fileName);
 
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
             qWarning() << "Не удалось открыть файл с вопросами:" << fileName;
-            return questions; // Возвращаем пустой вектор
+            return questions;
         }
 
         QByteArray fileData = file.readAll();
@@ -80,18 +75,15 @@ namespace FileManager {
     }
 
     bool saveGameResults(const std::vector<Player> &players) {
-        // Находим кросс-платформенный путь для сохранения данных приложения
         QString dataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
         QDir dir(dataPath);
 
-        // Если папки не существует, создаем ее
         if (!dir.exists()) {
             dir.mkpath(".");
         }
 
         QString filePath = dataPath + "/game_results.txt";
 
-        // Открываем файл для дозаписи в конец
         QFile file(filePath);
         if (!file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
             qWarning() << "Не удалось открыть файл для записи результатов:" << filePath;
@@ -112,14 +104,12 @@ namespace FileManager {
     }
 
     void saveLanguageSetting(const QString &languageCode) {
-        // QSettings автоматически обрабатывает местоположение и формат файла
-        QSettings settings; // Имена организации и приложения мы задали в main.cpp
+        QSettings settings;
         settings.setValue("language", languageCode);
     }
 
     QString loadLanguageSetting() {
         QSettings settings;
-        // Возвращаем сохраненное значение, или "ru" если ничего не найдено
         return settings.value("language", "en").toString();
     }
-} // namespace FileManager
+}

@@ -37,4 +37,4 @@ private:
     QString m_initialLanguage;
 };
 
-#endif // SETTINGSDIALOG_H
+#endif

@@ -22,12 +22,9 @@ StartWindow::StartWindow(QWidget *parent) :
     connect(ui->startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
     connect(ui->settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
     connect(ui->editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
-    connect(ui->exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit); // Эта кнопка всегда закрывает приложение
-
+    connect(ui->exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
     setWindowTitle(tr("Своя Игра - Меню"));
 
-    // Инициализируем указатели на окна игры и редактора как nullptr
-    // Эти окна будут создаваться при необходимости
     gameWindow = nullptr;
     adminWindow = nullptr;
 }
@@ -35,12 +32,7 @@ StartWindow::StartWindow(QWidget *parent) :
 StartWindow::~StartWindow()
 {
     delete ui;
-    // Поскольку MainWindow и AdminEditor теперь создаются с StartWindow как родителем,
-    // Qt автоматически удалит их, когда удалится StartWindow.
-    // Если бы они не имели родителя, их нужно было бы удалять здесь вручную:
-    // delete gameWindow;
-    // delete adminWindow;
-}
+    }
 
 void StartWindow::handleStart()
 {
@@ -49,13 +41,12 @@ void StartWindow::handleStart()
         QStringList playerNames = dialog.getPlayerNames();
         GameManager::instance().startGame(playerNames);
 
-        // Создаем MainWindow, если его еще нет, и передаем текущее StartWindow как родителя
         if (!gameWindow) {
-            gameWindow = new MainWindow(this); // <-- Передаем 'this' (StartWindow) как родителя
+            gameWindow = new MainWindow(this);
         }
-        gameWindow->showFullScreen(); // Показываем окно игры
+        gameWindow->showFullScreen();
 
-        this->hide(); // <-- Скрываем StartWindow вместо закрытия
+        this->hide();
     }
 }
 
@@ -78,10 +69,10 @@ void StartWindow::handleEdit()
     if (ok && !password.isEmpty()) {
         if (password == adminPassword) {
             if (!adminWindow) {
-                adminWindow = new AdminEditor(this); // <-- Передаем 'this' (StartWindow) как родителя
+                adminWindow = new AdminEditor(this);
             }
-            adminWindow->showFullScreen(); // Показываем окно редактора
-            this->hide(); // <-- Скрываем StartWindow вместо закрытия
+            adminWindow->showFullScreen();
+            this->hide();
         } else {
             QMessageBox::warning(this, tr("Ошибка"), tr("Неверный пароль!"));
         }

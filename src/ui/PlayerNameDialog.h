@@ -26,4 +26,4 @@ private:
     QPushButton* m_startButton;
 };
 
-#endif // PLAYERNAMEDIALOG_H
+#endif
