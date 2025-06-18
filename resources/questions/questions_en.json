@@ -62,7 +62,7 @@
   {
     "id": 7,
     "category": "Geography",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "What is the name of the southernmost point of South America?",
@@ -132,7 +132,7 @@
   {
     "id": 14,
     "category": "Science",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "What does the science of mycology study?",
@@ -202,7 +202,7 @@
   {
     "id": 21,
     "category": "History",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "ImageAndText",
     "questionText": "What invention do you see in the picture — one of the wonders of the ancient world?",
@@ -272,7 +272,7 @@
   {
     "id": 28,
     "category": "Literature",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "What is the name of the captain of the submarine \"Nautilus\" in the works of Jules Verne?",
@@ -342,11 +342,11 @@
   {
     "id": 35,
     "category": "Art",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "SoundAndText",
     "questionText": "Fragment from which ballet of Pyotr Tchaikovsky do you hear?",
     "answerText": "Swan lake",
-    "mediaPath": "images/swan_lake.mp3"
+    "mediaPath": "sounds/swan_lake.mp3"
   }
 ]
