@@ -62,7 +62,7 @@
   {
     "id": 7,
     "category": "Геаграфія",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "Як называецца самая паўднёвая кропка Паўднёвай Амерыкі?",
@@ -132,7 +132,7 @@
   {
     "id": 14,
     "category": "Навука",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "Што вывучае навука мікалогія?",
@@ -202,7 +202,7 @@
   {
     "id": 21,
     "category": "Гісторыя",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "ImageAndText",
     "questionText": "Якое вынаходства вы бачыце на малюнку — адно з цудаў старажытнага свету?",
@@ -272,7 +272,7 @@
   {
     "id": 28,
     "category": "Літаратура",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "Text",
     "questionText": "Як клічуць капітана падводнай лодкі \"Наўтылус\" у творах Жуля Верна?",
@@ -342,11 +342,11 @@
   {
     "id": 35,
     "category": "Мастацтва",
-    "points": 800,
+    "points": 700,
     "difficulty": 7,
     "type": "SoundAndText",
     "questionText": "Фрагмент з якога балета Пятра Чайкоўскага вы чуеце?",
     "answerText": "Лебядзінае возера",
-    "mediaPath": "images/swan_lake.mp3"
+    "mediaPath": "sounds/swan_lake.mp3"
   }
 ]
