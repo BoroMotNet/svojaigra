@@ -9,8 +9,7 @@
 #include "ui/StartWindow.h"
 #include "core/FileManager.h"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     system("chcp 1251");
     QApplication app(argc, argv);
 
@@ -57,11 +56,22 @@ int main(int argc, char *argv[])
 
 
     QTranslator qtTranslator;
-    #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-        if (qtTranslator.load("qtbase_" + lang, QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
-            app.installTranslator(&qtTranslator);
-        }
-    #endif
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    if (qtTranslator.load("qtbase_" + lang, QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
+        app.installTranslator(&qtTranslator);
+    }
+#endif
+
+    QSettings settings;
+
+    QColor backgroundColor = QColor(settings.value("#1e1e1e").toString());
+    QPalette palette = app.palette();
+    palette.setColor(QPalette::Window, backgroundColor);
+    palette.setColor(QPalette::WindowText, Qt::white);
+    app.setPalette(palette);
+
+    app.setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
+
 
     StartWindow startWindow;
     startWindow.showFullScreen();
