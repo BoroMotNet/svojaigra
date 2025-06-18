@@ -103,7 +103,10 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
             } else if (question.type == QuestionType::SoundAndText) {
                 if (!QMediaDevices::defaultAudioOutput().isNull()) {
                     m_audioOutput = new QAudioOutput(this);
-                    m_audioOutput->setVolume(m_volumeSlider->value() / 100.0f);
+                    QSettings settings;
+                    int savedVolume = settings.value("volume", 50).toInt();
+                    m_volumeSlider->setValue(savedVolume);
+                    m_volumeLabel->setText(QString(tr("Громкость: %1%")).arg(savedVolume));
                     qDebug() << "QAudioOutput создан. Громкость по умолчанию:" << m_audioOutput->volume();
 
                     m_mediaPlayer = new QMediaPlayer(this);

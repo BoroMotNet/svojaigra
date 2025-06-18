@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "../core/Question.h"
 #include <QMediaPlayer>
+#include <QSettings>
 
 class QLabel;
 class QLineEdit;
