@@ -1,48 +1,204 @@
-#include "./AdminEditor.h"
-#include <QDebug>
+#include "AdminEditor.h"
+#include "ui_AdminEditor.h"
+#include "../core/FileManager.h"
+#include "QuestionEditDialog.h"
+
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QScrollArea>
 #include <QMessageBox>
-#include <QApplication>
+#include <QIcon>
+#include <QStyle>
+#include <QDebug>
+#include <algorithm> // Для std::sort
 
-AdminEditor::AdminEditor(QWidget *parent) : QWidget(parent) {
-    qDebug() << "AdminEditor constructor: START (without .ui file)";
-
-    setWindowTitle(tr("Редактор Админа (без UI файла)"));
-
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    setLayout(mainLayout);
-
-    QLabel *titleLabel = new QLabel(tr("Добро пожаловать в Редактор Админа!"), this);
-    titleLabel->setAlignment(Qt::AlignCenter);
-    QFont font = titleLabel->font();
-    font.setPointSize(16);
-    font.setBold(true);
-    titleLabel->setFont(font);
-    mainLayout->addWidget(titleLabel);
-
-    QLabel *contentPlaceholder = new QLabel(tr("Здесь будет содержимое для редактирования вопросов."), this);
-    contentPlaceholder->setAlignment(Qt::AlignCenter);
-    contentPlaceholder->setWordWrap(true);
-    mainLayout->addWidget(contentPlaceholder);
-
-    QPushButton *backButton = new QPushButton(tr("Назад"), this);
-    backButton->setFixedSize(120, 40);
-    mainLayout->addStretch();
-    mainLayout->addWidget(backButton, 0, Qt::AlignCenter);
-    mainLayout->addStretch();
-
-    connect(backButton, &QPushButton::clicked, this, [this]() {
-        qDebug() << "AdminEditor: 'Назад' button clicked.";
-        QMessageBox::information(this, tr("Действие"), tr("Вы нажали кнопку 'Назад'."));
-    });
-
-
-    qDebug() << "AdminEditor constructor: END (without .ui file)";
+AdminEditor::AdminEditor(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::AdminEditor)
+{
+    ui->setupUi(this);
+    setupUi();
+    loadAllQuestions();
+    populateBoard();
 }
 
-AdminEditor::~AdminEditor() {
-    qDebug() << "AdminEditor destructor: START (without .ui file)";
-    qDebug() << "AdminEditor destructor: END (without .ui file)";
+AdminEditor::~AdminEditor()
+{
+    delete ui;
+}
+
+void AdminEditor::setupUi() {
+    setWindowTitle(tr("Редактор вопросов"));
+    this->setMinimumSize(1024, 768);
+
+    QVBoxLayout* mainLayout = new QVBoxLayout(this);
+    mainLayout->setSpacing(15);
+
+    QHBoxLayout* topLayout = new QHBoxLayout();
+    QLabel* titleLabel = new QLabel(tr("Редактор игровых вопросов"), this);
+    titleLabel->setFont(QFont("Arial", 18, QFont::Bold));
+    m_saveButton = new QPushButton(tr("Сохранить все изменения в файлы"), this);
+    m_saveButton->setFont(QFont("Arial", 12));
+    m_saveButton->setIcon(QIcon::fromTheme("document-save", style()->standardIcon(QStyle::SP_DialogSaveButton)));
+
+    topLayout->addWidget(titleLabel);
+    topLayout->addStretch();
+    topLayout->addWidget(m_saveButton);
+    mainLayout->addLayout(topLayout);
+
+    // m_scrollArea теперь член класса, чтобы мы могли получить к нему доступ
+    m_scrollArea = new QScrollArea(this);
+    m_scrollArea->setWidgetResizable(true);
+
+    mainLayout->addWidget(m_scrollArea);
+
+    connect(m_saveButton, &QPushButton::clicked, this, &AdminEditor::saveAllChanges);
+}
+
+void AdminEditor::loadAllQuestions() {
+    m_allQuestions = FileManager::loadAllQuestionsForEditor();
+    qDebug() << "Загружено" << m_allQuestions.size() << "категорий для редактирования.";
+}
+
+// ===================================================================================
+// !!! ОСНОВНОЕ ИЗМЕНЕНИЕ ЗДЕСЬ !!!
+// Мы больше не чистим layout вручную. Мы удаляем старый контейнер и создаем новый.
+// ===================================================================================
+void AdminEditor::populateBoard() {
+    // 1. Безопасно удаляем старый виджет-контейнер, если он существует
+    QWidget* oldBoardContainer = m_scrollArea->takeWidget();
+    if (oldBoardContainer) {
+        oldBoardContainer->deleteLater();
+    }
+
+    // 2. Создаем НОВЫЙ контейнер и НОВЫЙ layout
+    QWidget* boardContainer = new QWidget();
+    QGridLayout* boardLayout = new QGridLayout(boardContainer);
+    boardLayout->setSpacing(10);
+
+    // 3. Заполняем новый layout данными
+    int col = 0;
+    for (auto it_cat = m_allQuestions.constBegin(); it_cat != m_allQuestions.constEnd(); ++it_cat) {
+        const QString& category = it_cat.key();
+
+        QLabel* categoryLabel = new QLabel(category, boardContainer);
+        categoryLabel->setAlignment(Qt::AlignCenter);
+        categoryLabel->setFont(QFont("Arial", 14, QFont::Bold));
+        categoryLabel->setWordWrap(true);
+        boardLayout->addWidget(categoryLabel, 0, col);
+
+        int row = 1;
+        QList<int> pointsList = it_cat.value().keys();
+        std::sort(pointsList.begin(), pointsList.end());
+
+        for (int points : pointsList) {
+            QWidget* questionWidget = createQuestionWidget(category, points);
+            boardLayout->addWidget(questionWidget, row, col);
+            row++;
+        }
+
+        QPushButton* addButton = new QPushButton(QIcon::fromTheme("list-add", style()->standardIcon(QStyle::SP_FileDialogNewFolder)), tr(" Добавить"), boardContainer);
+        connect(addButton, &QPushButton::clicked, this, [this, category](){ addNewQuestion(category); });
+        boardLayout->addWidget(addButton, row, col, Qt::AlignTop);
+
+        col++;
+    }
+
+    boardLayout->setRowStretch(boardLayout->rowCount(), 1);
+    boardLayout->setColumnStretch(boardLayout->columnCount(), 1);
+
+    // 4. Устанавливаем новый контейнер в scrollArea
+    m_scrollArea->setWidget(boardContainer);
+}
+
+
+// Эта функция больше не нужна, так как логика очистки теперь в populateBoard()
+// void AdminEditor::clearBoard() { ... }
+
+
+QWidget* AdminEditor::createQuestionWidget(const QString& category, int points) {
+    // Parent для виджета теперь не this, а boardContainer, но Qt обработает это
+    // при добавлении в layout, так что можно оставить this или убрать родителя вообще
+    QWidget* widget = new QWidget();
+    QHBoxLayout* layout = new QHBoxLayout(widget);
+    layout->setContentsMargins(0,0,0,0);
+    layout->setSpacing(5);
+
+    QLabel* pointsLabel = new QLabel(QString::number(points), widget);
+    pointsLabel->setFont(QFont("Arial", 20, QFont::Bold));
+
+    QPushButton* editButton = new QPushButton(widget);
+    editButton->setFixedSize(32, 32);
+    editButton->setIcon(style()->standardIcon(QStyle::SP_DriveHDIcon)); // Другая иконка, похожая на карандаш
+    editButton->setToolTip(tr("Редактировать вопрос"));
+
+    layout->addStretch();
+    layout->addWidget(pointsLabel);
+    layout->addWidget(editButton);
+    layout->addStretch();
+
+    connect(editButton, &QPushButton::clicked, this, [this, category, points](){ openQuestionEditor(category, points); });
+
+    return widget;
+}
+
+void AdminEditor::openQuestionEditor(const QString& category, int points) {
+    if (!m_allQuestions.contains(category) || !m_allQuestions[category].contains(points)) return;
+
+    QuestionEditDialog dialog(m_allQuestions[category][points], this);
+    if (dialog.exec() == QDialog::Accepted) {
+        // Просто перерисовываем доску. Это безопасно.
+        populateBoard();
+
+        if (dialog.isMarkedForDeletion()) {
+             m_allQuestions[category].remove(points);
+             if (m_allQuestions[category].isEmpty()) {
+                m_allQuestions.remove(category);
+             }
+            QMessageBox::information(this, tr("Успешно"), tr("Вопрос был удален. Не забудьте сохранить изменения."));
+        } else {
+            QMessageBox::information(this, tr("Успешно"), tr("Вопрос обновлен. Не забудьте сохранить изменения."));
+        }
+        // Перерисовываем доску еще раз, чтобы отразить удаление
+        populateBoard();
+    }
+}
+
+void AdminEditor::addNewQuestion(const QString& category) {
+    int maxPoints = 0;
+    if(m_allQuestions.contains(category)) {
+        for(int points : m_allQuestions[category].keys()) {
+            if (points > maxPoints) maxPoints = points;
+        }
+    }
+    int newPoints = (maxPoints / 100 + 1) * 100;
+
+    MultilingualQuestionData newData;
+    newData.category = category;
+    newData.points = newPoints;
+    newData.type = Question::TextOnly;
+
+    QuestionEditDialog dialog(newData, this);
+    if (dialog.exec() == QDialog::Accepted) {
+        m_allQuestions[newData.category][newData.points] = newData;
+        populateBoard(); // Просто и безопасно перерисовываем доску
+    }
+}
+
+void AdminEditor::saveAllChanges() {
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("Сохранение"),
+                                  tr("Вы уверены, что хотите сохранить все изменения в файлы вопросов?"),
+                                  QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        bool success = FileManager::saveAllQuestionsFromEditor(m_allQuestions);
+        if (success) {
+            QMessageBox::information(this, tr("Успех"), tr("Все изменения успешно сохранены."));
+        } else {
+            QMessageBox::critical(this, tr("Ошибка"), tr("Не удалось сохранить изменения в файлы. Проверьте консоль на наличие ошибок."));
+        }
+    }
 }

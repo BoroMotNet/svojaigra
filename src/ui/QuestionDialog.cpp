@@ -88,7 +88,7 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
 
     if (question.isMultimedia() && !question.mediaPath.isEmpty()) {
         if (QFile::exists(resourcePath)) {
-            if (question.type == QuestionType::ImageAndText) {
+            if (question.type == Question::QuestionType::ImageAndText) {
                 QPixmap pixmap(resourcePath);
                 if (!pixmap.isNull()) {
                     int maxWidth = 700;
@@ -100,7 +100,7 @@ QuestionDialog::QuestionDialog(const Question& question, QWidget *parent)
                 } else {
                     qWarning() << "Ошибка загрузки изображения из ресурсов (pixmap.isNull()):" << resourcePath;
                 }
-            } else if (question.type == QuestionType::SoundAndText) {
+            } else if (question.type == Question::QuestionType::SoundAndText) {
                 if (!QMediaDevices::defaultAudioOutput().isNull()) {
                     m_audioOutput = new QAudioOutput(this);
                     QSettings settings;

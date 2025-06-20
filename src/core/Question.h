@@ -3,30 +3,27 @@
 
 #include <QString>
 
-enum class QuestionType {
-    Text,
-    ImageAndText,
-    SoundAndText
-};
+struct Question {
+    enum QuestionType {
+        TextOnly,
+        ImageAndText,
+        SoundAndText
+    };
 
-struct Question
-{
-
-    int id = -1;
+    int id;
     QString category;
-    int points = 0;
-
-    QuestionType type = QuestionType::Text;
+    int points;
     QString questionText;
-    QString answerText;
     QString mediaPath;
+    QuestionType type;
+    QString answer;
+    bool answered;
 
-    Question() = default;
+    Question(); // Конструктор
 
-
-    bool isMultimedia() const;
-
+    // Оставляем только ОБЪЯВЛЕНИЯ методов
     bool checkAnswer(const QString& userAnswer) const;
+    bool isMultimedia() const;
 };
 
-#endif
+#endif // QUESTION_H

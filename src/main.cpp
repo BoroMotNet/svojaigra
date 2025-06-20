@@ -2,6 +2,7 @@
 #include <QSettings>
 #include <QTranslator>
 #include <QLibraryInfo>
+#include "core/FileManager.h"
 #include <QDebug>
 #include <QDir>
 #include <QLocale>
@@ -13,8 +14,9 @@ int main(int argc, char *argv[]) {
     system("chcp 1251");
     QApplication app(argc, argv);
 
-    QCoreApplication::setOrganizationName("Borovik Ivan T-391");
-    QCoreApplication::setApplicationName("Своя Игра");
+    QCoreApplication::setOrganizationName("BorovikIvan");
+    QCoreApplication::setApplicationName("SvojaIgra");
+    FileManager::initQuestionsDirectory();
 
     qDebug() << "--- НАЧАЛО ДИАГНОСТИКИ ЛОКАЛИЗАЦИИ ---";
 

@@ -1,11 +1,14 @@
 ﻿#include "Question.h"
 
-bool Question::isMultimedia() const
-{
-    return type == QuestionType::ImageAndText || type == QuestionType::SoundAndText;
+// Реализация конструктора
+Question::Question() : id(0), points(0), type(TextOnly), answered(false) {}
+
+// Реализация метода проверки ответа
+bool Question::checkAnswer(const QString &userAnswer) const {
+    return userAnswer.trimmed().toLower() == answer.trimmed().toLower();
 }
 
-bool Question::checkAnswer(const QString &userAnswer) const
-{
-    return userAnswer.trimmed().toLower() == answerText.trimmed().toLower();
+// Реализация метода проверки мультимедиа
+bool Question::isMultimedia() const {
+    return type == ImageAndText || type == SoundAndText;
 }
