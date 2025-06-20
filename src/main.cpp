@@ -62,15 +62,15 @@ int main(int argc, char *argv[]) {
     }
 #endif
 
-    QSettings settings;
-
-    QColor backgroundColor = QColor(settings.value("#1e1e1e").toString());
-    QPalette palette = app.palette();
-    palette.setColor(QPalette::Window, backgroundColor);
-    palette.setColor(QPalette::WindowText, Qt::white);
-    app.setPalette(palette);
-
-    app.setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
+    // QSettings settings;
+    //
+    // QColor backgroundColor = QColor(settings.value("#1e1e1e").toString());
+    // QPalette palette = app.palette();
+    // palette.setColor(QPalette::Window, backgroundColor);
+    // palette.setColor(QPalette::WindowText, Qt::white);
+    // app.setPalette(palette);
+    //
+    // app.setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
 
 
     StartWindow startWindow;

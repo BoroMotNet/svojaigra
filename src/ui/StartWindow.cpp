@@ -13,10 +13,8 @@
 #include <QMessageBox>
 #include <QLineEdit>
 
-StartWindow::StartWindow(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::StartWindow)
-{
+StartWindow::StartWindow(QWidget *parent) : QWidget(parent),
+                                            ui(new Ui::StartWindow) {
     ui->setupUi(this);
 
     connect(ui->startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
@@ -29,13 +27,11 @@ StartWindow::StartWindow(QWidget *parent) :
     adminWindow = nullptr;
 }
 
-StartWindow::~StartWindow()
-{
+StartWindow::~StartWindow() {
     delete ui;
-    }
+}
 
-void StartWindow::handleStart()
-{
+void StartWindow::handleStart() {
     PlayerNameDialog dialog(4, this);
     if (dialog.exec() == QDialog::Accepted) {
         QStringList playerNames = dialog.getPlayerNames();
@@ -50,15 +46,13 @@ void StartWindow::handleStart()
     }
 }
 
-void StartWindow::handleSettings()
-{
+void StartWindow::handleSettings() {
     SettingsDialog dialog(this);
     dialog.exec();
 }
 
-void StartWindow::handleEdit()
-{
-    const QString adminPassword = "Ivan";
+void StartWindow::handleEdit() {
+    const QString adminPassword = "1";
 
     bool ok;
     QString password = QInputDialog::getText(this, tr("Авторизация"),
@@ -69,7 +63,7 @@ void StartWindow::handleEdit()
     if (ok && !password.isEmpty()) {
         if (password == adminPassword) {
             if (!adminWindow) {
-                adminWindow = new AdminEditor(this);
+                adminWindow = new AdminEditor();
             }
             adminWindow->showFullScreen();
             this->hide();
