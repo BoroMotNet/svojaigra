@@ -8,22 +8,20 @@ on:
 
 jobs:
   build:
-    # Убираем простую матрицу и используем более гибкую структуру
     strategy:
-      # fail-fast: false означает, что если упадет сборка на одной ОС, другие продолжат работать
       fail-fast: false
       matrix:
-        # Явно перечисляем комбинации ОС и архитектуры Qt
         include:
           - os: windows-latest
             qt_arch: win64_mingw
-            qt_version: '6.7.1'
+            # --- ИЗМЕНЕНИЕ №1: Переключаемся на стабильную LTS-версию ---
+            qt_version: '6.5.3'
           - os: ubuntu-latest
             qt_arch: gcc_64
-            qt_version: '6.7.1'
+            qt_version: '6.5.3'
           - os: macos-13
             qt_arch: clang_64
-            qt_version: '6.7.1'
+            qt_version: '6.5.3'
 
     runs-on: ${{ matrix.os }}
 
@@ -31,14 +29,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Шаг установки Qt теперь использует архитектуру из матрицы
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
         version: ${{ matrix.qt_version }}
-        # Явно указываем архитектуру для каждой ОС
         arch: ${{ matrix.qt_arch }}
-        modules: 'widgets multimedia linguisttools'
+        # --- ИЗМЕНЕНИЕ №2: Указываем правильные имена пакетов ---
+        # 'widgets' не нужен (идет в комплекте), 'linguisttools' находится внутри 'qttools'
+        modules: 'qttools multimedia'
 
     - name: Install system dependencies (Linux)
       if: runner.os == 'Linux'

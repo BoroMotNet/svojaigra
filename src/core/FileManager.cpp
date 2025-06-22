@@ -14,12 +14,7 @@
 #include <QDebug>
 #include <algorithm>
 
-namespace FileManager {
-
-    // ===================================================================================
-    // !!! ИЗМЕНЕНИЕ ЗДЕСЬ !!!
-    // ===================================================================================
-    bool saveAllQuestionsFromEditor(const QMap<QString, QMap<int, MultilingualQuestionData>>& allQuestions) {
+namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<int, MultilingualQuestionData>>& allQuestions) {
         QString questionsPath = getWritableQuestionsPath();
         QDir dir(questionsPath);
         if (!dir.exists() && !dir.mkpath(".")) {
@@ -33,8 +28,6 @@ namespace FileManager {
         for (const QString& lang : languages) {
             QJsonArray questionsArray;
 
-            // Используем безопасные константные итераторы для обхода карты.
-            // Это гарантирует, что мы не изменим контейнер во время итерации.
             auto cat_it = allQuestions.constBegin();
             while (cat_it != allQuestions.constEnd()) {
                 const auto& innerMap = cat_it.value();
@@ -63,11 +56,6 @@ namespace FileManager {
                 ++cat_it;
             }
 
-            // Примечание: итерация через const_iterator не гарантирует порядок.
-            // Если порядок важен, то нужно, как и раньше, сначала получать ключи,
-            // сортировать их и потом обращаться через at() или value().
-            // Но давайте сначала проверим этот, самый безопасный вариант.
-
             QFile file(QString("%1/questions_%2.json").arg(questionsPath, lang));
             if (file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
                 file.write(QJsonDocument(questionsArray).toJson(QJsonDocument::Indented));
@@ -81,12 +69,9 @@ namespace FileManager {
         return all_ok;
     }
 
-    // --- Остальные функции (без изменений) ---
-    // (Я оставляю их здесь для полноты, чтобы вы могли скопировать весь файл)
     QString getWritableQuestionsPath() {
         return "C:/SvojaIgraTest/questions";
-        // return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/questions";
-    }
+        }
 
     void initQuestionsDirectory() {
         QString questionsPath = getWritableQuestionsPath();
