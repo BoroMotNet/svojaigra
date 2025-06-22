@@ -1,34 +1,38 @@
-﻿---
-name: 🐞 Сообщение об ошибке (Bug Report)
-about: Создайте отчет, чтобы помочь нам исправить проблему.
-title: "[BUG] Краткое описание ошибки"
-labels: 'bug'
+---
+name: Bug report
+about: Create a report to help us improve
+title: ''
+labels: ''
 assignees: ''
 
 ---
 
-**Опишите ошибку (Describe the bug)**
-Четкое и краткое описание того, что представляет собой ошибка.
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-**Шаги для воспроизведения (To Reproduce)**
-Шаги для воспроизведения поведения:
-1. Перейдите в '...'
-2. Нажмите на '....'
-3. Прокрутите до '....'
-4. Вижу ошибку
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-**Ожидаемое поведение (Expected behavior)**
-Четкое и краткое описание того, что должно было произойти.
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-**Фактическое поведение (Actual behavior)**
-Что произошло на самом деле. Если есть сообщения об ошибках в консоли, скопируйте их сюда.
+**Screenshots**
+If applicable, add screenshots to help explain your problem.
 
-**Скриншоты (Screenshots)**
-Если применимо, добавьте скриншоты, чтобы помочь объяснить вашу проблему.
+**Desktop (please complete the following information):**
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
 
-**Окружение (Environment):**
-- Операционная система: [например, Windows 11, Ubuntu 22.04]
-- Версия приложения: [например, коммит a1b2c3d]
+**Smartphone (please complete the following information):**
+ - Device: [e.g. iPhone6]
+ - OS: [e.g. iOS8.1]
+ - Browser [e.g. stock browser, safari]
+ - Version [e.g. 22]
 
-**Дополнительный контекст (Additional context)**
-Добавьте любой другой контекст о проблеме здесь.
+**Additional context**
+Add any other context about the problem here.
