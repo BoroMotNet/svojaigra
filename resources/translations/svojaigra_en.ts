@@ -11,58 +11,58 @@
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="41"/>
       <source>Редактор игровых вопросов</source>
-      <translation type="unfinished">Редактор игровых вопросов</translation>
+      <translation>Game questions Editor</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="43"/>
       <source>Сохранить все изменения в файлы</source>
-      <translation type="unfinished">Сохранить все изменения в файлы</translation>
+      <translation>Save all changes to files</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="103"/>
       <source> Добавить</source>
-      <translation type="unfinished"> Добавить</translation>
+      <translation>+ Add new</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="136"/>
       <source>Редактировать вопрос</source>
-      <translation type="unfinished">Редактировать вопрос</translation>
+      <translation>Edit question</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="161"/>
       <location filename="../../src/ui/AdminEditor.cpp" line="163"/>
       <source>Успешно</source>
-      <translation type="unfinished">Успешно</translation>
+      <translation>Successfully</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="161"/>
       <source>Вопрос был удален. Не забудьте сохранить изменения.</source>
-      <translation type="unfinished">Вопрос был удален. Не забудьте сохранить изменения.</translation>
+      <translation>The question has been deleted. Don't forget to save your changes.</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="163"/>
       <source>Вопрос обновлен. Не забудьте сохранить изменения.</source>
-      <translation type="unfinished">Вопрос обновлен. Не забудьте сохранить изменения.</translation>
+      <translation>Question updated. Don't forget to save your changes.</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="193"/>
       <source>Сохранение</source>
-      <translation type="unfinished">Сохранение</translation>
+      <translation>Saving</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="194"/>
       <source>Вы уверены, что хотите сохранить все изменения в файлы вопросов?</source>
-      <translation type="unfinished">Вы уверены, что хотите сохранить все изменения в файлы вопросов?</translation>
+      <translation>Are you sure you want to save all changes to the question files?</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="199"/>
       <source>Успех</source>
-      <translation type="unfinished">Успех</translation>
+      <translation>Success</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="199"/>
       <source>Все изменения успешно сохранены.</source>
-      <translation type="unfinished">Все изменения успешно сохранены.</translation>
+      <translation>All changes have been saved successfully.</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="201"/>
@@ -72,7 +72,7 @@
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="201"/>
       <source>Не удалось сохранить изменения в файлы. Проверьте консоль на наличие ошибок.</source>
-      <translation type="unfinished">Не удалось сохранить изменения в файлы. Проверьте консоль на наличие ошибок.</translation>
+      <translation>Failed to save changes to files. Check your console for errors.</translation>
     </message>
   </context>
   <context>
@@ -85,32 +85,32 @@
     <message>
       <location filename="../../src/core/GameManager.cpp" line="113"/>
       <source>Невозможно выбрать случайный вопрос: игра не в состоянии выбора вопроса.</source>
-      <translation type="unfinished">Невозможно выбрать случайный вопрос: игра не в состоянии выбора вопроса.</translation>
+      <translation>Unable to choose random question: The game is unable to choose a question.</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="131"/>
       <source>Случайный вопрос</source>
-      <translation type="unfinished">Случайный вопрос</translation>
+      <translation>Random question</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="132"/>
       <source>Нет доступных вопросов для выбора.</source>
-      <translation type="unfinished">Нет доступных вопросов для выбора.</translation>
+      <translation>There are no questions available to choose from.</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="133"/>
       <source>Нет доступных вопросов для выбора случайного.</source>
-      <translation type="unfinished">Нет доступных вопросов для выбора случайного.</translation>
+      <translation>There are no questions available for random selection.</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="141"/>
       <source>Выбран случайный вопрос: Категория &apos;</source>
-      <translation type="unfinished">Выбран случайный вопрос: Категория &apos;</translation>
+      <translation>Random question selected: Category &apos;</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="142"/>
       <source>&apos;, Очки: </source>
-      <translation type="unfinished">&apos;, Очки: </translation>
+      <translation>&apos;, Points:</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="102"/>
@@ -128,12 +128,12 @@
     <message>
       <location filename="../../src/ui/MainWindow.cpp" line="43"/>
       <source>Случайный вопрос</source>
-      <translation type="unfinished">Случайный вопрос</translation>
+      <translation>Random question</translation>
     </message>
     <message>
       <location filename="../../src/ui/MainWindow.cpp" line="44"/>
       <source>Выход</source>
-      <translation type="unfinished">Выход</translation>
+      <translation>Quit</translation>
     </message>
     <message>
       <location filename="../../src/ui/MainWindow.cpp" line="213"/>
@@ -143,12 +143,12 @@
     <message>
       <location filename="../../src/ui/MainWindow.cpp" line="241"/>
       <source>Завершение игры</source>
-      <translation type="unfinished">Завершение игры</translation>
+      <translation>End of the game</translation>
     </message>
     <message>
       <location filename="../../src/ui/MainWindow.cpp" line="242"/>
       <source>Вы уверены, что хотите завершить игру досрочно?</source>
-      <translation type="unfinished">Вы уверены, что хотите завершить игру досрочно?</translation>
+      <translation>Are you sure you want to end the game early?</translation>
     </message>
   </context>
   <context>
@@ -179,28 +179,28 @@
     <message>
       <location filename="../../src/ui/QuestionDialog.cpp" line="56"/>
       <source>Громкость</source>
-      <translation type="unfinished">Громкость</translation>
+      <translation>Volume</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionDialog.cpp" line="59"/>
       <source>Громкость: 50%</source>
-      <translation type="unfinished">Громкость: 50%</translation>
+      <translation>Volume: 50%</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionDialog.cpp" line="109"/>
       <location filename="../../src/ui/QuestionDialog.cpp" line="269"/>
       <source>Громкость: %1%</source>
-      <translation type="unfinished">Громкость: %1%</translation>
+      <translation>Volume: %1%</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionDialog.cpp" line="176"/>
       <source>Нет медиафайлов для этого вопроса.</source>
-      <translation type="unfinished">Нет медиафайлов для этого вопроса.</translation>
+      <translation>There are no media files for this question.</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionDialog.cpp" line="188"/>
       <source>Введите ваш ответ здесь...</source>
-      <translation type="unfinished">Введите ваш ответ здесь...</translation>
+      <translation>Enter your answer here...</translation>
     </message>
   </context>
   <context>
@@ -208,79 +208,79 @@
     <message>
       <location filename="../../src/ui/QuestionEditDialog.ui" line="17"/>
       <source>QuestionEditDialog</source>
-      <translation type="unfinished">QuestionEditDialog</translation>
+      <translation>QuestionEditDialog</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="23"/>
       <source>Создание нового вопроса</source>
-      <translation type="unfinished">Создание нового вопроса</translation>
+      <translation>Create a new question</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="23"/>
       <source>Редактирование вопроса</source>
-      <translation type="unfinished">Редактирование вопроса</translation>
+      <translation>Editing question</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="43"/>
       <source>Текст вопроса:</source>
-      <translation type="unfinished">Текст вопроса:</translation>
+      <translation>Question text:</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="47"/>
       <source>Ответ:</source>
-      <translation type="unfinished">Ответ:</translation>
+      <translation>Answer:</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="62"/>
       <source>Текст</source>
-      <translation type="unfinished">Текст</translation>
+      <translation>Text</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="63"/>
       <source>Текст и Изображение</source>
-      <translation type="unfinished">Текст и Изображение</translation>
+      <translation>Text and Image</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="64"/>
       <source>Текст и Аудио</source>
-      <translation type="unfinished">Текст и Аудио</translation>
+      <translation>Text and Audio</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="67"/>
       <source>Загрузить...</source>
-      <translation type="unfinished">Загрузить...</translation>
+      <translation>Upload...</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="68"/>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="119"/>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="133"/>
       <source>Файл не выбран</source>
-      <translation type="unfinished">Файл не выбран</translation>
+      <translation>No file selected</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="73"/>
       <source>Тип вопроса:</source>
-      <translation type="unfinished">Тип вопроса:</translation>
+      <translation>Question type:</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="74"/>
       <source>Медиафайл:</source>
-      <translation type="unfinished">Медиафайл:</translation>
+      <translation>Media file:</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="80"/>
       <source>Сохранить</source>
-      <translation type="unfinished">Сохранить</translation>
+      <translation>Save</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="81"/>
       <source>Отмена</source>
-      <translation type="unfinished">Отмена</translation>
+      <translation>Cancel</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="82"/>
       <source>Удалить вопрос</source>
-      <translation type="unfinished">Удалить вопрос</translation>
+      <translation>Delete question</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="139"/>
@@ -290,32 +290,32 @@
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="139"/>
       <source>Текст вопроса и ответ на основном языке (RU) должны быть заполнены.</source>
-      <translation type="unfinished">Текст вопроса и ответ на основном языке (RU) должны быть заполнены.</translation>
+      <translation>The text of the question and answer in the main language (RU) must be filled in.</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="150"/>
       <source>Изображения (*.png *.jpg *.jpeg *.bmp)</source>
-      <translation type="unfinished">Изображения (*.png *.jpg *.jpeg *.bmp)</translation>
+      <translation>Images (*.png *.jpg *.jpeg *.bmp)</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="152"/>
       <source>Аудиофайлы (*.mp3 *.wav *.ogg)</source>
-      <translation type="unfinished">Аудиофайлы (*.mp3 *.wav *.ogg)</translation>
+      <translation>Audio files (*.mp3 *.wav *.ogg)</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="157"/>
       <source>Выбрать медиафайл</source>
-      <translation type="unfinished">Выбрать медиафайл</translation>
+      <translation>Select media file</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="176"/>
       <source>Удаление вопроса</source>
-      <translation type="unfinished">Удаление вопроса</translation>
+      <translation>Question deletion</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="177"/>
       <source>Вы уверены, что хотите безвозвратно удалить этот вопрос?</source>
-      <translation type="unfinished">Вы уверены, что хотите безвозвратно удалить этот вопрос?</translation>
+      <translation>Are you sure you want to permanently delete this question?</translation>
     </message>
   </context>
   <context>
