@@ -45,17 +45,7 @@ body:
       description: Если ошибка произошла на компьютере, заполните эти поля.
       placeholder: |
         - ОС: [например, Windows 11, macOS]
-        - Браузер: [например, Chrome, Firefox]
-        - Версия: [например, 108]
-  - type: textarea
-    id: smartphone-info
-    attributes:
-      label: Смартфон (Smartphone)
-      description: Если ошибка произошла на смартфоне, заполните эти поля.
-      placeholder: |
-        - Устройство: [например, iPhone 13]
-        - ОС: [например, iOS 15.1]
-        - Браузер: [например, штатный браузер, Safari]
+        - Версия: [например, v1.2]
   - type: textarea
     id: additional-context
     attributes:
