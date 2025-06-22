@@ -383,5 +383,36 @@
         <source>Неверный пароль!</source>
         <translation></translation>
     </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="14"/>
+        <location filename="../../src/ui/StartWindow.ui" line="59"/>
+        <source>Своя Игра</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="74"/>
+        <source>Иван Боровик, Т-391</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="111"/>
+        <source>Начать</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="129"/>
+        <source>Настройки</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="147"/>
+        <source>Редактирование</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="165"/>
+        <source>Выход</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
