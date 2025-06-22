@@ -392,12 +392,12 @@
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="74"/>
       <source>Иван Боровик, Т-391</source>
-      <translation type="unfinished">Иван Боровик, Т-391</translation>
+      <translation>Ivan Borovik, T-391</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="111"/>
       <source>Начать</source>
-      <translation type="unfinished">Начать</translation>
+      <translation>Start</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="129"/>
@@ -407,7 +407,7 @@
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="147"/>
       <source>Редактирование</source>
-      <translation type="unfinished">Редактирование</translation>
+      <translation>Edit</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="165"/>
