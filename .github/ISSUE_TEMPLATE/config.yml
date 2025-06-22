@@ -1,0 +1,5 @@
+﻿blank_issues_enabled: false
+contact_links:
+  - name: ❓ Задать вопрос
+    url: https://github.com/BoroMotNet/SvojaIgra/discussions/new
+    about: Пожалуйста, используйте раздел Discussions для вопросов, а не Issues.

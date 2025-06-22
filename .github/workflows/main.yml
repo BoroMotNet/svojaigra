@@ -1,170 +1,30 @@
-name: Qt C++ CMake Release Build
-
+name: C++/Qt Build and Test
 on:
-  workflow_dispatch:
-
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
 jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        qt_version: [6.9.1]
-        
+        os: [ windows-latest, ubuntu-latest, macos-latest ]
+        qt_version: [ '6.9.1' ]
     runs-on: ${{ matrix.os }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up Qt
-        uses: jurplel/install-qt-action@v4
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
         with:
           version: ${{ matrix.qt_version }}
-          host: ${{ (matrix.os == 'windows-latest' && 'windows') || (matrix.os == 'ubuntu-latest' && 'linux') || (matrix.os == 'macos-latest' && 'mac') }}
-          target: desktop
-
-      - name: Configure and Build (Windows)
-        if: matrix.os == 'windows-latest'
-        shell: cmd
+          modules: 'widgets multimedia linguisttools'
+      - name: Install system dependencies (Linux)
+        if: runner.os == 'Linux'
         run: |
-          mkdir build
-          cd build
-          # -DCMAKE_BUILD_TYPE=Release для Release сборки
-          # -DCMAKE_PREFIX_PATH="C:\Qt\${{ matrix.qt_version }}\msvc2019_64" # Может потребоваться, если CMake не находит Qt
-          cmake .. -DCMAKE_BUILD_TYPE=Release
-          cmake --build . --config Release
-          
-          # Находим имя исполняемого файла. Если ваше приложение называется "MyProject",
-          # то исполняемый файл будет MyProject.exe (или YourAppName.exe)
-          set "APP_NAME=SvojaIgra"
-          
-          # Предполагаем, что исполняемый файл находится в build\Release (для Visual Studio)
-          # Или в build\bin\Release, build\ (зависит от вашего CMakeLists.txt)
-          # Вам может понадобиться скорректировать этот путь
-          set "EXECUTABLE_PATH=Release\%APP_NAME%.exe"
-          IF NOT EXIST %EXECUTABLE_PATH% (
-              set "EXECUTABLE_PATH=%APP_NAME%.exe"
-          )
-          IF NOT EXIST %EXECUTABLE_PATH% (
-              set "EXECUTABLE_PATH=.\%APP_NAME%.exe"
-          )
-          
-          # Копируем в отдельную папку для развертывания
-          mkdir ..\release_build
-          copy %EXECUTABLE_PATH% ..\release_build\%APP_NAME%.exe
-          
-          # Развертывание Qt зависимостей
-          windeployqt ..\release_build\%APP_NAME%.exe
-          
-          # Создание архива
-          cd ..
-          7z a -tzip %APP_NAME%-Windows-${{ github.ref_name }}.zip release_build\*
-
-      - name: Configure and Build (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          # Установка необходимых пакетов для Linux (зависит от вашего проекта)
           sudo apt-get update
-          sudo apt-get install -y build-essential libgl1-mesa-dev
-          
-          mkdir build
-          cd build
-          # -DCMAKE_BUILD_TYPE=Release для Release сборки
-          # -DCMAKE_PREFIX_PATH="/usr/local/Qt/${{ matrix.qt_version }}/gcc_64" # Может потребоваться
-          cmake .. -DCMAKE_BUILD_TYPE=Release
-          cmake --build . --config Release -j$(nproc)
-          
-          # Находим имя исполняемого файла
-          APP_NAME="SvojaIgra" # Замените на имя вашего исполняемого файла
-          
-          # Исполняемый файл может быть в build/ или build/bin/
-          EXECUTABLE_PATH="./${APP_NAME}"
-          if [ ! -f "$EXECUTABLE_PATH" ]; then
-              EXECUTABLE_PATH="./bin/${APP_NAME}" # Для некоторых CMake проектов
-          fi
-          
-          # Копируем в отдельную папку для развертывания
-          mkdir ../release_build
-          cp ${EXECUTABLE_PATH} ../release_build/${APP_NAME}
-          
-          # Для развертывания Qt приложения на Linux можно использовать linuxdeployqt
-          # или вручную копировать необходимые библиотеки.
-          # Пример с linuxdeployqt:
-          # wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
-          # chmod a+x linuxdeployqt-continuous-x86_64.AppImage
-          # ./linuxdeployqt-continuous-x86_64.AppImage ../release_build/${APP_NAME} -bundle-qml
-          
-          
-          # Создание архива
-          cd ..
-          tar -czvf ${APP_NAME}-Linux-${{ github.ref_name }}.tar.gz release_build/
-
-      - name: Configure and Build (macOS)
-        if: matrix.os == 'macos-latest'
-        run: |
-          mkdir build
-          cd build
-          # -DCMAKE_BUILD_TYPE=Release для Release сборки
-          # -DCMAKE_PREFIX_PATH="/Users/runner/Qt/${{ matrix.qt_version }}/clang_64" # Может потребоваться
-          cmake .. -DCMAKE_BUILD_TYPE=Release
-          cmake --build . --config Release -j$(sysctl -n hw.ncpu)
-          
-          # Находим имя исполняемого файла
-          APP_NAME="SvojaIgra"
-          
-          # Исполняемый файл будет в build/Release/${APP_NAME}.app или build/${APP_NAME}.app
-          # Вам может понадобиться скорректировать этот путь
-          APP_BUNDLE_PATH="../Release/${APP_NAME}.app"
-          if [ ! -d "$APP_BUNDLE_PATH" ]; then
-              APP_BUNDLE_PATH="../${APP_NAME}.app"
-          fi
-          
-          # Развертывание приложения на macOS с macdeployqt
-          macdeployqt ${APP_BUNDLE_PATH} -dmg
-          
-          # Переименование DMG файла для релиза
-          mv ${APP_NAME}.dmg ${APP_NAME}-macOS-${{ github.ref_name }}.dmg
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
-      - name: Upload Release Asset (Windows)
-        if: matrix.os == 'windows-latest'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./SvojaIgra-Windows-${{ github.ref_name }}.zip # Замените MyProject
-          asset_name: SvojaIgra-Windows-${{ github.ref_name }}.zip # Замените MyProject
-          asset_content_type: application/zip
-
-      - name: Upload Release Asset (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./SvojaIgra-Linux-${{ github.ref_name }}.tar.gz # Замените MyProject
-          asset_name: SvojaIgra-Linux-${{ github.ref_name }}.tar.gz # Замените MyProject
-          asset_content_type: application/gzip
-
-      - name: Upload Release Asset (macOS)
-        if: matrix.os == 'macos-latest'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./SvojaIgra-macOS-${{ github.ref_name }}.dmg # Замените MyProject
-          asset_name: SvojaIgra-macOS-${{ github.ref_name }}.dmg # Замените MyProject
-          asset_content_type: application/x-apple-diskimage
+          sudo apt-get install -y libgl1-mesa-dev libxcb-xinerama0 libxkbcommon-x11-0
+      - name: Configure CMake
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+      - name: Build Project
+        run: cmake --build build --config Release --parallel
