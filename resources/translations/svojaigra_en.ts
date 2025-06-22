@@ -21,7 +21,7 @@
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="103"/>
       <source>Добавить</source>
-      <translation>+ Add new</translation>
+      <translation>Add new</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="136"/>
