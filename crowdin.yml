@@ -1,5 +1,3 @@
 files:
   - source: /resources/translations/svojaigra_ru.ts
     translation: /resources/translations/svojaigra_%two_letters_code%.ts
-  - source: /resources/questions/questions_ru.json
-    translation: /resources/questions/questions_%two_letters_code%.json
