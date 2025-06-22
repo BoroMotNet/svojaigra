@@ -21,7 +21,7 @@
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="103"/>
       <source> Добавить</source>
-      <translation type="unfinished"> Добавить</translation>
+      <translation> Дадаць</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="136"/>
@@ -110,7 +110,7 @@
     <message>
       <location filename="../../src/core/GameManager.cpp" line="142"/>
       <source>&apos;, Очки: </source>
-      <translation type="unfinished">&apos;, Очки: </translation>
+      <translation>&apos;, Ачкі: </translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="102"/>
