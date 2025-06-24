@@ -1,5 +1,18 @@
 # Changelog
 
+## [Unreleased](https://github.com/BoroMotNet/svojaigra/tree/HEAD)
+
+[Full Changelog](https://github.com/BoroMotNet/svojaigra/compare/v0.1.3...HEAD)
+
+**Closed issues:**
+
+- Добавлять медиа к вопросам [\#6](https://github.com/BoroMotNet/svojaigra/issues/6)
+- Админ панель [\#5](https://github.com/BoroMotNet/svojaigra/issues/5)
+
+## [v0.1.3](https://github.com/BoroMotNet/svojaigra/tree/v0.1.3) (2025-06-24)
+
+[Full Changelog](https://github.com/BoroMotNet/svojaigra/compare/v0.1.2...v0.1.3)
+
 ## [v0.1.2](https://github.com/BoroMotNet/svojaigra/tree/v0.1.2) (2025-06-22)
 
 [Full Changelog](https://github.com/BoroMotNet/svojaigra/compare/v0.1.0...v0.1.2)
