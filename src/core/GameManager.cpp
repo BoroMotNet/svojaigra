@@ -6,7 +6,6 @@
 #include <QMessageBox>
 #include <QRandomGenerator>
 
-// ... (код до startGame без изменений) ...
 GameManager &GameManager::instance() {
     static GameManager instance;
     return instance;
@@ -45,10 +44,8 @@ const Question *GameManager::getQuestion(const QString &category, int points) co
     return nullptr;
 }
 
-bool GameManager::isQuestionAnswered(const QString &category, int points) const {
-    // В новой логике сыгранный вопрос - это nullptr в m_gameBoard
-    if (!m_gameBoard.count(category) || !m_gameBoard.at(category).count(points)) {
-        return true; // Вопроса нет, значит он "отвечен"
+bool GameManager::isQuestionAnswered(const QString &category, int points) const {if (!m_gameBoard.count(category) || !m_gameBoard.at(category).count(points)) {
+        return true;
     }
     return m_gameBoard.at(category).at(points) == nullptr;
 }
@@ -59,12 +56,12 @@ void GameManager::startGame(const QStringList &playerNames) {
         m_players.emplace_back(name);
     }
 
-    // ИЗМЕНЕНИЕ: Вызываем правильную функцию и она возвращает нужный тип std::vector<Question>
     m_allQuestions = FileManager::loadQuestionsForGame(FileManager::loadLanguageSetting());
 
     if (m_allQuestions.empty()) {
         qWarning() << tr("Не удалось загрузить вопросы. Игра не может быть начата.");
-        // Здесь можно показать QMessageBox пользователю
+        QMessageBox::critical(nullptr, tr("Ошибка загрузки"),
+                              tr("Не удалось загрузить вопросы. Проверьте файлы игры."));
         return;
     }
 
@@ -77,21 +74,27 @@ void GameManager::startGame(const QStringList &playerNames) {
     emit gameStateChanged(m_currentState);
 }
 
-// ... (остальной код GameManager.cpp без изменений) ...
+
 bool GameManager::isQuestionSelectable(const QString &category, int points) const {
     if (isQuestionAnswered(category, points)) {
         return false;
     }
-    // const Player &currentPlayer = m_players.at(m_currentPlayerIndex);
-    // return points >= currentPlayer.getPointsThreshold();
-    return true; // Логику с порогом пока убрал для простоты
+
+    const Player &currentPlayer = m_players.at(m_currentPlayerIndex);
+
+    if (currentPlayer.shouldLockEasyQuestions()) {
+        if (points <= 300) {
+            return false;
+        }
+    }
+
+    return true;
 }
 
 void GameManager::selectQuestion(const QString &category, int points) {
     if (m_currentState != GameState::SelectingQuestion) return;
 
     if (!isQuestionSelectable(category, points)) {
-        // QMessageBox::warning(...);
         return;
     }
 
@@ -114,13 +117,12 @@ void GameManager::selectRandomQuestion() {
         return;
     }
 
-    std::vector<std::pair<QString, int>> availableQuestions;
+    std::vector<std::pair<QString, int> > availableQuestions;
 
-    for (const auto& categoryPair : m_gameBoard) {
-        const QString& category = categoryPair.first;
-        for (const auto& questionPair : categoryPair.second) {
+    for (const auto &categoryPair: m_gameBoard) {
+        const QString &category = categoryPair.first;
+        for (const auto &questionPair: categoryPair.second) {
             int points = questionPair.first;
-            // Проверяем, что вопрос еще не сыгран (указатель не null)
             if (questionPair.second != nullptr && isQuestionSelectable(category, points)) {
                 availableQuestions.emplace_back(category, points);
             }
@@ -134,14 +136,13 @@ void GameManager::selectRandomQuestion() {
         return;
     }
 
-    int randomIndex = QRandomGenerator::global()->bounded(int(availableQuestions.size()));
-    QString randomCategory = availableQuestions[randomIndex].first;
-    int randomPoints = availableQuestions[randomIndex].second;
+    int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(availableQuestions.size()));
+    const auto &randomQuestionPair = availableQuestions[randomIndex];
 
-    qInfo() << tr("Выбран случайный вопрос: Категория '") << randomCategory
-            << tr("', Очки: ") << randomPoints;
+    qInfo() << tr("Выбран случайный вопрос: Категория '") << randomQuestionPair.first
+            << tr("', Очки: ") << randomQuestionPair.second;
 
-    selectQuestion(randomCategory, randomPoints);
+    selectQuestion(randomQuestionPair.first, randomQuestionPair.second);
 }
 
 
@@ -149,25 +150,29 @@ void GameManager::submitAnswer(const QString &answer) {
     if (m_currentState != GameState::AnsweringQuestion || !m_currentQuestion) return;
     double timeElapsed = m_answerTimer.elapsed() / 1000.0;
 
-    // В вашей структуре Question нет метода checkAnswer, использую прямое сравнение
     bool isCorrect = (m_currentQuestion->answer.toLower() == answer.toLower());
     Player &currentPlayer = m_players[m_currentPlayerIndex];
+    int answeringPlayerIndex = m_currentPlayerIndex;
 
-    // currentPlayer.recordAnswer(isCorrect, timeElapsed); // Метода тоже нет
+    bool thresholdWasAlreadySet = currentPlayer.shouldLockEasyQuestions();
+    currentPlayer.recordAnswer(isCorrect, timeElapsed);
 
     if (isCorrect) {
         currentPlayer.addScore(m_currentQuestion->points);
-    } else {
-        // Логика для неправильного ответа (если нужна)
     }
 
-    // Помечаем вопрос как сыгранный
+    if (!thresholdWasAlreadySet && currentPlayer.shouldLockEasyQuestions()) {
+        emit thresholdReached(currentPlayer.getName());
+    }
+
     m_gameBoard.at(m_currentQuestion->category).at(m_currentQuestion->points) = nullptr;
 
-    emit playerScoreUpdated(m_currentPlayerIndex, currentPlayer.getScore());
-    emit gameBoardUpdated();
+    emit playerScoreUpdated(answeringPlayerIndex, currentPlayer.getScore());
 
     changeTurn();
+
+    emit gameBoardUpdated();
+
     checkGameEnd();
 }
 
@@ -178,12 +183,9 @@ void GameManager::endGame() {
     emit gameStateChanged(m_currentState);
 }
 
-
 void GameManager::setupBoard() {
     m_gameBoard.clear();
-    // m_allQuestions - это std::vector<Question>, владеющий объектами
     for (Question &q: m_allQuestions) {
-        // m_gameBoard хранит указатели на эти объекты
         m_gameBoard[q.category][q.points] = &q;
     }
 }
@@ -201,11 +203,9 @@ void GameManager::checkGameEnd() {
     for (const auto &categoryPair: m_gameBoard) {
         for (const auto &questionPair: categoryPair.second) {
             if (questionPair.second != nullptr) {
-                // Если найден хоть один несыгранный вопрос, выходим
                 return;
             }
         }
     }
-    // Если циклы завершились, значит, несыгранных вопросов нет
     endGame();
 }

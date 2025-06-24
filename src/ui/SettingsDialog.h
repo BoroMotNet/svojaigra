@@ -14,11 +14,11 @@ class SettingsDialog : public QDialog
 
 public:
     explicit SettingsDialog(QWidget *parent = nullptr);
-    ~SettingsDialog();
+    ~SettingsDialog() override;
 
-    QColor selectedColor() const;
-    int volumeLevel() const;
-    bool isLanguageChanged() const;
+    [[nodiscard]] QColor selectedColor() const;
+    [[nodiscard]] int volumeLevel() const;
+    [[nodiscard]] bool isLanguageChanged() const;
 
 private slots:
     void onColorButtonClicked();

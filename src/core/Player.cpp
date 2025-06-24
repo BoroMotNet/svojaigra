@@ -1,4 +1,5 @@
 ﻿#include "Player.h"
+
 Player::Player(const QString &name)
     : m_name(name),
       m_score(0),
@@ -7,16 +8,16 @@ Player::Player(const QString &name)
 {
 }
 
-QString Player::getName() const {
-    return m_name;
-}
+QString Player::getName() const { return m_name; }
+int Player::getScore() const { return m_score; }
+void Player::addScore(int points) { m_score += points; }
+void Player::setPointsThreshold(int threshold) { m_pointsThreshold = threshold; }
+int Player::getPointsThreshold() const { return m_pointsThreshold; }
+bool Player::hasThresholdBeenSet() const { return m_thresholdSet; }
+void Player::setThresholdSet(bool set) { m_thresholdSet = set; }
 
-int Player::getScore() const {
-    return m_score;
-}
-
-void Player::addScore(int points) {
-    m_score += points;
+void Player::clearAnswerHistory() {
+    m_answerHistory.clear();
 }
 
 void Player::resetScore() {
@@ -26,60 +27,40 @@ void Player::resetScore() {
     m_thresholdSet = false;
 }
 
+
 void Player::recordAnswer(bool isCorrect, double timeInSeconds) {
-    if (!isCorrect) {
-        clearAnswerHistory();
+    if (m_thresholdSet) {
         return;
     }
 
-    m_answerHistory.emplace_back(isCorrect, timeInSeconds);
+    if (!isCorrect) {
+        m_answerHistory.clear();
+        return;
+    }
+
+    m_answerHistory.emplace_back(true, timeInSeconds);
 
     if (m_answerHistory.size() > HISTORY_SIZE_FOR_DIFFICULTY_CHECK) {
         m_answerHistory.erase(m_answerHistory.begin());
     }
-}
 
-void Player::setPointsThreshold(int threshold)
-{
-    m_pointsThreshold = threshold;
-}
+    if (m_answerHistory.size() < HISTORY_SIZE_FOR_DIFFICULTY_CHECK) {
+        return;
+    }
 
-int Player::getPointsThreshold() const
-{
-    return m_pointsThreshold;
-}
+    bool triggerThreshold = true;
+    for (const auto &answerRecord : m_answerHistory) {
+        if (answerRecord.second > QUICK_ANSWER_THRESHOLD_S) {
+            triggerThreshold = false;
+            break;
+        }
+    }
 
-void Player::clearAnswerHistory()
-{
-    m_answerHistory.clear();
+    if (triggerThreshold) {
+        m_thresholdSet = true;
+    }
 }
 
 bool Player::shouldLockEasyQuestions() const {
-    if (m_thresholdSet) {
-        return false;
-    }
-
-    if (m_answerHistory.size() < HISTORY_SIZE_FOR_DIFFICULTY_CHECK) {
-        return false;
-    }
-
-    double totalTime = 0.0;
-
-    for (const auto &answerRecord: m_answerHistory) {
-
-        if (!answerRecord.first || answerRecord.second > QUICK_ANSWER_THRESHOLD_S) {
-            return false;
-        }
-        totalTime += answerRecord.second;
-    }
-
-    return true;
-}
-
-bool Player::hasThresholdBeenSet() const {
     return m_thresholdSet;
-}
-
-void Player::setThresholdSet(bool set) {
-    m_thresholdSet = set;
 }

@@ -46,6 +46,7 @@ qt_add_translations(SvojaIgra
 
 add_executable(SvojaIgra
         ${SVOJA_IGRA_SOURCES}
+        icon.rc
         resources/resources.qrc
 )
 

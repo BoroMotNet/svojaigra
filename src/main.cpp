@@ -76,6 +76,7 @@ int main(int argc, char *argv[]) {
 
 
     StartWindow startWindow;
+    startWindow.setWindowIcon(QIcon(":/icons/icon.ico"));
     startWindow.showFullScreen();
 
     return app.exec();

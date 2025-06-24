@@ -7,5 +7,6 @@
         <file alias="media/images/starry_night.jpg">media/images/starry_night.jpg</file>
         <file>media/sounds/doppler_effect.mp3</file>
         <file>media/sounds/swan_lake.mp3</file>
+        <file>icons/icon.ico</file>
     </qresource>
 </RCC>

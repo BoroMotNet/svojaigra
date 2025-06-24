@@ -59,6 +59,8 @@ signals:
 
     void questionSelected(const Question &question);
 
+    void thresholdReached(const QString &playerName);
+
     void gameBoardUpdated();
     void gameFinished(const std::vector<Player> &finalResults);
 
