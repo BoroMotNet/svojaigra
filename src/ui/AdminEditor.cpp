@@ -13,8 +13,7 @@
 #include <QIcon>
 #include <QStyle>
 #include <QDebug>
-#include <algorithm> // Для std::sort
-
+#include <algorithm>
 AdminEditor::AdminEditor(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::AdminEditor)
@@ -49,7 +48,6 @@ void AdminEditor::setupUi() {
     topLayout->addWidget(m_saveButton);
     mainLayout->addLayout(topLayout);
 
-    // m_scrollArea теперь член класса, чтобы мы могли получить к нему доступ
     m_scrollArea = new QScrollArea(this);
     m_scrollArea->setWidgetResizable(true);
 
@@ -63,23 +61,16 @@ void AdminEditor::loadAllQuestions() {
     qDebug() << "Загружено" << m_allQuestions.size() << "категорий для редактирования.";
 }
 
-// ===================================================================================
-// !!! ОСНОВНОЕ ИЗМЕНЕНИЕ ЗДЕСЬ !!!
-// Мы больше не чистим layout вручную. Мы удаляем старый контейнер и создаем новый.
-// ===================================================================================
 void AdminEditor::populateBoard() {
-    // 1. Безопасно удаляем старый виджет-контейнер, если он существует
     QWidget* oldBoardContainer = m_scrollArea->takeWidget();
     if (oldBoardContainer) {
         oldBoardContainer->deleteLater();
     }
 
-    // 2. Создаем НОВЫЙ контейнер и НОВЫЙ layout
     QWidget* boardContainer = new QWidget();
     QGridLayout* boardLayout = new QGridLayout(boardContainer);
     boardLayout->setSpacing(10);
 
-    // 3. Заполняем новый layout данными
     int col = 0;
     for (auto it_cat = m_allQuestions.constBegin(); it_cat != m_allQuestions.constEnd(); ++it_cat) {
         const QString& category = it_cat.key();
@@ -110,18 +101,11 @@ void AdminEditor::populateBoard() {
     boardLayout->setRowStretch(boardLayout->rowCount(), 1);
     boardLayout->setColumnStretch(boardLayout->columnCount(), 1);
 
-    // 4. Устанавливаем новый контейнер в scrollArea
     m_scrollArea->setWidget(boardContainer);
 }
 
 
-// Эта функция больше не нужна, так как логика очистки теперь в populateBoard()
-// void AdminEditor::clearBoard() { ... }
-
-
 QWidget* AdminEditor::createQuestionWidget(const QString& category, int points) {
-    // Parent для виджета теперь не this, а boardContainer, но Qt обработает это
-    // при добавлении в layout, так что можно оставить this или убрать родителя вообще
     QWidget* widget = new QWidget();
     QHBoxLayout* layout = new QHBoxLayout(widget);
     layout->setContentsMargins(0,0,0,0);
@@ -132,7 +116,7 @@ QWidget* AdminEditor::createQuestionWidget(const QString& category, int points) 
 
     QPushButton* editButton = new QPushButton(widget);
     editButton->setFixedSize(32, 32);
-    editButton->setIcon(style()->standardIcon(QStyle::SP_DriveHDIcon)); // Другая иконка, похожая на карандаш
+    editButton->setIcon(style()->standardIcon(QStyle::SP_DriveHDIcon));
     editButton->setToolTip(tr("Редактировать вопрос"));
 
     layout->addStretch();
@@ -140,7 +124,8 @@ QWidget* AdminEditor::createQuestionWidget(const QString& category, int points) 
     layout->addWidget(editButton);
     layout->addStretch();
 
-    connect(editButton, &QPushButton::clicked, this, [this, category, points](){ openQuestionEditor(category, points); });
+    connect(editButton, &QPushButton::clicked, this, [this, category, points](){ openQuestionEditor(category, points);
+            });
 
     return widget;
 }
@@ -150,7 +135,6 @@ void AdminEditor::openQuestionEditor(const QString& category, int points) {
 
     QuestionEditDialog dialog(m_allQuestions[category][points], this);
     if (dialog.exec() == QDialog::Accepted) {
-        // Просто перерисовываем доску. Это безопасно.
         populateBoard();
 
         if (dialog.isMarkedForDeletion()) {
@@ -162,7 +146,6 @@ void AdminEditor::openQuestionEditor(const QString& category, int points) {
         } else {
             QMessageBox::information(this, tr("Успешно"), tr("Вопрос обновлен. Не забудьте сохранить изменения."));
         }
-        // Перерисовываем доску еще раз, чтобы отразить удаление
         populateBoard();
     }
 }
@@ -184,7 +167,7 @@ void AdminEditor::addNewQuestion(const QString& category) {
     QuestionEditDialog dialog(newData, this);
     if (dialog.exec() == QDialog::Accepted) {
         m_allQuestions[newData.category][newData.points] = newData;
-        populateBoard(); // Просто и безопасно перерисовываем доску
+        populateBoard();
     }
 }
 

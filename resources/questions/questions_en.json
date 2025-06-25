@@ -1,352 +1,257 @@
-[
-  {
-    "id": 1,
-    "category": "Geography",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Name the capital of Belarus.",
-    "answerText": "Minsk",
-    "mediaPath": ""
-  },
-  {
-    "id": 2,
-    "category": "Geography",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Which ocean is the largest by area?",
-    "answerText": "Pacific",
-    "mediaPath": ""
-  },
-  {
-    "id": 3,
-    "category": "Geography",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "On which continent is the Sahara Desert located?",
-    "answerText": "Africa",
-    "mediaPath": ""
-  },
-  {
-    "id": 4,
-    "category": "Geography",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Name the deepest lake in the world.",
-    "answerText": "Baikal",
-    "mediaPath": ""
-  },
-  {
-    "id": 5,
-    "category": "Geography",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Which country has the longest coastline?",
-    "answerText": "Canada",
-    "mediaPath": ""
-  },
-  {
-    "id": 6,
-    "category": "Geography",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "What is the name of the strait that separates Asia and North America?",
-    "answerText": "Bering Strait",
-    "mediaPath": ""
-  },
-  {
-    "id": 7,
-    "category": "Geography",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "What is the name of the southernmost point of South America?",
-    "answerText": "Cape Horn",
-    "mediaPath": ""
-  },
-  {
-    "id": 8,
-    "category": "Science",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Chemical formula of water.",
-    "answerText": "H2O",
-    "mediaPath": ""
-  },
-  {
-    "id": 9,
-    "category": "Science",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "What gas is the most common in the Earth's atmosphere?",
-    "answerText": "Nitrogen",
-    "mediaPath": ""
-  },
-  {
-    "id": 10,
-    "category": "Science",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Who formulated the law of universal gravitation?",
-    "answerText": "Isaac Newton",
-    "mediaPath": ""
-  },
-  {
-    "id": 11,
-    "category": "Science",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "What is the name of the process of turning light into energy in plants?",
-    "answerText": "Photosynthesis",
-    "mediaPath": ""
-  },
-  {
-    "id": 12,
-    "category": "Science",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "What element of the periodic table has atomic number 1?",
-    "answerText": "Hydrogen",
-    "mediaPath": ""
-  },
-  {
-    "id": 13,
-    "category": "Science",
-    "points": 600,
-    "difficulty": 6,
-    "type": "SoundAndText",
-    "questionText": "What famous sound effect do you hear?",
-    "answerText": "Doppler effect",
-    "mediaPath": "sounds/doppler_effect.mp3"
-  },
-  {
-    "id": 14,
-    "category": "Science",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "What does the science of mycology study?",
-    "answerText": "Mushrooms",
-    "mediaPath": ""
-  },
-  {
-    "id": 15,
-    "category": "History",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "In what year did the Second World War begin?",
-    "answerText": "1939",
-    "mediaPath": ""
-  },
-  {
-    "id": 16,
-    "category": "History",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Who was the first president of the USA?",
-    "answerText": "George Washington",
-    "mediaPath": ""
-  },
-  {
-    "id": 17,
-    "category": "History",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "As a result of which battle did Napoleon finally lose power?",
-    "answerText": "Battle of Waterloo",
-    "mediaPath": ""
-  },
-  {
-    "id": 18,
-    "category": "History",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "What was the name of the first state of the Eastern Slavs?",
-    "answerText": "Kievan Rus'",
-    "mediaPath": ""
-  },
-  {
-    "id": 19,
-    "category": "History",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Which empire is considered the largest in history?",
-    "answerText": "Mongol Empire",
-    "mediaPath": ""
-  },
-  {
-    "id": 20,
-    "category": "History",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "In what century did the Battle of Grunwald take place?",
-    "answerText": "XV",
-    "mediaPath": ""
-  },
-  {
-    "id": 21,
-    "category": "History",
-    "points": 700,
-    "difficulty": 7,
-    "type": "ImageAndText",
-    "questionText": "What invention do you see in the picture — one of the wonders of the ancient world?",
-    "answerText": "Pyramids of Giza",
-    "mediaPath": "images/pyramids.jpg"
-  },
-  {
-    "id": 22,
-    "category": "Literature",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Who is the author of the play \"Romeo and Juliet\"?",
-    "answerText": "William Shakespeare",
-    "mediaPath": ""
-  },
-  {
-    "id": 23,
-    "category": "Literature",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Who wrote the novel \"War and Peace\"?",
-    "answerText": "Lev Tolstoi",
-    "mediaPath": ""
-  },
-  {
-    "id": 24,
-    "category": "Literature",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Name the main character of the novel \"Don Quixote\".",
-    "answerText": "Don Quichotte",
-    "mediaPath": ""
-  },
-  {
-    "id": 25,
-    "category": "Literature",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Which Belarusian poet wrote the poem \"New Land\"?",
-    "answerText": "Jakub Kolas",
-    "mediaPath": ""
-  },
-  {
-    "id": 26,
-    "category": "Literature",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "From which Shakespeare's work is the phrase \"To be or not to be, what is the question\"?",
-    "answerText": "Hamlet",
-    "mediaPath": ""
-  },
-  {
-    "id": 27,
-    "category": "Literature",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Who is the author of \"The Master and Margarita\"?",
-    "answerText": "Mikhail Bulgakov",
-    "mediaPath": ""
-  },
-  {
-    "id": 28,
-    "category": "Literature",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "What is the name of the captain of the submarine \"Nautilus\" in the works of Jules Verne?",
-    "answerText": "Captain Nemo",
-    "mediaPath": ""
-  },
-  {
-    "id": 29,
-    "category": "Art",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Who wrote the painting \"Black Square\"?",
-    "answerText": "Kazimir Malevich",
-    "mediaPath": ""
-  },
-  {
-    "id": 30,
-    "category": "Art",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "In which city is the Louvre Museum located?",
-    "answerText": "Paris",
-    "mediaPath": ""
-  },
-  {
-    "id": 31,
-    "category": "Art",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Name the author of the famous David sculpture.",
-    "answerText": "Michelangelo",
-    "mediaPath": ""
-  },
-  {
-    "id": 32,
-    "category": "Art",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "What direction in art does the work of Salvador Dalí belong to?",
-    "answerText": "Surrealism",
-    "mediaPath": ""
-  },
-  {
-    "id": 33,
-    "category": "Art",
-    "points": 500,
-    "difficulty": 5,
-    "type": "ImageAndText",
-    "questionText": "What is the name of this painting by Vincent van Gogh?",
-    "answerText": "The Starry Night",
-    "mediaPath": "images/starry_night.jpg"
-  },
-  {
-    "id": 34,
-    "category": "Art",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Name a Belarusian artist known for his works on the theme of his native city of Vitebsk.",
-    "answerText": "Marc Chagall",
-    "mediaPath": ""
-  },
-  {
-    "id": 35,
-    "category": "Art",
-    "points": 700,
-    "difficulty": 7,
-    "type": "SoundAndText",
-    "questionText": "Fragment from which ballet of Pyotr Tchaikovsky do you hear?",
-    "answerText": "Swan lake",
-    "mediaPath": "sounds/swan_lake.mp3"
-  }
-]
+{
+  "Geography": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Name the capital of Belarus.",
+      "answerText": "Minsk",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Which ocean is the largest by area?",
+      "answerText": "Pacific",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "On which continent is the Sahara Desert located?",
+      "answerText": "Africa",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Name the deepest lake in the world.",
+      "answerText": "Baikal",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Which country has the longest coastline?",
+      "answerText": "Canada",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "What is the name of the strait that separates Asia and North America?",
+      "answerText": "Bering Strait",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "What is the name of the southernmost point of South America?",
+      "answerText": "Cape Horn",
+      "mediaPath": ""
+    }
+  ],
+  "Science": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Chemical formula of water.",
+      "answerText": "H2O",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "What gas is the most common in the Earth's atmosphere?",
+      "answerText": "Nitrogen",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Who formulated the law of universal gravitation?",
+      "answerText": "Isaac Newton",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "What is the name of the process of turning light into energy in plants?",
+      "answerText": "Photosynthesis",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "What element of the periodic table has atomic number 1?",
+      "answerText": "Hydrogen",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "SoundAndText",
+      "questionText": "What famous sound effect do you hear?",
+      "answerText": "Doppler effect",
+      "mediaPath": "sounds/doppler_effect.mp3"
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "What does the science of mycology study?",
+      "answerText": "Mushrooms",
+      "mediaPath": ""
+    }
+  ],
+  "History": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "In what year did the Second World War begin?",
+      "answerText": "1939",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Who was the first president of the USA?",
+      "answerText": "George Washington",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "As a result of which battle did Napoleon finally lose power?",
+      "answerText": "Battle of Waterloo",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "What was the name of the first state of the Eastern Slavs?",
+      "answerText": "Kievan Rus'",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Which empire is considered the largest in history?",
+      "answerText": "Mongol Empire",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "In what century did the Battle of Grunwald take place?",
+      "answerText": "XV",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "ImageAndText",
+      "questionText": "What invention do you see in the picture — one of the wonders of the ancient world?",
+      "answerText": "Pyramids of Giza",
+      "mediaPath": "images/pyramids.jpg"
+    }
+  ],
+  "Literature": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Who is the author of the play \"Romeo and Juliet\"?",
+      "answerText": "William Shakespeare",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Who wrote the novel \"War and Peace\"?",
+      "answerText": "Lev Tolstoi",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Name the main character of the novel \"Don Quixote\".",
+      "answerText": "Don Quichotte",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Which Belarusian poet wrote the poem \"New Land\"?",
+      "answerText": "Jakub Kolas",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "From which Shakespeare's work is the phrase \"To be or not to be, what is the question\"?",
+      "answerText": "Hamlet",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Who is the author of \"The Master and Margarita\"?",
+      "answerText": "Mikhail Bulgakov",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "What is the name of the captain of the submarine \"Nautilus\" in the works of Jules Verne?",
+      "answerText": "Captain Nemo",
+      "mediaPath": ""
+    }
+  ],
+  "Art": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Who wrote the painting \"Black Square\"?",
+      "answerText": "Kazimir Malevich",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "In which city is the Louvre Museum located?",
+      "answerText": "Paris",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Name the author of the famous David sculpture.",
+      "answerText": "Michelangelo",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "What direction in art does the work of Salvador Dalí belong to?",
+      "answerText": "Surrealism",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "ImageAndText",
+      "questionText": "What is the name of this painting by Vincent van Gogh?",
+      "answerText": "The Starry Night",
+      "mediaPath": "images/starry_night.jpg"
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Name a Belarusian artist known for his works on the theme of his native city of Vitebsk.",
+      "answerText": "Marc Chagall",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "SoundAndText",
+      "questionText": "Fragment from which ballet of Pyotr Tchaikovsky do you hear?",
+      "answerText": "Swan lake",
+      "mediaPath": "sounds/swan_lake.mp3"
+    }
+  ]
+}
