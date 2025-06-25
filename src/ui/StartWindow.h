@@ -1,14 +1,11 @@
 ﻿#ifndef STARTWINDOW_H
 #define STARTWINDOW_H
 
-#include "MainWindow.h"
+#include <QWidget>
 
 namespace Ui {
     class StartWindow;
 }
-
-class MainWindow;
-class AdminEditor;
 
 class StartWindow : public QWidget
 {
@@ -25,9 +22,6 @@ private slots:
 
 private:
     Ui::StartWindow *ui;
-
-    MainWindow  *gameWindow;
-    AdminEditor *adminWindow;
 };
 
-#endif
+#endif // STARTWINDOW_H

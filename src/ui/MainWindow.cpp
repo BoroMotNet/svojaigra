@@ -1,5 +1,5 @@
-#include "./MainWindow.h"
-#include "./QuestionDialog.h"
+#include "MainWindow.h"
+#include "QuestionDialog.h"
 #include "../core/GameManager.h"
 
 #include <QVBoxLayout>
@@ -10,19 +10,42 @@
 #include <QMessageBox>
 #include <QSettings>
 #include <QKeyEvent>
+#include <QDebug>
+#include <QApplication>
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+MainWindow::MainWindow(const QStringList &playerNames, QWidget *parent) : QMainWindow(parent) {
     setupUi();
+    setupPlayerBar(playerNames);
+    setupGameBoard();
     applyCurrentSettings();
 
+    // Соединяем сигналы от логики к слотам нашего интерфейса
     connect(&GameManager::instance(), &GameManager::gameBoardUpdated, this, &MainWindow::updateBoardState);
     connect(&GameManager::instance(), &GameManager::currentPlayerChanged, this, &MainWindow::updatePlayerInfo);
     connect(&GameManager::instance(), &GameManager::playerScoreUpdated, this, &MainWindow::updatePlayerScore);
     connect(&GameManager::instance(), &GameManager::questionSelected, this, &MainWindow::displayQuestion);
     connect(&GameManager::instance(), &GameManager::gameFinished, this, &MainWindow::showGameResults);
 
+    // Устанавливаем начальное состояние интерфейса
     updateBoardState();
     updatePlayerInfo(GameManager::instance().getCurrentPlayerIndex());
+}
+
+void MainWindow::closeEvent(QCloseEvent *event) {
+    // Принимаем событие закрытия
+    event->accept();
+    // И показываем родительское окно (наше главное меню)
+    if (parentWidget()) {
+        parentWidget()->show();
+    }
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Escape) {
+        handleExitClicked();
+    } else {
+        QMainWindow::keyPressEvent(event);
+    }
 }
 
 void MainWindow::setupUi() {
@@ -59,22 +82,28 @@ void MainWindow::setupUi() {
 
     connect(m_randomQuestionButton, &QPushButton::clicked, this, &MainWindow::handleRandomQuestionClicked);
     connect(m_exitButton, &QPushButton::clicked, this, &MainWindow::handleExitClicked);
-
-    setupPlayerBar();
-    setupGameBoard();
 }
 
-void MainWindow::setupPlayerBar() {
-    const auto &players = GameManager::instance().getPlayers();
-    for (const auto &player: players) {
+void MainWindow::setupPlayerBar(const QStringList &playerNames) {
+    // Очищаем старые виджеты, если они были
+    QLayoutItem *item;
+    while ((item = m_playerLayout->takeAt(0)) != nullptr) {
+        delete item->widget();
+        delete item;
+    }
+    m_playerNameLabels.clear();
+    m_playerScoreLabels.clear();
+
+    // Создаем панель игроков заново
+    for (const auto &name: playerNames) {
         QVBoxLayout *playerBox = new QVBoxLayout();
 
-        QLabel *nameLabel = new QLabel(player.getName(), this);
+        QLabel *nameLabel = new QLabel(name, this);
         nameLabel->setAlignment(Qt::AlignCenter);
         nameLabel->setFont(QFont("Arial", 16, QFont::Bold));
         m_playerNameLabels.push_back(nameLabel);
 
-        QLabel *scoreLabel = new QLabel(QString::number(player.getScore()), this);
+        QLabel *scoreLabel = new QLabel("0", this);
         scoreLabel->setAlignment(Qt::AlignCenter);
         scoreLabel->setFont(QFont("Arial", 20, QFont::Bold));
         scoreLabel->setStyleSheet("color: yellow;");
@@ -87,7 +116,6 @@ void MainWindow::setupPlayerBar() {
 }
 
 void MainWindow::setupGameBoard() {
-    // 1. Очищаем старую сетку (если нужно)
     QLayoutItem *item;
     while ((item = m_boardLayout->takeAt(0)) != nullptr) {
         if (item->widget()) {
@@ -95,16 +123,12 @@ void MainWindow::setupGameBoard() {
         }
         delete item;
     }
-    // Очищаем нашу карту с кнопками, так как мы создаем их заново
     m_questionButtons.clear();
 
-    // 2. Получаем актуальный список категорий
     QStringList categories = GameManager::instance().getCategories();
 
-    // 3. Рисуем новую сетку
     int column = 0;
     for (const QString &category: categories) {
-        // Добавляем заголовок категории
         QLabel *categoryLabel = new QLabel(category, this);
         categoryLabel->setAlignment(Qt::AlignCenter);
         categoryLabel->setFont(QFont("Arial", 14, QFont::Bold));
@@ -115,53 +139,36 @@ void MainWindow::setupGameBoard() {
 
         int row = 1;
         for (int points: pointsList) {
-            // Создаем кнопку для вопроса
             QPushButton *questionButton = new QPushButton(QString::number(points), this);
             questionButton->setFont(QFont("Arial", 16, QFont::Bold));
             questionButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-
-            if (GameManager::instance().isQuestionAnswered(category, points)) {
-                questionButton->setEnabled(false);
-                questionButton->setText("✓");
-            }
-
-            if (!GameManager::instance().isQuestionSelectable(category, points)) {
-                questionButton->setEnabled(false);
-            }
 
             connect(questionButton, &QPushButton::clicked, this, [category, points]() {
                 GameManager::instance().selectQuestion(category, points);
             });
 
             m_boardLayout->addWidget(questionButton, row, column);
-
             m_questionButtons[category][points] = questionButton;
-
             row++;
         }
         column++;
     }
 }
 
-void MainWindow::applyCurrentSettings() {
-    QSettings settings;
-    QString colorName = settings.value("backgroundColor", "#333333").toString();
-    QString style = QString("QWidget#centralWidget { background-color: %1; } QLabel { color: white; }").arg(colorName);
-    m_centralWidget->setObjectName("centralWidget");
-    this->setStyleSheet(style);
-
-    int volume = settings.value("volume", 100).toInt();
-}
-
 void MainWindow::updateBoardState() {
-    for (auto const &[category, pointsMap]: m_questionButtons) {
-        for (auto const &[points, button]: pointsMap) {
+    for (auto it_cat = m_questionButtons.constBegin(); it_cat != m_questionButtons.constEnd(); ++it_cat) {
+        const QString &category = it_cat.key();
+        const QMap<int, QPushButton *> &pointsMap = it_cat.value();
+
+        for (auto it_q = pointsMap.constBegin(); it_q != pointsMap.constEnd(); ++it_q) {
+            int points = it_q.key();
+            QPushButton *button = it_q.value();
+
             if (GameManager::instance().isQuestionAnswered(category, points)) {
-                button->setStyleSheet("background-color: gray;");
                 button->setEnabled(false);
+                button->setText("✓");
             } else {
-                button->setStyleSheet("");
-                button->setVisible(true);
+                button->setText(QString::number(points));
                 button->setEnabled(GameManager::instance().isQuestionSelectable(category, points));
             }
         }
@@ -176,13 +183,10 @@ void MainWindow::updatePlayerInfo(int playerIndex) {
             m_playerNameLabels[i]->setStyleSheet("color: white; border: none;");
         }
     }
-    if (playerIndex < m_playerScoreLabels.size()) {
-        m_playerScoreLabels[playerIndex]->setStyleSheet("color: yellow;");
-    }
 }
 
 void MainWindow::updatePlayerScore(int playerIndex, int newScore) {
-    if (playerIndex < m_playerScoreLabels.size()) {
+    if (playerIndex >= 0 && playerIndex < m_playerScoreLabels.size()) {
         m_playerScoreLabels[playerIndex]->setText(QString::number(newScore));
     }
 }
@@ -192,18 +196,8 @@ void MainWindow::displayQuestion(const Question &question) {
     if (dialog.exec() == QDialog::Accepted) {
         GameManager::instance().submitAnswer(dialog.getAnswer());
     } else {
-        GameManager::instance().submitAnswer("");
+        GameManager::instance().submitAnswer(""); // Закрытие диалога = неверный ответ
     }
-}
-
-void MainWindow::handleQuestionClicked() {
-    QPushButton *button = qobject_cast<QPushButton *>(sender());
-    if (!button) return;
-
-    QString category = button->property("category").toString();
-    int points = button->property("points").toInt();
-
-    GameManager::instance().selectQuestion(category, points);
 }
 
 void MainWindow::showGameResults(const std::vector<Player> &finalResults) {
@@ -213,21 +207,16 @@ void MainWindow::showGameResults(const std::vector<Player> &finalResults) {
     }
     QMessageBox::information(this, tr("Игра окончена!"), resultsText);
 
-    if (parentWidget()) {
-        parentWidget()->showFullScreen();
-        this->hide();
-    } else {
-        qApp->quit();
-    }
+    // Просто закрываем окно, наш closeEvent позаботится о возврате в главное меню
+    close();
 }
 
-
-void MainWindow::keyPressEvent(QKeyEvent *event) {
-    if (event->key() == Qt::Key_Escape) {
-        handleExitClicked();
-    } else {
-        QMainWindow::keyPressEvent(event);
-    }
+void MainWindow::applyCurrentSettings() {
+    QSettings settings;
+    QString colorName = settings.value("backgroundColor", "#333333").toString();
+    QString style = QString("QWidget#centralWidget { background-color: %1; } QLabel { color: white; }").arg(colorName);
+    m_centralWidget->setObjectName("centralWidget");
+    this->setStyleSheet(style);
 }
 
 void MainWindow::handleRandomQuestionClicked() {

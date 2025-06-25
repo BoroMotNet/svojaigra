@@ -3,10 +3,11 @@
 
 #include <QMainWindow>
 #include <vector>
-#include <map>
+#include <QMap>
+#include <QCloseEvent> // Добавляем для closeEvent
+
 #include "../core/Question.h"
 #include "../core/Player.h"
-#include <QKeyEvent>
 
 class QGridLayout;
 class QLabel;
@@ -14,31 +15,37 @@ class QPushButton;
 class QVBoxLayout;
 class QHBoxLayout;
 class QWidget;
+class QKeyEvent;
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    // !!! ИЗМЕНЕНИЕ: Конструктор теперь принимает имена игроков
+    explicit MainWindow(const QStringList& playerNames, QWidget *parent = nullptr);
+    ~MainWindow() override = default;
+
+protected:
+    // Объявляем обработчик закрытия окна
+    void closeEvent(QCloseEvent *event) override;
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
     void updateBoardState();
     void updatePlayerInfo(int playerIndex);
     void updatePlayerScore(int playerIndex, int newScore);
     void displayQuestion(const Question& question);
-    void handleQuestionClicked();
     void showGameResults(const std::vector<Player>& finalResults);
-
-void handleRandomQuestionClicked();
+    void handleRandomQuestionClicked();
     void handleExitClicked();
 
 private:
     void setupUi();
-    void setupPlayerBar();
+    // Функция теперь принимает имена игроков
+    void setupPlayerBar(const QStringList& playerNames);
     void setupGameBoard();
     void applyCurrentSettings();
-    void keyPressEvent(QKeyEvent *event) override;
 
     QWidget* m_centralWidget;
     QVBoxLayout* m_mainLayout;
@@ -50,7 +57,9 @@ private:
 
     std::vector<QLabel*> m_playerNameLabels;
     std::vector<QLabel*> m_playerScoreLabels;
-    std::map<QString, std::map<int, QPushButton*>> m_questionButtons;
+
+    // Карта для хранения указателей на кнопки
+    QMap<QString, QMap<int, QPushButton*>> m_questionButtons;
 };
 
-#endif
+#endif // MAINWINDOW_H

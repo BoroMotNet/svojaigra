@@ -1,10 +1,10 @@
-﻿#include "./StartWindow.h"
+﻿#include "StartWindow.h"
 #include "ui_StartWindow.h"
 
-#include "./MainWindow.h"
-#include "./AdminEditor.h"
-#include "./PlayerNameDialog.h"
-#include "./SettingsDialog.h"
+#include "MainWindow.h"
+#include "AdminEditor.h"
+#include "PlayerNameDialog.h"
+#include "SettingsDialog.h"
 #include "../core/GameManager.h"
 
 #include <QApplication>
@@ -22,9 +22,6 @@ StartWindow::StartWindow(QWidget *parent) : QWidget(parent),
     connect(ui->editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
     connect(ui->exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
     setWindowTitle(tr("Своя Игра - Меню"));
-
-    gameWindow = nullptr;
-    adminWindow = nullptr;
 }
 
 StartWindow::~StartWindow() {
@@ -32,17 +29,25 @@ StartWindow::~StartWindow() {
 }
 
 void StartWindow::handleStart() {
+    // Указываем корректные аргументы для конструктора PlayerNameDialog
     PlayerNameDialog dialog(4, this);
     if (dialog.exec() == QDialog::Accepted) {
         QStringList playerNames = dialog.getPlayerNames();
+        if(playerNames.isEmpty() || playerNames.first().isEmpty()) {
+             QMessageBox::warning(this, tr("Ошибка"), tr("Введите хотя бы одно имя игрока!"));
+             return;
+        }
+
         GameManager::instance().startGame(playerNames);
 
-        if (!gameWindow) {
-            gameWindow = new MainWindow(this);
-        }
-        gameWindow->showFullScreen();
-
         this->hide();
+
+        // Создаем игровое окно, передавая ему родителя и имена игроков
+        auto* gameWindow = new MainWindow(playerNames, this);
+        // Этот флаг автоматически вызовет "delete gameWindow", когда окно закроется
+        gameWindow->setAttribute(Qt::WA_DeleteOnClose);
+
+        gameWindow->showFullScreen();
     }
 }
 
@@ -53,21 +58,19 @@ void StartWindow::handleSettings() {
 
 void StartWindow::handleEdit() {
     const QString adminPassword = "1";
-
     bool ok;
     QString password = QInputDialog::getText(this, tr("Авторизация"),
                                              tr("Введите пароль администратора:"),
-                                             QLineEdit::Password,
-                                             "", &ok);
-
-    if (ok && !password.isEmpty()) {
-        if (password == adminPassword) {
-            if (!adminWindow) {
-                adminWindow = new AdminEditor();
-            }
-            adminWindow->showFullScreen();
+                                             QLineEdit::Password, "", &ok);
+    if (ok && password == adminPassword) {
+        if (ok && password == adminPassword) {
             this->hide();
-        } else {
+
+            AdminEditor editor(this);
+            editor.exec();
+
+            this->show();
+        } else if (ok) {
             QMessageBox::warning(this, tr("Ошибка"), tr("Неверный пароль!"));
         }
     }
