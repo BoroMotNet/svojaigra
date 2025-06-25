@@ -1,352 +1,257 @@
-[
-  {
-    "id": 1,
-    "category": "География",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Назовите столицу Беларуси.",
-    "answerText": "Минск",
-    "mediaPath": ""
-  },
-  {
-    "id": 2,
-    "category": "География",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Какой океан является самым большим по площади?",
-    "answerText": "Тихий",
-    "mediaPath": ""
-  },
-  {
-    "id": 3,
-    "category": "География",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "На каком континенте находится пустыня Сахара?",
-    "answerText": "Африка",
-    "mediaPath": ""
-  },
-  {
-    "id": 4,
-    "category": "География",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Назовите самое глубокое озеро в мире.",
-    "answerText": "Байкал",
-    "mediaPath": ""
-  },
-  {
-    "id": 5,
-    "category": "География",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Какая страна имеет самую длинную береговую линию?",
-    "answerText": "Канада",
-    "mediaPath": ""
-  },
-  {
-    "id": 6,
-    "category": "География",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Как называется пролив, который разделяет Азию и Северную Америку?",
-    "answerText": "Берингов пролив",
-    "mediaPath": ""
-  },
-  {
-    "id": 7,
-    "category": "География",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "Как называется самая южная точка Южной Америки?",
-    "answerText": "Мыс Горн",
-    "mediaPath": ""
-  },
-  {
-    "id": 8,
-    "category": "Наука",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Химическая формула воды.",
-    "answerText": "H2O",
-    "mediaPath": ""
-  },
-  {
-    "id": 9,
-    "category": "Наука",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Какой газ является самым распространённым в атмосфере Земли?",
-    "answerText": "Азот",
-    "mediaPath": ""
-  },
-  {
-    "id": 10,
-    "category": "Наука",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Кто сформулировал закон всемирного тяготения?",
-    "answerText": "Исаак Ньютон",
-    "mediaPath": ""
-  },
-  {
-    "id": 11,
-    "category": "Наука",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Как называется процесс превращения света в энергию у растений?",
-    "answerText": "Фотосинтез",
-    "mediaPath": ""
-  },
-  {
-    "id": 12,
-    "category": "Наука",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Какой элемент периодической таблицы имеет атомный номер 1?",
-    "answerText": "Водород",
-    "mediaPath": ""
-  },
-  {
-    "id": 13,
-    "category": "Наука",
-    "points": 600,
-    "difficulty": 6,
-    "type": "SoundAndText",
-    "questionText": "Какой звук известного эффекта вы слышите?",
-    "answerText": "Эффект Доплера",
-    "mediaPath": "sounds/doppler_effect.mp3"
-  },
-  {
-    "id": 14,
-    "category": "Наука",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "Что изучает наука микология?",
-    "answerText": "Грибы",
-    "mediaPath": ""
-  },
-  {
-    "id": 15,
-    "category": "История",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "В каком году началась Вторая мировая война?",
-    "answerText": "1939",
-    "mediaPath": ""
-  },
-  {
-    "id": 16,
-    "category": "История",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Кто был первым президентом США?",
-    "answerText": "Джордж Вашингтон",
-    "mediaPath": ""
-  },
-  {
-    "id": 17,
-    "category": "История",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "В результате какой битвы Наполеон окончательно потерял власть?",
-    "answerText": "Битва при Ватерлоо",
-    "mediaPath": ""
-  },
-  {
-    "id": 18,
-    "category": "История",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Как называлось первое государство восточных славян?",
-    "answerText": "Киевская Русь",
-    "mediaPath": ""
-  },
-  {
-    "id": 19,
-    "category": "История",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Какая империя считается самой большой по площади в истории?",
-    "answerText": "Монгольская империя",
-    "mediaPath": ""
-  },
-  {
-    "id": 20,
-    "category": "История",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "В каком столетии произошла Грюнвальдская битва?",
-    "answerText": "XV",
-    "mediaPath": ""
-  },
-  {
-    "id": 21,
-    "category": "История",
-    "points": 700,
-    "difficulty": 7,
-    "type": "ImageAndText",
-    "questionText": "Какое изобретение вы видите на изображении — одно из чудес древнего мира?",
-    "answerText": "Пирамиды Гизы",
-    "mediaPath": "images/pyramids.jpg"
-  },
-  {
-    "id": 22,
-    "category": "Литература",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Кто является автором пьесы «Ромео и Джульетта»?",
-    "answerText": "Уильям Шекспир",
-    "mediaPath": ""
-  },
-  {
-    "id": 23,
-    "category": "Литература",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Кто написал роман «Война и мир»?",
-    "answerText": "Лев Толстой",
-    "mediaPath": ""
-  },
-  {
-    "id": 24,
-    "category": "Литература",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Назовите главного героя романа «Дон Кихот».",
-    "answerText": "Дон Кихот",
-    "mediaPath": ""
-  },
-  {
-    "id": 25,
-    "category": "Литература",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Какой белорусский поэт написал поэму «Новая земля»?",
-    "answerText": "Якуб Колас",
-    "mediaPath": ""
-  },
-  {
-    "id": 26,
-    "category": "Литература",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Из какого произведения Шекспира фраза «Быть или не быть, вот в чём вопрос»?",
-    "answerText": "Гамлет",
-    "mediaPath": ""
-  },
-  {
-    "id": 27,
-    "category": "Литература",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Кто является автором «Мастера и Маргариты»?",
-    "answerText": "Михаил Булгаков",
-    "mediaPath": ""
-  },
-  {
-    "id": 28,
-    "category": "Литература",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "Как зовут капитана подводной лодки «Наутилус» в произведениях Жюля Верна?",
-    "answerText": "Капитан Немо",
-    "mediaPath": ""
-  },
-  {
-    "id": 29,
-    "category": "Искусство",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Кто написал картину «Чёрный квадрат»?",
-    "answerText": "Казимир Малевич",
-    "mediaPath": ""
-  },
-  {
-    "id": 30,
-    "category": "Искусство",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "В каком городе находится музей Лувр?",
-    "answerText": "Париж",
-    "mediaPath": ""
-  },
-  {
-    "id": 31,
-    "category": "Искусство",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Назовите автора знаменитой скульптуры «Давид».",
-    "answerText": "Микеланджело",
-    "mediaPath": ""
-  },
-  {
-    "id": 32,
-    "category": "Искусство",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "К какому направлению в искусстве относится творчество Сальвадора Дали?",
-    "answerText": "Сюрреализм",
-    "mediaPath": ""
-  },
-  {
-    "id": 33,
-    "category": "Искусство",
-    "points": 500,
-    "difficulty": 5,
-    "type": "ImageAndText",
-    "questionText": "Как называется эта картина Винсента ван Гога?",
-    "answerText": "Звёздная ночь",
-    "mediaPath": "images/starry_night.jpg"
-  },
-  {
-    "id": 34,
-    "category": "Искусство",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Назовите белорусского художника, известного своими работами на тему родного города Витебска.",
-    "answerText": "Марк Шагал",
-    "mediaPath": ""
-  },
-  {
-    "id": 35,
-    "category": "Искусство",
-    "points": 700,
-    "difficulty": 7,
-    "type": "SoundAndText",
-    "questionText": "Фрагмент из какого балета Петра Чайковского вы слышите?",
-    "answerText": "Лебединое озеро",
-    "mediaPath": "sounds/swan_lake.mp3"
-  }
-]
+{
+  "География": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Назовите столицу Беларуси.",
+      "answerText": "Минск",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Какой океан является самым большим по площади?",
+      "answerText": "Тихий",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "На каком континенте находится пустыня Сахара?",
+      "answerText": "Африка",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Назовите самое глубокое озеро в мире.",
+      "answerText": "Байкал",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Какая страна имеет самую длинную береговую линию?",
+      "answerText": "Канада",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Как называется пролив, который разделяет Азию и Северную Америку?",
+      "answerText": "Берингов пролив",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "Как называется самая южная точка Южной Америки?",
+      "answerText": "Мыс Горн",
+      "mediaPath": ""
+    }
+  ],
+  "Наука": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Химическая формула воды.",
+      "answerText": "H2O",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Какой газ является самым распространённым в атмосфере Земли?",
+      "answerText": "Азот",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Кто сформулировал закон всемирного тяготения?",
+      "answerText": "Исаак Ньютон",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Как называется процесс превращения света в энергию у растений?",
+      "answerText": "Фотосинтез",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Какой элемент периодической таблицы имеет атомный номер 1?",
+      "answerText": "Водород",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "SoundAndText",
+      "questionText": "Какой звук известного эффекта вы слышите?",
+      "answerText": "Эффект Доплера",
+      "mediaPath": "sounds/doppler_effect.mp3"
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "Что изучает наука микология?",
+      "answerText": "Грибы",
+      "mediaPath": ""
+    }
+  ],
+  "История": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "В каком году началась Вторая мировая война?",
+      "answerText": "1939",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Кто был первым президентом США?",
+      "answerText": "Джордж Вашингтон",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "В результате какой битвы Наполеон окончательно потерял власть?",
+      "answerText": "Битва при Ватерлоо",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Как называлось первое государство восточных славян?",
+      "answerText": "Киевская Русь",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Какая империя считается самой большой по площади в истории?",
+      "answerText": "Монгольская империя",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "В каком столетии произошла Грюнвальдская битва?",
+      "answerText": "XV",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "ImageAndText",
+      "questionText": "Какое изобретение вы видите на изображении — одно из чудес древнего мира?",
+      "answerText": "Пирамиды Гизы",
+      "mediaPath": "images/pyramids.jpg"
+    }
+  ],
+  "Литература": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Кто является автором пьесы «Ромео и Джульетта»?",
+      "answerText": "Уильям Шекспир",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Кто написал роман «Война и мир»?",
+      "answerText": "Лев Толстой",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Назовите главного героя романа «Дон Кихот».",
+      "answerText": "Дон Кихот",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Какой белорусский поэт написал поэму «Новая земля»?",
+      "answerText": "Якуб Колас",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Из какого произведения Шекспира фраза «Быть или не быть, вот в чём вопрос»?",
+      "answerText": "Гамлет",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Кто является автором «Мастера и Маргариты»?",
+      "answerText": "Михаил Булгаков",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "Как зовут капитана подводной лодки «Наутилус» в произведениях Жюля Верна?",
+      "answerText": "Капитан Немо",
+      "mediaPath": ""
+    }
+  ],
+  "Искусство": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Кто написал картину «Чёрный квадрат»?",
+      "answerText": "Казимир Малевич",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "В каком городе находится музей Лувр?",
+      "answerText": "Париж",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Назовите автора знаменитой скульптуры «Давид».",
+      "answerText": "Микеланджело",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "К какому направлению в искусстве относится творчество Сальвадора Дали?",
+      "answerText": "Сюрреализм",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "ImageAndText",
+      "questionText": "Как называется эта картина Винсента ван Гога?",
+      "answerText": "Звёздная ночь",
+      "mediaPath": "images/starry_night.jpg"
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Назовите белорусского художника, известного своими работами на тему родного города Витебска.",
+      "answerText": "Марк Шагал",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "SoundAndText",
+      "questionText": "Фрагмент из какого балета Петра Чайковского вы слышите?",
+      "answerText": "Лебединое озеро",
+      "mediaPath": "sounds/swan_lake.mp3"
+    }
+  ]
+}

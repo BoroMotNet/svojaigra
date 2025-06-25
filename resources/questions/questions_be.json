@@ -1,352 +1,257 @@
-[
-  {
-    "id": 1,
-    "category": "Геаграфія",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Назавіце сталіцу Беларусі.",
-    "answerText": "Мінск",
-    "mediaPath": ""
-  },
-  {
-    "id": 2,
-    "category": "Геаграфія",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Які акіян з'яўляецца самым вялікім па плошчы?",
-    "answerText": "Ціхі",
-    "mediaPath": ""
-  },
-  {
-    "id": 3,
-    "category": "Геаграфія",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "На якім кантыненце знаходзіцца пустыня Сахара?",
-    "answerText": "Афрыка",
-    "mediaPath": ""
-  },
-  {
-    "id": 4,
-    "category": "Геаграфія",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Назавіце самае глыбокае возера ў свеце.",
-    "answerText": "Байкал",
-    "mediaPath": ""
-  },
-  {
-    "id": 5,
-    "category": "Геаграфія",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Якая краіна мае самую доўгую берагавую лінію?",
-    "answerText": "Канада",
-    "mediaPath": ""
-  },
-  {
-    "id": 6,
-    "category": "Геаграфія",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Як называецца праліў, які падзяляе Азію і Паўночную Амерыку?",
-    "answerText": "Берынгаў праліў",
-    "mediaPath": ""
-  },
-  {
-    "id": 7,
-    "category": "Геаграфія",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "Як называецца самая паўднёвая кропка Паўднёвай Амерыкі?",
-    "answerText": "Мыс Горн",
-    "mediaPath": ""
-  },
-  {
-    "id": 8,
-    "category": "Навука",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Хімічная формула вады.",
-    "answerText": "H2O",
-    "mediaPath": ""
-  },
-  {
-    "id": 9,
-    "category": "Навука",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Які газ з'яўляецца самым распаўсюджаным у атмасферы Зямлі?",
-    "answerText": "Азот",
-    "mediaPath": ""
-  },
-  {
-    "id": 10,
-    "category": "Навука",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Хто сфармуляваў закон сусветнага прыцягнення?",
-    "answerText": "Ісаак Ньютан",
-    "mediaPath": ""
-  },
-  {
-    "id": 11,
-    "category": "Навука",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Як называецца працэс ператварэння святла ў энергію ў раслін?",
-    "answerText": "Фотасінтэз",
-    "mediaPath": ""
-  },
-  {
-    "id": 12,
-    "category": "Навука",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Які элемент перыядычнай табліцы мае атамны нумар 1?",
-    "answerText": "Вадарод",
-    "mediaPath": ""
-  },
-  {
-    "id": 13,
-    "category": "Навука",
-    "points": 600,
-    "difficulty": 6,
-    "type": "SoundAndText",
-    "questionText": "Які гук вядомага эфекту вы чуеце?",
-    "answerText": "Эфект Доплера",
-    "mediaPath": "sounds/doppler_effect.mp3"
-  },
-  {
-    "id": 14,
-    "category": "Навука",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "Што вывучае навука мікалогія?",
-    "answerText": "Грыбы",
-    "mediaPath": ""
-  },
-  {
-    "id": 15,
-    "category": "Гісторыя",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "У якім годзе пачалася Другая сусветная вайна?",
-    "answerText": "1939",
-    "mediaPath": ""
-  },
-  {
-    "id": 16,
-    "category": "Гісторыя",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Хто быў першым прэзідэнтам ЗША?",
-    "answerText": "Джордж Вашынгтон",
-    "mediaPath": ""
-  },
-  {
-    "id": 17,
-    "category": "Гісторыя",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "У выніку якой бітвы Напалеон канчаткова страціў уладу?",
-    "answerText": "Бітва пры Ватэрлоо",
-    "mediaPath": ""
-  },
-  {
-    "id": 18,
-    "category": "Гісторыя",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Як называлася першая дзяржава ўсходніх славян?",
-    "answerText": "Кіеўская Русь",
-    "mediaPath": ""
-  },
-  {
-    "id": 19,
-    "category": "Гісторыя",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "Якая імпэрыя лічыцца самай вялікай па плошчы ў гісторыі?",
-    "answerText": "Мангольская імперыя",
-    "mediaPath": ""
-  },
-  {
-    "id": 20,
-    "category": "Гісторыя",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "У якім стагоддзі адбылася Грунвальдская бітва?",
-    "answerText": "XV",
-    "mediaPath": ""
-  },
-  {
-    "id": 21,
-    "category": "Гісторыя",
-    "points": 700,
-    "difficulty": 7,
-    "type": "ImageAndText",
-    "questionText": "Якое вынаходства вы бачыце на малюнку — адно з цудаў старажытнага свету?",
-    "answerText": "Піраміды Гізы",
-    "mediaPath": "images/pyramids.jpg"
-  },
-  {
-    "id": 22,
-    "category": "Літаратура",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Хто з'яўляецца аўтарам п'есы «Рамэа і Джульета»?",
-    "answerText": "Уільям Шэкспір",
-    "mediaPath": ""
-  },
-  {
-    "id": 23,
-    "category": "Літаратура",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "Хто напісаў раман \"Вайна і мір\"?",
-    "answerText": "Леў Талстой",
-    "mediaPath": ""
-  },
-  {
-    "id": 24,
-    "category": "Літаратура",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Назавіце галоўнага героя рамана «Дон Кіхот»",
-    "answerText": "Дон Кіхот",
-    "mediaPath": ""
-  },
-  {
-    "id": 25,
-    "category": "Літаратура",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Які беларускі паэт напісаў паэму \"Новая зямля\"?",
-    "answerText": "Якуб Колас",
-    "mediaPath": ""
-  },
-  {
-    "id": 26,
-    "category": "Літаратура",
-    "points": 500,
-    "difficulty": 5,
-    "type": "Text",
-    "questionText": "З якога твора Шэкспіра фраза \"Быць ці не быць, вось у чым пытанне\"?",
-    "answerText": "Гамлет",
-    "mediaPath": ""
-  },
-  {
-    "id": 27,
-    "category": "Літаратура",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Хто з'яўляецца аўтарам «Майстра і Маргарыты»?",
-    "answerText": "Міхаіл Булгакаў",
-    "mediaPath": ""
-  },
-  {
-    "id": 28,
-    "category": "Літаратура",
-    "points": 700,
-    "difficulty": 7,
-    "type": "Text",
-    "questionText": "Як клічуць капітана падводнай лодкі \"Наўтылус\" у творах Жуля Верна?",
-    "answerText": "Капітан Нэма",
-    "mediaPath": ""
-  },
-  {
-    "id": 29,
-    "category": "Мастацтва",
-    "points": 100,
-    "difficulty": 1,
-    "type": "Text",
-    "questionText": "Хто напісаў карціну \"Чорны квадрат\"",
-    "answerText": "Казімір Малевіч",
-    "mediaPath": ""
-  },
-  {
-    "id": 30,
-    "category": "Мастацтва",
-    "points": 200,
-    "difficulty": 2,
-    "type": "Text",
-    "questionText": "У якім горадзе знаходзіцца музей Луўр?",
-    "answerText": "Парыж",
-    "mediaPath": ""
-  },
-  {
-    "id": 31,
-    "category": "Мастацтва",
-    "points": 300,
-    "difficulty": 3,
-    "type": "Text",
-    "questionText": "Назавіце аўтара знакамітай скульптуры «Давід».",
-    "answerText": "Мікеланджэла",
-    "mediaPath": ""
-  },
-  {
-    "id": 32,
-    "category": "Мастацтва",
-    "points": 400,
-    "difficulty": 4,
-    "type": "Text",
-    "questionText": "Да якога кірунку ў мастацтве адносіцца творчасць Сальвадора Далі?",
-    "answerText": "Сюррэалізм",
-    "mediaPath": ""
-  },
-  {
-    "id": 33,
-    "category": "Мастацтва",
-    "points": 500,
-    "difficulty": 5,
-    "type": "ImageAndText",
-    "questionText": "Як называецца гэтая карціна Вінцэнта ван Гога?",
-    "answerText": "Зорная ноч",
-    "mediaPath": "images/starry_night.jpg"
-  },
-  {
-    "id": 34,
-    "category": "Мастацтва",
-    "points": 600,
-    "difficulty": 6,
-    "type": "Text",
-    "questionText": "Назавіце беларускага мастака, вядомага сваімі работамі на тэму роднага горада Віцебска.",
-    "answerText": "Марк Шагал",
-    "mediaPath": ""
-  },
-  {
-    "id": 35,
-    "category": "Мастацтва",
-    "points": 700,
-    "difficulty": 7,
-    "type": "SoundAndText",
-    "questionText": "Фрагмент з якога балета Пятра Чайкоўскага вы чуеце?",
-    "answerText": "Лебядзінае возера",
-    "mediaPath": "sounds/swan_lake.mp3"
-  }
-]
+{
+  "Геаграфія": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Назавіце сталіцу Беларусі.",
+      "answerText": "Мінск",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Які акіян з'яўляецца самым вялікім па плошчы?",
+      "answerText": "Ціхі",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "На якім кантыненце знаходзіцца пустыня Сахара?",
+      "answerText": "Афрыка",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Назавіце самае глыбокае возера ў свеце.",
+      "answerText": "Байкал",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Якая краіна мае самую доўгую берагавую лінію?",
+      "answerText": "Канада",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Як называецца праліў, які падзяляе Азію і Паўночную Амерыку?",
+      "answerText": "Берынгаў праліў",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "Як называецца самая паўднёвая кропка Паўднёвай Амерыкі?",
+      "answerText": "Мыс Горн",
+      "mediaPath": ""
+    }
+  ],
+  "Навука": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Хімічная формула вады.",
+      "answerText": "H2O",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Які газ з'яўляецца самым распаўсюджаным у атмасферы Зямлі?",
+      "answerText": "Азот",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Хто сфармуляваў закон сусветнага прыцягнення?",
+      "answerText": "Ісаак Ньютан",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Як называецца працэс ператварэння святла ў энергію ў раслін?",
+      "answerText": "Фотасінтэз",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Які элемент перыядычнай табліцы мае атамны нумар 1?",
+      "answerText": "Вадарод",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "SoundAndText",
+      "questionText": "Які гук вядомага эфекту вы чуеце?",
+      "answerText": "Эфект Доплера",
+      "mediaPath": "sounds/doppler_effect.mp3"
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "Што вывучае навука мікалогія?",
+      "answerText": "Грыбы",
+      "mediaPath": ""
+    }
+  ],
+  "Гісторыя": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "У якім годзе пачалася Другая сусветная вайна?",
+      "answerText": "1939",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Хто быў першым прэзідэнтам ЗША?",
+      "answerText": "Джордж Вашынгтон",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "У выніку якой бітвы Напалеон канчаткова страціў уладу?",
+      "answerText": "Бітва пры Ватэрлоо",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Як называлася першая дзяржава ўсходніх славян?",
+      "answerText": "Кіеўская Русь",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "Якая імпэрыя лічыцца самай вялікай па плошчы ў гісторыі?",
+      "answerText": "Мангольская імперыя",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "У якім стагоддзі адбылася Грунвальдская бітва?",
+      "answerText": "XV",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "ImageAndText",
+      "questionText": "Якое вынаходства вы бачыце на малюнку — адно з цудаў старажытнага свету?",
+      "answerText": "Піраміды Гізы",
+      "mediaPath": "images/pyramids.jpg"
+    }
+  ],
+  "Літаратура": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Хто з'яўляецца аўтарам п'есы «Рамэа і Джульета»?",
+      "answerText": "Уільям Шэкспір",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "Хто напісаў раман \"Вайна і мір\"?",
+      "answerText": "Леў Талстой",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Назавіце галоўнага героя рамана «Дон Кіхот»",
+      "answerText": "Дон Кіхот",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Які беларускі паэт напісаў паэму \"Новая зямля\"?",
+      "answerText": "Якуб Колас",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "Text",
+      "questionText": "З якога твора Шэкспіра фраза \"Быць ці не быць, вось у чым пытанне\"?",
+      "answerText": "Гамлет",
+      "mediaPath": ""
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Хто з'яўляецца аўтарам «Майстра і Маргарыты»?",
+      "answerText": "Міхаіл Булгакаў",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "Text",
+      "questionText": "Як клічуць капітана падводнай лодкі \"Наўтылус\" у творах Жуля Верна?",
+      "answerText": "Капітан Нэма",
+      "mediaPath": ""
+    }
+  ],
+  "Мастацтва": [
+    {
+      "points": 100,
+      "type": "Text",
+      "questionText": "Хто напісаў карціну \"Чорны квадрат\"",
+      "answerText": "Казімір Малевіч",
+      "mediaPath": ""
+    },
+    {
+      "points": 200,
+      "type": "Text",
+      "questionText": "У якім горадзе знаходзіцца музей Луўр?",
+      "answerText": "Парыж",
+      "mediaPath": ""
+    },
+    {
+      "points": 300,
+      "type": "Text",
+      "questionText": "Назавіце аўтара знакамітай скульптуры «Давід».",
+      "answerText": "Мікеланджэла",
+      "mediaPath": ""
+    },
+    {
+      "points": 400,
+      "type": "Text",
+      "questionText": "Да якога кірунку ў мастацтве адносіцца творчасць Сальвадора Далі?",
+      "answerText": "Сюррэалізм",
+      "mediaPath": ""
+    },
+    {
+      "points": 500,
+      "type": "ImageAndText",
+      "questionText": "Як называецца гэтая карціна Вінцэнта ван Гога?",
+      "answerText": "Зорная ноч",
+      "mediaPath": "images/starry_night.jpg"
+    },
+    {
+      "points": 600,
+      "type": "Text",
+      "questionText": "Назавіце беларускага мастака, вядомага сваімі работамі на тэму роднага горада Віцебска.",
+      "answerText": "Марк Шагал",
+      "mediaPath": ""
+    },
+    {
+      "points": 700,
+      "type": "SoundAndText",
+      "questionText": "Фрагмент з якога балета Пятра Чайкоўскага вы чуеце?",
+      "answerText": "Лебядзінае возера",
+      "mediaPath": "sounds/swan_lake.mp3"
+    }
+  ]
+}

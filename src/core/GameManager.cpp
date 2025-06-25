@@ -18,15 +18,12 @@ GameManager::GameManager()
       m_currentQuestion(nullptr) {
 }
 
-const std::vector<Player> &GameManager::getPlayers() const { return m_players; }
-int GameManager::getCurrentPlayerIndex() const { return m_currentPlayerIndex; }
+const std::vector<Player> &GameManager::getPlayers() const {
+    return m_players;
+}
 
-const std::map<int, Question *> &GameManager::getQuestionsForCategory(const QString &category) const {
-    if (m_gameBoard.count(category)) {
-        return m_gameBoard.at(category);
-    }
-    static const std::map<int, Question *> emptyMap;
-    return emptyMap;
+int GameManager::getCurrentPlayerIndex() const {
+    return m_currentPlayerIndex;
 }
 
 QStringList GameManager::getCategories() const {
@@ -37,17 +34,20 @@ QStringList GameManager::getCategories() const {
     return categories;
 }
 
-const Question *GameManager::getQuestion(const QString &category, int points) const {
-    if (m_gameBoard.count(category) && m_gameBoard.at(category).count(points)) {
-        return m_gameBoard.at(category).at(points);
+const Question* GameManager::getQuestion(const QString &category, int points) const {
+    auto it_cat = m_gameBoard.find(category);
+    if (it_cat != m_gameBoard.end()) {
+        auto it_q = it_cat->second.find(points);
+        if (it_q != it_cat->second.end()) {
+            return &it_q->second;
+        }
     }
     return nullptr;
 }
 
-bool GameManager::isQuestionAnswered(const QString &category, int points) const {if (!m_gameBoard.count(category) || !m_gameBoard.at(category).count(points)) {
-        return true;
-    }
-    return m_gameBoard.at(category).at(points) == nullptr;
+bool GameManager::isQuestionAnswered(const QString &category, int points) const {
+    const Question* q = getQuestion(category, points);
+    return !q || q->answered;
 }
 
 void GameManager::startGame(const QStringList &playerNames) {
@@ -56,16 +56,15 @@ void GameManager::startGame(const QStringList &playerNames) {
         m_players.emplace_back(name);
     }
 
-    m_allQuestions = FileManager::loadQuestionsForGame(FileManager::loadLanguageSetting());
+    setupBoard();
 
-    if (m_allQuestions.empty()) {
+    if (m_gameBoard.empty()) {
         qWarning() << tr("Не удалось загрузить вопросы. Игра не может быть начата.");
         QMessageBox::critical(nullptr, tr("Ошибка загрузки"),
                               tr("Не удалось загрузить вопросы. Проверьте файлы игры."));
         return;
     }
 
-    setupBoard();
     m_currentPlayerIndex = 0;
     m_currentState = GameState::SelectingQuestion;
 
@@ -74,86 +73,68 @@ void GameManager::startGame(const QStringList &playerNames) {
     emit gameStateChanged(m_currentState);
 }
 
+void GameManager::setupBoard() {
+    m_gameBoard.clear();
+    QMap<QString, std::vector<Question>> groupedQuestions = FileManager::loadGroupedQuestionsForGame(FileManager::loadLanguageSetting());
+
+    for (auto it = groupedQuestions.constBegin(); it != groupedQuestions.constEnd(); ++it) {
+        const QString& category = it.key();
+        const std::vector<Question>& questions = it.value();
+        for (const Question& q : questions) {
+            m_gameBoard[category][q.points] = q;
+        }
+    }
+}
 
 bool GameManager::isQuestionSelectable(const QString &category, int points) const {
     if (isQuestionAnswered(category, points)) {
         return false;
     }
-
     const Player &currentPlayer = m_players.at(m_currentPlayerIndex);
-
     if (currentPlayer.shouldLockEasyQuestions()) {
-        if (points <= 300) {
-            return false;
-        }
+        return points > 300;
     }
-
     return true;
 }
 
 void GameManager::selectQuestion(const QString &category, int points) {
-    if (m_currentState != GameState::SelectingQuestion) return;
-
-    if (!isQuestionSelectable(category, points)) {
-        return;
-    }
-
-    m_currentQuestion = m_gameBoard.at(category).at(points);
+    if (m_currentState != GameState::SelectingQuestion || !isQuestionSelectable(category, points)) return;
+    m_currentQuestion = &m_gameBoard.at(category).at(points);
     m_currentState = GameState::AnsweringQuestion;
-
-    if (m_currentQuestion == nullptr) {
-        qWarning() << tr("Попытка выбрать уже сыгранный вопрос!");
-        return;
-    }
     m_answerTimer.start();
-
     emit questionSelected(*m_currentQuestion);
     emit gameStateChanged(m_currentState);
 }
 
 void GameManager::selectRandomQuestion() {
-    if (m_currentState != GameState::SelectingQuestion) {
-        qWarning() << tr("Невозможно выбрать случайный вопрос: игра не в состоянии выбора вопроса.");
-        return;
-    }
+    if (m_currentState != GameState::SelectingQuestion) return;
 
-    std::vector<std::pair<QString, int> > availableQuestions;
-
-    for (const auto &categoryPair: m_gameBoard) {
-        const QString &category = categoryPair.first;
-        for (const auto &questionPair: categoryPair.second) {
-            int points = questionPair.first;
-            if (questionPair.second != nullptr && isQuestionSelectable(category, points)) {
-                availableQuestions.emplace_back(category, points);
+    std::vector<Question*> availableQuestions;
+    for (auto& categoryPair : m_gameBoard) {
+        for (auto& questionPair : categoryPair.second) {
+            if (isQuestionSelectable(categoryPair.first, questionPair.first)) {
+                availableQuestions.push_back(&questionPair.second);
             }
         }
     }
 
     if (availableQuestions.empty()) {
-        QMessageBox::information(nullptr, tr("Случайный вопрос"),
-                                 tr("Нет доступных вопросов для выбора."));
-        qInfo() << tr("Нет доступных вопросов для выбора случайного.");
+        QMessageBox::information(nullptr, tr("Случайный вопрос"), tr("Нет доступных вопросов для выбора."));
         return;
     }
 
     int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(availableQuestions.size()));
-    const auto &randomQuestionPair = availableQuestions[randomIndex];
-
-    qInfo() << tr("Выбран случайный вопрос: Категория '") << randomQuestionPair.first
-            << tr("', Очки: ") << randomQuestionPair.second;
-
-    selectQuestion(randomQuestionPair.first, randomQuestionPair.second);
+    Question* randomQuestion = availableQuestions[randomIndex];
+    selectQuestion(randomQuestion->category, randomQuestion->points);
 }
-
 
 void GameManager::submitAnswer(const QString &answer) {
     if (m_currentState != GameState::AnsweringQuestion || !m_currentQuestion) return;
-    double timeElapsed = m_answerTimer.elapsed() / 1000.0;
 
-    bool isCorrect = (m_currentQuestion->answer.toLower() == answer.toLower());
+    double timeElapsed = m_answerTimer.elapsed() / 1000.0;
+    bool isCorrect = m_currentQuestion->checkAnswer(answer);
     Player &currentPlayer = m_players[m_currentPlayerIndex];
     int answeringPlayerIndex = m_currentPlayerIndex;
-
     bool thresholdWasAlreadySet = currentPlayer.shouldLockEasyQuestions();
     currentPlayer.recordAnswer(isCorrect, timeElapsed);
 
@@ -161,19 +142,30 @@ void GameManager::submitAnswer(const QString &answer) {
         currentPlayer.addScore(m_currentQuestion->points);
     }
 
+    m_currentQuestion->answered = true;
+
     if (!thresholdWasAlreadySet && currentPlayer.shouldLockEasyQuestions()) {
         emit thresholdReached(currentPlayer.getName());
     }
 
-    m_gameBoard.at(m_currentQuestion->category).at(m_currentQuestion->points) = nullptr;
-
     emit playerScoreUpdated(answeringPlayerIndex, currentPlayer.getScore());
 
     changeTurn();
-
     emit gameBoardUpdated();
-
     checkGameEnd();
+}
+
+std::vector<int> GameManager::getPointsForCategory(const QString &category) const {
+    std::vector<int> points;
+    auto it_cat = m_gameBoard.find(category);
+    if (it_cat != m_gameBoard.end()) {
+        for (const auto& pair : it_cat->second) {
+            points.push_back(pair.first);
+        }
+        // Сортируем, чтобы очки всегда шли по порядку (100, 200, 300...)
+        std::sort(points.begin(), points.end());
+    }
+    return points;
 }
 
 void GameManager::endGame() {
@@ -183,26 +175,18 @@ void GameManager::endGame() {
     emit gameStateChanged(m_currentState);
 }
 
-void GameManager::setupBoard() {
-    m_gameBoard.clear();
-    for (Question &q: m_allQuestions) {
-        m_gameBoard[q.category][q.points] = &q;
-    }
-}
-
 void GameManager::changeTurn() {
     m_currentPlayerIndex = (m_currentPlayerIndex + 1) % m_players.size();
     m_currentState = GameState::SelectingQuestion;
     m_currentQuestion = nullptr;
-
     emit currentPlayerChanged(m_currentPlayerIndex);
     emit gameStateChanged(m_currentState);
 }
 
 void GameManager::checkGameEnd() {
-    for (const auto &categoryPair: m_gameBoard) {
-        for (const auto &questionPair: categoryPair.second) {
-            if (questionPair.second != nullptr) {
+    for (const auto &categoryPair : m_gameBoard) {
+        for (const auto &questionPair : categoryPair.second) {
+            if (!questionPair.second.answered) {
                 return;
             }
         }

@@ -22,7 +22,7 @@ struct Question {
     Question(); // Конструктор
 
     // Оставляем только ОБЪЯВЛЕНИЯ методов
-    bool checkAnswer(const QString& userAnswer) const;
+    [[nodiscard]] bool checkAnswer(const QString& userAnswer) const;
     bool isMultimedia() const;
 };
 
