@@ -14,7 +14,8 @@
 #include <QDebug>
 #include <algorithm>
 
-namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<int, MultilingualQuestionData>>& allQuestions) {
+namespace FileManager {
+    bool saveAllQuestionsFromEditor(const QMap<QString, QMap<int, MultilingualQuestionData> > &allQuestions) {
         QString questionsPath = getWritableQuestionsPath();
         QDir dir(questionsPath);
         if (!dir.exists() && !dir.mkpath(".")) {
@@ -25,16 +26,16 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
         QStringList languages = {"ru", "en", "be"};
         bool all_ok = true;
 
-        for (const QString& lang : languages) {
+        for (const QString &lang: languages) {
             QJsonArray questionsArray;
 
             auto cat_it = allQuestions.constBegin();
             while (cat_it != allQuestions.constEnd()) {
-                const auto& innerMap = cat_it.value();
+                const auto &innerMap = cat_it.value();
 
                 auto points_it = innerMap.constBegin();
                 while (points_it != innerMap.constEnd()) {
-                    const auto& questionData = points_it.value();
+                    const auto &questionData = points_it.value();
 
                     QJsonObject obj;
                     obj["id"] = 0;
@@ -42,8 +43,8 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
                     obj["points"] = questionData.points;
                     obj["mediaPath"] = questionData.mediaPath;
 
-                    if(questionData.type == Question::ImageAndText) obj["type"] = "ImageAndText";
-                    else if(questionData.type == Question::SoundAndText) obj["type"] = "SoundAndText";
+                    if (questionData.type == Question::ImageAndText) obj["type"] = "ImageAndText";
+                    else if (questionData.type == Question::SoundAndText) obj["type"] = "SoundAndText";
                     else obj["type"] = "Text";
 
                     obj["questionText"] = questionData.questionTexts.value(lang);
@@ -70,8 +71,8 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
     }
 
     QString getWritableQuestionsPath() {
-        return "C:/SvojaIgraTest/questions";
-        }
+        return QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/questions";
+    }
 
     void initQuestionsDirectory() {
         QString questionsPath = getWritableQuestionsPath();
@@ -83,7 +84,7 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
             return;
         }
         QStringList languages = {"ru", "en", "be"};
-        for (const QString& lang : languages) {
+        for (const QString &lang: languages) {
             QString resourceFile = QString(":/questions/questions_%1.json").arg(lang);
             QString destFile = QString("%1/questions_%2.json").arg(questionsPath, lang);
             if (QFile::exists(resourceFile)) {
@@ -93,8 +94,8 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
         }
     }
 
-    QMap<QString, QMap<int, MultilingualQuestionData>> loadAllQuestionsForEditor() {
-        QMap<QString, QMap<int, MultilingualQuestionData>> allQuestions;
+    QMap<QString, QMap<int, MultilingualQuestionData> > loadAllQuestionsForEditor() {
+        QMap<QString, QMap<int, MultilingualQuestionData> > allQuestions;
         QString questionsPath = getWritableQuestionsPath();
         QJsonArray en_array, ru_array, be_array;
         QFile en_file(questionsPath + "/questions_en.json");
@@ -120,7 +121,7 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
             QString canonicalCategory = en_obj["category"].toString();
             int points = en_obj["points"].toInt();
 
-            MultilingualQuestionData& data = allQuestions[canonicalCategory][points];
+            MultilingualQuestionData &data = allQuestions[canonicalCategory][points];
             data.category = canonicalCategory;
             data.points = points;
             data.mediaPath = en_obj["mediaPath"].toString();
@@ -147,7 +148,7 @@ namespace FileManager {bool saveAllQuestionsFromEditor(const QMap<QString, QMap<
         return allQuestions;
     }
 
-    std::vector<Question> loadQuestionsForGame(const QString& languageCode) {
+    std::vector<Question> loadQuestionsForGame(const QString &languageCode) {
         std::vector<Question> questions;
         QString filePath = QString("%1/questions_%2.json").arg(getWritableQuestionsPath(), languageCode);
         QFile file(filePath);
