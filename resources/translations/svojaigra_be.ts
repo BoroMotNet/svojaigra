@@ -16,12 +16,12 @@
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="45"/>
       <source>Сохранить все изменения</source>
-      <translation type="unfinished">Сохранить все изменения</translation>
+      <translation>Захаваць усе змены</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="49"/>
       <source>Выход в главное меню</source>
-      <translation type="unfinished">Выход в главное меню</translation>
+      <translation>Выхад у галоўнае меню</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="105"/>
@@ -82,14 +82,14 @@
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="212"/>
       <source>Несохраненные изменения</source>
-      <translation type="unfinished">Несохраненные изменения</translation>
+      <translation>Незахаваныя змены</translation>
     </message>
     <message>
       <location filename="../../src/ui/AdminEditor.cpp" line="213"/>
       <source>У вас есть несохраненные изменения. Вы уверены, что хотите выйти?
 Все несохраненные данные будут потеряны.</source>
-      <translation type="unfinished">У вас есть несохраненные изменения. Вы уверены, что хотите выйти?
-Все несохраненные данные будут потеряны.</translation>
+      <translation>У вас ёсць незахаваная змены. Вы ўпэўненыя, што хочаце выйсці?
+Усе незахаваныя дадзеныя будуць страчаныя.</translation>
     </message>
   </context>
   <context>
@@ -102,12 +102,12 @@
     <message>
       <location filename="../../src/core/GameManager.cpp" line="63"/>
       <source>Ошибка загрузки</source>
-      <translation type="unfinished">Ошибка загрузки</translation>
+      <translation>Немагчыма загрузіць</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="64"/>
       <source>Не удалось загрузить вопросы. Проверьте файлы игры.</source>
-      <translation type="unfinished">Не удалось загрузить вопросы. Проверьте файлы игры.</translation>
+      <translation>Не ўдалося загрузіць пытанні. Праверце файлы гульні.</translation>
     </message>
     <message>
       <location filename="../../src/core/GameManager.cpp" line="122"/>
@@ -368,7 +368,7 @@
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="37"/>
       <source>Введите хотя бы одно имя игрока!</source>
-      <translation type="unfinished">Введите хотя бы одно имя игрока!</translation>
+      <translation>Увядзіце хаця б адно імя гульца!</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="62"/>
