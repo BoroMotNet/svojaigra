@@ -125,7 +125,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="18"/>
       <source>Подготовка к игре</source>
-      <translation type="unfinished">Подготовка к игре</translation>
+      <translation>Game preparation</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="29"/>
@@ -135,19 +135,19 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="31"/>
       <source>Введите имя гостя или войдите</source>
-      <translation type="unfinished">Введите имя гостя или войдите</translation>
+      <translation>Enter guest name or login</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="34"/>
       <source>Войти</source>
-      <translation type="unfinished">Войти</translation>
+      <translation>Login</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="51"/>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="60"/>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="68"/>
       <source>Регистрация</source>
-      <translation type="unfinished">Регистрация</translation>
+      <translation>Sign up</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="52"/>
@@ -162,7 +162,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="60"/>
       <source>Выберите имя пользователя:</source>
-      <translation type="unfinished">Выберите имя пользователя:</translation>
+      <translation>Select a username:</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="64"/>
@@ -176,12 +176,12 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="64"/>
       <source>Пользователь с таким именем уже существует.</source>
-      <translation type="unfinished">Пользователь с таким именем уже существует.</translation>
+      <translation>User with this name already exists.</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="68"/>
       <source>Придумайте пароль:</source>
-      <translation type="unfinished">Придумайте пароль:</translation>
+      <translation>Set a password:</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="72"/>
@@ -191,63 +191,63 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="72"/>
       <source>Регистрация прошла успешно! Теперь вы можете войти.</source>
-      <translation type="unfinished">Регистрация прошла успешно! Теперь вы можете войти.</translation>
+      <translation>Registration was successful! Now you can log in.</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="74"/>
       <source>Не удалось зарегистрировать пользователя.</source>
-      <translation type="unfinished">Не удалось зарегистрировать пользователя.</translation>
+      <translation>Failed to register user.</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="91"/>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="101"/>
       <source>Вход</source>
-      <translation type="unfinished">Вход</translation>
+      <translation>Login</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="91"/>
       <source>Имя пользователя:</source>
-      <translation type="unfinished">Имя пользователя:</translation>
+      <translation>Username:</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="96"/>
       <source>Этот пользователь уже в игре!</source>
-      <translation type="unfinished">Этот пользователь уже в игре!</translation>
+      <translation>This user is already in the game!</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="101"/>
       <source>Пароль:</source>
-      <translation type="unfinished">Пароль:</translation>
+      <translation>Password:</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="108"/>
       <source>Неверное имя пользователя или пароль.</source>
-      <translation type="unfinished">Неверное имя пользователя или пароль.</translation>
+      <translation>Incorrect username and/or password.</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="130"/>
       <source>Дубликат имени</source>
-      <translation type="unfinished">Дубликат имени</translation>
+      <translation>Name duplicate</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="131"/>
       <source>Имена игроков должны быть уникальными. Игрок &apos;%1&apos; указан несколько раз.</source>
-      <translation type="unfinished">Имена игроков должны быть уникальными. Игрок &apos;%1&apos; указан несколько раз.</translation>
+      <translation>Player names must be unique. Player &apos;%1&apos; is listed more than once.</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="141"/>
       <source>Имя занято</source>
-      <translation type="unfinished">Имя занято</translation>
+      <translation>Name is busy</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="142"/>
       <source>Имя &apos;%1&apos; уже используется зарегистрированным пользователем. Пожалуйста, выберите другое имя для гостя или войдите под этим именем.</source>
-      <translation type="unfinished">Имя &apos;%1&apos; уже используется зарегистрированным пользователем. Пожалуйста, выберите другое имя для гостя или войдите под этим именем.</translation>
+      <translation>The name &apos;%1&apos; is already in use by a registered user. Please choose a different guest name or log in with that name.</translation>
     </message>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="154"/>
       <source>Добавьте хотя бы одного игрока.</source>
-      <translation type="unfinished">Добавьте хотя бы одного игрока.</translation>
+      <translation>Add at least one player.</translation>
     </message>
   </context>
   <context>
@@ -255,27 +255,27 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/LeaderboardDialog.cpp" line="13"/>
       <source>Таблица лидеров</source>
-      <translation type="unfinished">Таблица лидеров</translation>
+      <translation>Leaderboard</translation>
     </message>
     <message>
       <location filename="../../src/ui/LeaderboardDialog.cpp" line="22"/>
       <source>Место</source>
-      <translation type="unfinished">Место</translation>
+      <translation>Rank</translation>
     </message>
     <message>
       <location filename="../../src/ui/LeaderboardDialog.cpp" line="22"/>
       <source>Игрок</source>
-      <translation type="unfinished">Игрок</translation>
+      <translation>Player</translation>
     </message>
     <message>
       <location filename="../../src/ui/LeaderboardDialog.cpp" line="22"/>
       <source>Очки</source>
-      <translation type="unfinished">Очки</translation>
+      <translation>Points</translation>
     </message>
     <message>
       <location filename="../../src/ui/LeaderboardDialog.cpp" line="31"/>
       <source>Закрыть</source>
-      <translation type="unfinished">Закрыть</translation>
+      <translation>Close</translation>
     </message>
   </context>
   <context>
@@ -383,7 +383,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="22"/>
       <source>Редактирование: %1</source>
-      <translation type="unfinished">Редактирование: %1</translation>
+      <translation>Edit: %1</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="56"/>
@@ -408,7 +408,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="100"/>
       <source>Текст вопроса и ответ должны быть заполнены на всех языках.</source>
-      <translation type="unfinished">Текст вопроса и ответ должны быть заполнены на всех языках.</translation>
+      <translation>The question and answer text should be completed in all languages.</translation>
     </message>
     <message>
       <location filename="../../src/ui/QuestionEditDialog.cpp" line="108"/>
@@ -486,17 +486,17 @@ All unsaved data will be lost.</translation>
       <location filename="../../src/ui/StartWindow.cpp" line="83"/>
       <location filename="../../src/ui/StartWindow.cpp" line="85"/>
       <source>Создание пароля</source>
-      <translation type="unfinished">Создание пароля</translation>
+      <translation>Create a password</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="83"/>
       <source>Пароль администратора ещё не задан. Вам будет предложено создать новый пароль.</source>
-      <translation type="unfinished">Пароль администратора ещё не задан. Вам будет предложено создать новый пароль.</translation>
+      <translation>The administrator password has not yet been set. You will be prompted to create a new password.</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="85"/>
       <source>Введите новый пароль:</source>
-      <translation type="unfinished">Введите новый пароль:</translation>
+      <translation>Enter new password:</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="90"/>
@@ -506,12 +506,12 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="90"/>
       <source>Пароль успешно создан и сохранен.</source>
-      <translation type="unfinished">Пароль успешно создан и сохранен.</translation>
+      <translation>The password has been successfully created and saved.</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="92"/>
       <source>Пароль не может быть пустым!</source>
-      <translation type="unfinished">Пароль не может быть пустым!</translation>
+      <translation>Password cannot be empty!</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.cpp" line="108"/>
@@ -542,7 +542,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="147"/>
       <source>Таблица лидеров</source>
-      <translation type="unfinished">Таблица лидеров</translation>
+      <translation>Leaderboard</translation>
     </message>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="165"/>
