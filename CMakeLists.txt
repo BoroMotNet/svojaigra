@@ -26,7 +26,6 @@ set(SVOJA_IGRA_SOURCES
         src/ui/settingsdialog.cpp
         src/ui/QuestionEditDialog.cpp
         src/ui/QuestionEditDialog.h
-        src/ui/QuestionEditDialog.ui
         src/ui/StartWindow.ui
 )
 
