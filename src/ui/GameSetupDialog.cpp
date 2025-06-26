@@ -144,8 +144,8 @@ void GameSetupDialog::onStartGameClicked()
         m_playerNames.append(currentName);
     }
 
-    if (m_playerNames.isEmpty()) {
-        QMessageBox::warning(this, tr("Ошибка"), tr("Добавьте хотя бы одного игрока."));
+    if (m_playerNames.size() < 4) {
+        QMessageBox::warning(this, tr("Ошибка"), tr("Для начала игры необходимо 4 игрока."));
         return;
     }
 
@@ -154,16 +154,15 @@ void GameSetupDialog::onStartGameClicked()
 
 void GameSetupDialog::updateStartButtonState()
 {
-    bool atLeastOnePlayer = false;
+    int playerCount = 0;
     for (const auto& nameEdit : m_nameEdits) {
         if (!nameEdit->text().trimmed().isEmpty()) {
-            atLeastOnePlayer = true;
-            break;
+            playerCount++;
         }
     }
     QPushButton* startButton = findChild<QPushButton*>("startGameButton");
     if (startButton) {
-        startButton->setEnabled(atLeastOnePlayer);
+        startButton->setEnabled(playerCount == 4);
     }
 }
 

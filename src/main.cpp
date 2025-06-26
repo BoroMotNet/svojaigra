@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
             border: 1px solid #666666;
             padding: 8px 16px;
             border-radius: 4px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         QPushButton:hover {
