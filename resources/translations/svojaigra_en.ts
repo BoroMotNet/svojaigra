@@ -4,149 +4,174 @@
 <context>
     <name>AdminEditor</name>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="34"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="35"/>
         <source>Редактор вопросов</source>
         <translation>Question Editor</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="41"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="42"/>
         <source>Редактор игровых вопросов</source>
         <translation>Game questions Editor</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="43"/>
         <source>Сохранить все изменения в файлы</source>
-        <translation>Save all changes to files</translation>
+        <translation type="vanished">Save all changes to files</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="103"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="45"/>
+        <source>Сохранить все изменения</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/AdminEditor.cpp" line="49"/>
+        <source>Выход в главное меню</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/AdminEditor.cpp" line="105"/>
         <source> Добавить</source>
         <translation> Add new</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="136"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="131"/>
         <source>Редактировать вопрос</source>
         <translation>Edit question</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="161"/>
-        <location filename="../../src/ui/AdminEditor.cpp" line="163"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="157"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="159"/>
         <source>Успешно</source>
         <translation>Successfully</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="161"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="157"/>
         <source>Вопрос был удален. Не забудьте сохранить изменения.</source>
         <translation>The question has been deleted. Don&apos;t forget to save your changes.</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="163"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="159"/>
         <source>Вопрос обновлен. Не забудьте сохранить изменения.</source>
         <translation>Question updated. Don&apos;t forget to save your changes.</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="193"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="189"/>
         <source>Сохранение</source>
         <translation>Saving</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="194"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="190"/>
         <source>Вы уверены, что хотите сохранить все изменения в файлы вопросов?</source>
         <translation>Are you sure you want to save all changes to the question files?</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="199"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="196"/>
         <source>Успех</source>
         <translation>Success</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="199"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="196"/>
         <source>Все изменения успешно сохранены.</source>
         <translation>All changes have been saved successfully.</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="201"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="198"/>
         <source>Ошибка</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../../src/ui/AdminEditor.cpp" line="201"/>
+        <location filename="../../src/ui/AdminEditor.cpp" line="198"/>
         <source>Не удалось сохранить изменения в файлы. Проверьте консоль на наличие ошибок.</source>
         <translation>Failed to save changes to files. Check your console for errors.</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/AdminEditor.cpp" line="212"/>
+        <source>Несохраненные изменения</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/AdminEditor.cpp" line="213"/>
+        <source>У вас есть несохраненные изменения. Вы уверены, что хотите выйти?
+Все несохраненные данные будут потеряны.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>GameManager</name>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="66"/>
+        <location filename="../../src/core/GameManager.cpp" line="62"/>
         <source>Не удалось загрузить вопросы. Игра не может быть начата.</source>
         <translation>Failed to load questions. The game cannot be started.</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="113"/>
         <source>Невозможно выбрать случайный вопрос: игра не в состоянии выбора вопроса.</source>
-        <translation>Unable to choose random question: The game is unable to choose a question.</translation>
+        <translation type="vanished">Unable to choose random question: The game is unable to choose a question.</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="131"/>
+        <location filename="../../src/core/GameManager.cpp" line="63"/>
+        <source>Ошибка загрузки</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/core/GameManager.cpp" line="64"/>
+        <source>Не удалось загрузить вопросы. Проверьте файлы игры.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/core/GameManager.cpp" line="122"/>
         <source>Случайный вопрос</source>
         <translation>Random question</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="132"/>
+        <location filename="../../src/core/GameManager.cpp" line="122"/>
         <source>Нет доступных вопросов для выбора.</source>
         <translation>There are no questions available to choose from.</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="133"/>
         <source>Нет доступных вопросов для выбора случайного.</source>
-        <translation>There are no questions available for random selection.</translation>
+        <translation type="vanished">There are no questions available for random selection.</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="141"/>
         <source>Выбран случайный вопрос: Категория &apos;</source>
-        <translation>Random question selected: Category &apos;</translation>
+        <translation type="vanished">Random question selected: Category &apos;</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="142"/>
         <source>&apos;, Очки: </source>
-        <translation>&apos;, Points: </translation>
+        <translation type="vanished">&apos;, Points: </translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="102"/>
         <source>Попытка выбрать уже сыгранный вопрос!</source>
-        <translation>Trying to choose a question that has already been played!</translation>
+        <translation type="vanished">Trying to choose a question that has already been played!</translation>
     </message>
 </context>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="30"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="52"/>
         <source>Своя Игра</source>
         <translation>Jeopardy</translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="43"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="65"/>
         <source>Случайный вопрос</source>
         <translation>Random question</translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="44"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="66"/>
         <source>Выход</source>
         <translation>Quit</translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="213"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="208"/>
         <source>Игра окончена!</source>
         <translation>Game over!</translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="241"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="228"/>
         <source>Завершение игры</source>
         <translation>End of the game</translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="242"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="229"/>
         <source>Вы уверены, что хотите завершить игру досрочно?</source>
         <translation>Are you sure you want to end the game early?</translation>
     </message>
@@ -364,22 +389,28 @@
         <translation>Jeopardy - Menu</translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="58"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="37"/>
+        <source>Введите хотя бы одно имя игрока!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="62"/>
         <source>Авторизация</source>
         <translation>Authentication</translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="59"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="63"/>
         <source>Введите пароль администратора:</source>
         <translation>Enter administrator password:</translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="71"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="37"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="74"/>
         <source>Ошибка</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="71"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="74"/>
         <source>Неверный пароль!</source>
         <translation>Password is incorrect!</translation>
     </message>
