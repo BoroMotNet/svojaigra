@@ -94,29 +94,187 @@
 <context>
     <name>GameManager</name>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="62"/>
+        <location filename="../../src/core/GameManager.cpp" line="66"/>
         <source>Не удалось загрузить вопросы. Игра не может быть начата.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="63"/>
+        <location filename="../../src/core/GameManager.cpp" line="67"/>
         <source>Ошибка загрузки</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="64"/>
+        <location filename="../../src/core/GameManager.cpp" line="68"/>
         <source>Не удалось загрузить вопросы. Проверьте файлы игры.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="122"/>
+        <location filename="../../src/core/GameManager.cpp" line="127"/>
         <source>Случайный вопрос</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="122"/>
+        <location filename="../../src/core/GameManager.cpp" line="127"/>
         <source>Нет доступных вопросов для выбора.</source>
         <translation></translation>
+    </message>
+</context>
+<context>
+    <name>GameSetupDialog</name>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="18"/>
+        <source>Подготовка к игре</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="29"/>
+        <source>Игрок %1:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="31"/>
+        <source>Введите имя гостя или войдите</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="34"/>
+        <source>Войти</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="51"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="60"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="68"/>
+        <source>Регистрация</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="52"/>
+        <source>Начать игру</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="53"/>
+        <source>Отмена</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="60"/>
+        <source>Выберите имя пользователя:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="64"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="74"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="96"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="108"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="154"/>
+        <source>Ошибка</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="64"/>
+        <source>Пользователь с таким именем уже существует.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="68"/>
+        <source>Придумайте пароль:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="72"/>
+        <source>Успех</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="72"/>
+        <source>Регистрация прошла успешно! Теперь вы можете войти.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="74"/>
+        <source>Не удалось зарегистрировать пользователя.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="91"/>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="101"/>
+        <source>Вход</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="91"/>
+        <source>Имя пользователя:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="96"/>
+        <source>Этот пользователь уже в игре!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="101"/>
+        <source>Пароль:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="108"/>
+        <source>Неверное имя пользователя или пароль.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="130"/>
+        <source>Дубликат имени</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="131"/>
+        <source>Имена игроков должны быть уникальными. Игрок &apos;%1&apos; указан несколько раз.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="141"/>
+        <source>Имя занято</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="142"/>
+        <source>Имя &apos;%1&apos; уже используется зарегистрированным пользователем. Пожалуйста, выберите другое имя для гостя или войдите под этим именем.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/GameSetupDialog.cpp" line="154"/>
+        <source>Добавьте хотя бы одного игрока.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LeaderboardDialog</name>
+    <message>
+        <location filename="../../src/ui/LeaderboardDialog.cpp" line="13"/>
+        <source>Таблица лидеров</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/LeaderboardDialog.cpp" line="22"/>
+        <source>Место</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/LeaderboardDialog.cpp" line="22"/>
+        <source>Игрок</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/LeaderboardDialog.cpp" line="22"/>
+        <source>Очки</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/LeaderboardDialog.cpp" line="31"/>
+        <source>Закрыть</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -137,17 +295,17 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="208"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="214"/>
         <source>Игра окончена!</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="228"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="233"/>
         <source>Завершение игры</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/MainWindow.cpp" line="229"/>
+        <location filename="../../src/ui/MainWindow.cpp" line="234"/>
         <source>Вы уверены, что хотите завершить игру досрочно?</source>
         <translation></translation>
     </message>
@@ -207,114 +365,57 @@
 <context>
     <name>QuestionEditDialog</name>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.ui" line="17"/>
-        <source>QuestionEditDialog</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="23"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="21"/>
         <source>Создание нового вопроса</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="23"/>
-        <source>Редактирование вопроса</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="43"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="41"/>
         <source>Текст вопроса:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="47"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="45"/>
         <source>Ответ:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="62"/>
-        <source>Текст</source>
-        <translation></translation>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="22"/>
+        <source>Редактирование: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="63"/>
-        <source>Текст и Изображение</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="64"/>
-        <source>Текст и Аудио</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="67"/>
-        <source>Загрузить...</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="68"/>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="119"/>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="133"/>
-        <source>Файл не выбран</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="73"/>
-        <source>Тип вопроса:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="74"/>
-        <source>Медиафайл:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="80"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="56"/>
         <source>Сохранить</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="81"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="57"/>
         <source>Отмена</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="82"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="58"/>
         <source>Удалить вопрос</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="139"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="99"/>
         <source>Ошибка</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="139"/>
-        <source>Текст вопроса и ответ на основном языке (RU) должны быть заполнены.</source>
-        <translation></translation>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="100"/>
+        <source>Текст вопроса и ответ должны быть заполнены на всех языках.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="150"/>
-        <source>Изображения (*.png *.jpg *.jpeg *.bmp)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="152"/>
-        <source>Аудиофайлы (*.mp3 *.wav *.ogg)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="157"/>
-        <source>Выбрать медиафайл</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="176"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="108"/>
         <source>Удаление вопроса</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="177"/>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="109"/>
         <source>Вы уверены, что хотите безвозвратно удалить этот вопрос?</source>
         <translation></translation>
     </message>
@@ -360,33 +461,59 @@
 <context>
     <name>StartWindow</name>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="24"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="32"/>
         <source>Своя Игра - Меню</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="37"/>
-        <source>Введите хотя бы одно имя игрока!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="62"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="98"/>
         <source>Авторизация</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="63"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="98"/>
         <source>Введите пароль администратора:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="37"/>
-        <location filename="../../src/ui/StartWindow.cpp" line="74"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="92"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="108"/>
         <source>Ошибка</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="74"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="83"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="85"/>
+        <source>Создание пароля</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="83"/>
+        <source>Пароль администратора ещё не задан. Вам будет предложено создать новый пароль.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="85"/>
+        <source>Введите новый пароль:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="90"/>
+        <source>Успех</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="90"/>
+        <source>Пароль успешно создан и сохранен.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="92"/>
+        <source>Пароль не может быть пустым!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="108"/>
         <source>Неверный пароль!</source>
         <translation></translation>
     </message>
@@ -413,11 +540,16 @@
     </message>
     <message>
         <location filename="../../src/ui/StartWindow.ui" line="147"/>
-        <source>Редактирование</source>
+        <source>Таблица лидеров</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../src/ui/StartWindow.ui" line="165"/>
+        <source>Редактирование</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.ui" line="183"/>
         <source>Выход</source>
         <translation type="unfinished"></translation>
     </message>

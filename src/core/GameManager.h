@@ -32,7 +32,7 @@ public:
     std::vector<int> getPointsForCategory(const QString& category) const;
 
 public slots:
-    void startGame(const QStringList &playerNames);
+    void startGame(const QStringList &playerNames, bool isGuestGame = false);
     void selectQuestion(const QString &category, int points);
     void selectRandomQuestion();
     void submitAnswer(const QString &answer);
@@ -50,6 +50,7 @@ public slots:
 private:
     GameManager();
     ~GameManager() = default;
+    bool m_isGuestGame;
     GameManager(const GameManager &) = delete;
     GameManager &operator=(const GameManager &) = delete;
 

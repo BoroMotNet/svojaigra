@@ -10,13 +10,11 @@
 #include <QMessageBox>
 #include <QSettings>
 #include <QKeyEvent>
-#include <QDebug>
 #include <QApplication>
 
-MainWindow::MainWindow(const QStringList &playerNames, QWidget *parent) : QMainWindow(parent) {
-    setupUi();
-    setupPlayerBar(playerNames);
-    setupGameBoard();
+// КОНСТРУКТОР: Больше не принимает playerNames. Все данные берутся из GameManager.
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
+    setupUi(); // Этот метод вызывает всё остальное
     applyCurrentSettings();
 
     // Соединяем сигналы от логики к слотам нашего интерфейса
@@ -27,21 +25,23 @@ MainWindow::MainWindow(const QStringList &playerNames, QWidget *parent) : QMainW
     connect(&GameManager::instance(), &GameManager::gameFinished, this, &MainWindow::showGameResults);
 
     // Устанавливаем начальное состояние интерфейса
-    updateBoardState();
     updatePlayerInfo(GameManager::instance().getCurrentPlayerIndex());
 }
 
+// СОБЫТИЕ ЗАКРЫТИЯ: Твоя логика, она корректна.
 void MainWindow::closeEvent(QCloseEvent *event) {
-    // Принимаем событие закрытия
-    event->accept();
-    // И показываем родительское окно (наше главное меню)
+    // Показываем родительское окно (наше главное меню)
     if (parentWidget()) {
         parentWidget()->show();
     }
+    // Принимаем событие, чтобы окно действительно закрылось
+    event->accept();
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Escape) {
+        // Вызываем close(), который, в свою очередь, вызовет наш closeEvent
+        // перед тем, как предложить завершить игру.
         handleExitClicked();
     } else {
         QMainWindow::keyPressEvent(event);
@@ -82,28 +82,33 @@ void MainWindow::setupUi() {
 
     connect(m_randomQuestionButton, &QPushButton::clicked, this, &MainWindow::handleRandomQuestionClicked);
     connect(m_exitButton, &QPushButton::clicked, this, &MainWindow::handleExitClicked);
+
+    // Настраиваем доску и игроков
+    setupPlayerBar();
+    setupGameBoard();
 }
 
-void MainWindow::setupPlayerBar(const QStringList &playerNames) {
-    // Очищаем старые виджеты, если они были
+// SETUPPLAYERBAR: Убрали лишний аргумент. Логика осталась твоей.
+void MainWindow::setupPlayerBar() {
     QLayoutItem *item;
     while ((item = m_playerLayout->takeAt(0)) != nullptr) {
-        delete item->widget();
+        if (item->widget()) delete item->widget();
         delete item;
     }
     m_playerNameLabels.clear();
     m_playerScoreLabels.clear();
 
-    // Создаем панель игроков заново
-    for (const auto &name: playerNames) {
+    const auto& players = GameManager::instance().getPlayers();
+    for (const auto &player : players) {
         QVBoxLayout *playerBox = new QVBoxLayout();
 
-        QLabel *nameLabel = new QLabel(name, this);
+        QLabel *nameLabel = new QLabel(player.getName(), this);
         nameLabel->setAlignment(Qt::AlignCenter);
         nameLabel->setFont(QFont("Arial", 16, QFont::Bold));
         m_playerNameLabels.push_back(nameLabel);
 
-        QLabel *scoreLabel = new QLabel("0", this);
+        // Используем getScore(), чтобы корректно отобразить счет при пересоздании окна
+        QLabel *scoreLabel = new QLabel(QString::number(player.getScore()), this);
         scoreLabel->setAlignment(Qt::AlignCenter);
         scoreLabel->setFont(QFont("Arial", 20, QFont::Bold));
         scoreLabel->setStyleSheet("color: yellow;");
@@ -115,18 +120,16 @@ void MainWindow::setupPlayerBar(const QStringList &playerNames) {
     }
 }
 
+// SETUPGAMEBOARD: Твоя версия, она корректна.
 void MainWindow::setupGameBoard() {
     QLayoutItem *item;
     while ((item = m_boardLayout->takeAt(0)) != nullptr) {
-        if (item->widget()) {
-            delete item->widget();
-        }
+        if (item->widget()) delete item->widget();
         delete item;
     }
     m_questionButtons.clear();
 
     QStringList categories = GameManager::instance().getCategories();
-
     int column = 0;
     for (const QString &category: categories) {
         QLabel *categoryLabel = new QLabel(category, this);
@@ -136,7 +139,6 @@ void MainWindow::setupGameBoard() {
         m_boardLayout->addWidget(categoryLabel, 0, column);
 
         std::vector<int> pointsList = GameManager::instance().getPointsForCategory(category);
-
         int row = 1;
         for (int points: pointsList) {
             QPushButton *questionButton = new QPushButton(QString::number(points), this);
@@ -153,13 +155,14 @@ void MainWindow::setupGameBoard() {
         }
         column++;
     }
+    updateBoardState(); // Сразу обновляем состояние кнопок
 }
 
+// UPDATEBOARDSTATE: Твоя версия, она корректна.
 void MainWindow::updateBoardState() {
     for (auto it_cat = m_questionButtons.constBegin(); it_cat != m_questionButtons.constEnd(); ++it_cat) {
         const QString &category = it_cat.key();
         const QMap<int, QPushButton *> &pointsMap = it_cat.value();
-
         for (auto it_q = pointsMap.constBegin(); it_q != pointsMap.constEnd(); ++it_q) {
             int points = it_q.key();
             QPushButton *button = it_q.value();
@@ -174,6 +177,8 @@ void MainWindow::updateBoardState() {
         }
     }
 }
+
+// ... (методы updatePlayerInfo, updatePlayerScore, displayQuestion остаются без изменений) ...
 
 void MainWindow::updatePlayerInfo(int playerIndex) {
     for (int i = 0; i < m_playerNameLabels.size(); ++i) {
@@ -200,14 +205,13 @@ void MainWindow::displayQuestion(const Question &question) {
     }
 }
 
+// SHOWGAMERESULTS: Твоя версия, она корректна.
 void MainWindow::showGameResults(const std::vector<Player> &finalResults) {
     QString resultsText;
     for (const auto &player: finalResults) {
         resultsText += QString("%1: %2\n").arg(player.getName()).arg(player.getScore());
     }
     QMessageBox::information(this, tr("Игра окончена!"), resultsText);
-
-    // Просто закрываем окно, наш closeEvent позаботится о возврате в главное меню
     close();
 }
 
@@ -223,12 +227,15 @@ void MainWindow::handleRandomQuestionClicked() {
     GameManager::instance().selectRandomQuestion();
 }
 
+// HANDLEEXITCLICKED: Твоя версия, она корректна.
 void MainWindow::handleExitClicked() {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("Завершение игры"),
                                   tr("Вы уверены, что хотите завершить игру досрочно?"),
                                   QMessageBox::Yes | QMessageBox::No);
     if (reply == QMessageBox::Yes) {
+        // Завершаем игру. GameManager пошлет сигнал gameFinished,
+        // который вызовет showGameResults, а тот закроет окно.
         GameManager::instance().endGame();
     }
 }

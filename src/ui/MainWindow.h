@@ -23,7 +23,7 @@ class MainWindow : public QMainWindow
 
 public:
     // !!! ИЗМЕНЕНИЕ: Конструктор теперь принимает имена игроков
-    explicit MainWindow(const QStringList& playerNames, QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override = default;
 
 protected:
@@ -43,7 +43,7 @@ private slots:
 private:
     void setupUi();
     // Функция теперь принимает имена игроков
-    void setupPlayerBar(const QStringList& playerNames);
+    void setupPlayerBar();
     void setupGameBoard();
     void applyCurrentSettings();
 

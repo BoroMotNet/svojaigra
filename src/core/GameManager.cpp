@@ -6,6 +6,8 @@
 #include <QMessageBox>
 #include <QRandomGenerator>
 
+#include "UserManager.h"
+
 GameManager &GameManager::instance() {
     static GameManager instance;
     return instance;
@@ -34,7 +36,7 @@ QStringList GameManager::getCategories() const {
     return categories;
 }
 
-const Question* GameManager::getQuestion(const QString &category, int points) const {
+const Question *GameManager::getQuestion(const QString &category, int points) const {
     auto it_cat = m_gameBoard.find(category);
     if (it_cat != m_gameBoard.end()) {
         auto it_q = it_cat->second.find(points);
@@ -46,15 +48,17 @@ const Question* GameManager::getQuestion(const QString &category, int points) co
 }
 
 bool GameManager::isQuestionAnswered(const QString &category, int points) const {
-    const Question* q = getQuestion(category, points);
+    const Question *q = getQuestion(category, points);
     return !q || q->answered;
 }
 
-void GameManager::startGame(const QStringList &playerNames) {
+void GameManager::startGame(const QStringList &playerNames, bool isGuestGame) {
     m_players.clear();
     for (const QString &name: playerNames) {
         m_players.emplace_back(name);
     }
+
+    m_isGuestGame = isGuestGame;
 
     setupBoard();
 
@@ -75,12 +79,13 @@ void GameManager::startGame(const QStringList &playerNames) {
 
 void GameManager::setupBoard() {
     m_gameBoard.clear();
-    QMap<QString, std::vector<Question>> groupedQuestions = FileManager::loadGroupedQuestionsForGame(FileManager::loadLanguageSetting());
+    QMap<QString, std::vector<Question> > groupedQuestions = FileManager::loadGroupedQuestionsForGame(
+        FileManager::loadLanguageSetting());
 
     for (auto it = groupedQuestions.constBegin(); it != groupedQuestions.constEnd(); ++it) {
-        const QString& category = it.key();
-        const std::vector<Question>& questions = it.value();
-        for (const Question& q : questions) {
+        const QString &category = it.key();
+        const std::vector<Question> &questions = it.value();
+        for (const Question &q: questions) {
             m_gameBoard[category][q.points] = q;
         }
     }
@@ -109,9 +114,9 @@ void GameManager::selectQuestion(const QString &category, int points) {
 void GameManager::selectRandomQuestion() {
     if (m_currentState != GameState::SelectingQuestion) return;
 
-    std::vector<Question*> availableQuestions;
-    for (auto& categoryPair : m_gameBoard) {
-        for (auto& questionPair : categoryPair.second) {
+    std::vector<Question *> availableQuestions;
+    for (auto &categoryPair: m_gameBoard) {
+        for (auto &questionPair: categoryPair.second) {
             if (isQuestionSelectable(categoryPair.first, questionPair.first)) {
                 availableQuestions.push_back(&questionPair.second);
             }
@@ -124,7 +129,7 @@ void GameManager::selectRandomQuestion() {
     }
 
     int randomIndex = QRandomGenerator::global()->bounded(static_cast<int>(availableQuestions.size()));
-    Question* randomQuestion = availableQuestions[randomIndex];
+    Question *randomQuestion = availableQuestions[randomIndex];
     selectQuestion(randomQuestion->category, randomQuestion->points);
 }
 
@@ -159,7 +164,7 @@ std::vector<int> GameManager::getPointsForCategory(const QString &category) cons
     std::vector<int> points;
     auto it_cat = m_gameBoard.find(category);
     if (it_cat != m_gameBoard.end()) {
-        for (const auto& pair : it_cat->second) {
+        for (const auto &pair: it_cat->second) {
             points.push_back(pair.first);
         }
         // Сортируем, чтобы очки всегда шли по порядку (100, 200, 300...)
@@ -170,7 +175,14 @@ std::vector<int> GameManager::getPointsForCategory(const QString &category) cons
 
 void GameManager::endGame() {
     m_currentState = GameState::GameFinished;
-    FileManager::saveGameResults(m_players);
+
+    if (!m_isGuestGame) {
+        for (const auto &player: m_players) {
+            UserManager::instance().addUserScore(player.getName(), player.getScore());
+        }
+        FileManager::saveGameResults(m_players);
+    }
+
     emit gameFinished(m_players);
     emit gameStateChanged(m_currentState);
 }
@@ -184,8 +196,8 @@ void GameManager::changeTurn() {
 }
 
 void GameManager::checkGameEnd() {
-    for (const auto &categoryPair : m_gameBoard) {
-        for (const auto &questionPair : categoryPair.second) {
+    for (const auto &categoryPair: m_gameBoard) {
+        for (const auto &questionPair: categoryPair.second) {
             if (!questionPair.second.answered) {
                 return;
             }
