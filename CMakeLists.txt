@@ -33,10 +33,13 @@ set(SVOJA_IGRA_SOURCES
         src/ui/GameSetupDialog.h
         src/ui/LeaderboardDialog.cpp
         src/ui/LeaderboardDialog.h
+        src/ui/HelpDialog.cpp
+        src/ui/HelpDialog.h
 )
 
 
 set(TRANSLATIONS_OUTPUT_DIR "${CMAKE_CURRENT_BINARY_DIR}/translations")
+file(COPY resources/help DESTINATION ${CMAKE_BINARY_DIR})
 
 
 file(MAKE_DIRECTORY ${TRANSLATIONS_OUTPUT_DIR})

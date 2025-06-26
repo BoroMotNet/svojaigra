@@ -8,6 +8,7 @@
 
 #include "../core/GameManager.h"
 #include "../core/UserManager.h"
+#include "HelpDialog.h"
 
 #include <QApplication>
 #include <QPushButton>
@@ -25,6 +26,7 @@ StartWindow::StartWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StartWin
     connect(ui->settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
     connect(ui->editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
     connect(ui->leaderboardButton, &QPushButton::clicked, this, &StartWindow::handleLeaderboard);
+    connect(ui->helpButton, &QPushButton::clicked, this, &StartWindow::handleHelp);
     connect(ui->exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
 
     setWindowTitle(tr("Своя Игра - Меню"));
@@ -41,6 +43,11 @@ QString StartWindow::hashPassword(const QString &password) const {
     return hash.toHex();
 }
 
+void StartWindow::handleHelp() {
+    HelpDialog dialog(this);
+    dialog.exec();
+}
+
 void StartWindow::handleStart() {
     GameSetupDialog dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
@@ -50,7 +57,7 @@ void StartWindow::handleStart() {
         GameManager::instance().startGame(playerNames, isGuestGame);
         this->hide();
 
-        auto* gameWindow = new MainWindow(this);
+        auto *gameWindow = new MainWindow(this);
         gameWindow->setAttribute(Qt::WA_DeleteOnClose);
         gameWindow->showFullScreen();
     }
@@ -61,8 +68,7 @@ void StartWindow::handleSettings() {
     dialog.exec();
 }
 
-void StartWindow::handleLeaderboard()
-{
+void StartWindow::handleLeaderboard() {
     LeaderboardDialog dialog(this);
     dialog.exec();
 }
@@ -72,22 +78,25 @@ void StartWindow::handleEdit() {
     QString storedHash = settings.value("admin/passwordHash").toString();
 
     if (storedHash.isEmpty()) {
-        QMessageBox::information(this, tr("Создание пароля"), tr("Пароль администратора ещё не задан. Вам будет предложено создать новый пароль."));
+        QMessageBox::information(this, tr("Создание пароля"),
+                                 tr("Пароль администратора ещё не задан. Вам будет предложено создать новый пароль."));
         bool ok;
-        QString newPassword = QInputDialog::getText(this, tr("Создание пароля"), tr("Введите новый пароль:"), QLineEdit::Password, "", &ok);
+        QString newPassword = QInputDialog::getText(this, tr("Создание пароля"), tr("Введите новый пароль:"),
+                                                    QLineEdit::Password, "", &ok);
 
         if (ok && !newPassword.isEmpty()) {
             QString newHash = hashPassword(newPassword);
             settings.setValue("admin/passwordHash", newHash);
             QMessageBox::information(this, tr("Успех"), tr("Пароль успешно создан и сохранен."));
         } else if (ok) {
-             QMessageBox::warning(this, tr("Ошибка"), tr("Пароль не может быть пустым!"));
+            QMessageBox::warning(this, tr("Ошибка"), tr("Пароль не может быть пустым!"));
         }
         return;
     }
 
     bool ok;
-    QString inputPassword = QInputDialog::getText(this, tr("Авторизация"), tr("Введите пароль администратора:"), QLineEdit::Password, "", &ok);
+    QString inputPassword = QInputDialog::getText(this, tr("Авторизация"), tr("Введите пароль администратора:"),
+                                                  QLineEdit::Password, "", &ok);
 
     if (ok) {
         if (hashPassword(inputPassword) == storedHash) {

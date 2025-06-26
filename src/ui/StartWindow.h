@@ -20,6 +20,7 @@ private slots:
     void handleSettings();
     void handleEdit();
     void handleLeaderboard();
+    void handleHelp();
 private:
     Ui::StartWindow *ui;
     QString hashPassword(const QString& password) const;
