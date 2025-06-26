@@ -1,12 +1,11 @@
 ﻿#include <QApplication>
+#include <QStyleFactory> // <-- НОВЫЙ ВАЖНЫЙ ИНКЛЮД
+#include <QFile>
+#include <QDebug>
+#include <QDir>
 #include <QSettings>
 #include <QTranslator>
 #include <QLibraryInfo>
-#include "core/FileManager.h"
-#include <QDebug>
-#include <QDir>
-#include <QLocale>
-#include <QStringLiteral>
 #include "ui/StartWindow.h"
 #include "core/FileManager.h"
 
@@ -16,64 +15,129 @@ int main(int argc, char *argv[]) {
 
     QCoreApplication::setOrganizationName("BorovikIvan");
     QCoreApplication::setApplicationName("SvojaIgra");
+
+    // --- ШАГ 1: ПРИНУДИТЕЛЬНО УСТАНАВЛИВАЕМ СТИЛЬ FUSION ---
+    app.setStyle(QStyleFactory::create("Fusion"));
+
+    // --- ШАГ 2: ПРИМЕНЯЕМ НАШУ ТЕМНУЮ ТЕМУ ПОВЕРХ FUSION ---
+    const QString darkTheme = R"(
+        QWidget {
+            background-color: #2b2b2b;
+            color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            border: none;
+        }
+
+        QMainWindow, QDialog {
+            background-color: #3c3f41;
+        }
+
+        /* Стили для кнопок */
+        QPushButton {
+            background-color: #555555;
+            color: #f0f0f0;
+            border: 1px solid #666666;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        QPushButton:hover {
+            background-color: #6a6a6a;
+            border: 1px solid #777777;
+        }
+
+        QPushButton:pressed {
+            background-color: #4a4a4a;
+        }
+
+        QPushButton:disabled {
+            background-color: #404040;
+            color: #888888;
+            border-color: #555555;
+        }
+
+        /* Стили для полей ввода */
+        QLineEdit, QTextEdit {
+            background-color: #2b2b2b;
+            color: #f0f0f0;
+            border: 1px solid #666666;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        /* Стили для заголовков */
+        QLabel {
+            color: #f0f0f0;
+            background-color: transparent;
+        }
+
+        /* Стили для MessageBox */
+        QMessageBox {
+            background-color: #3c3f41;
+        }
+
+        QMessageBox QLabel {
+            color: #f0f0f0;
+        }
+
+        /* Стили для ScrollArea */
+        QScrollArea {
+            border: none;
+            background-color: #2b2b2b;
+        }
+
+        QScrollArea QWidget {
+             background-color: #2b2b2b;
+        }
+
+        /* Стили для выпадающих списков */
+        QComboBox {
+            border: 1px solid #666666;
+            border-radius: 3px;
+            padding: 1px 18px 1px 3px;
+            min-width: 6em;
+            background-color: #555555;
+        }
+        QComboBox:on { /* a QComboBox is open */
+            border: 1px solid #777777;
+        }
+        QComboBox::drop-down {
+            subcontrol-origin: padding;
+            subcontrol-position: top right;
+            width: 15px;
+            border-left-width: 1px;
+            border-left-color: #666666;
+            border-left-style: solid;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+        }
+        QComboBox QAbstractItemView {
+            border: 1px solid #666666;
+            selection-background-color: #6a6a6a;
+            background-color: #2b2b2b;
+        }
+    )";
+
+    app.setStyleSheet(darkTheme);
+    // ----------------------------------------------------
+
     FileManager::initQuestionsDirectory();
 
-    qDebug() << "--- НАЧАЛО ДИАГНОСТИКИ ЛОКАЛИЗАЦИИ ---";
-
+    // --- Локализация ---
     QString lang = FileManager::loadLanguageSetting();
-    qDebug() << "[INFO] Язык, загруженный из настроек:" << lang;
-
-    QString workingDir = QCoreApplication::applicationDirPath();
-    qDebug() << "[INFO] Рабочая директория приложения:" << workingDir;
-
-    QString translationsPath = workingDir + "/translations";
-    qDebug() << "[CHECK] Полный путь к папке переводов:" << translationsPath;
-
-    QDir translationsDir(translationsPath);
-    if (translationsDir.exists()) {
-        qDebug() << "[OK] Папка 'translations' существует.";
-    } else {
-        qWarning() << "[ERROR] Папка 'translations' НЕ СУЩЕСТВУЕТ по указанному пути!";
-    }
-
-    QString qmFileName = "svojaigra_" + lang + ".qm";
-    QString fullQmPath = translationsPath + "/" + qmFileName;
-    qDebug() << "[CHECK] Полный путь к файлу перевода:" << fullQmPath;
-
-    if (QFile::exists(fullQmPath)) {
-        qDebug() << "[OK] Файл" << qmFileName << "существует.";
-    } else {
-        qWarning() << QStringLiteral("[ERROR] Файл \"%1\" НЕ НАЙДЕН по указанному пути!").arg(qmFileName);
-    }
-
     QTranslator appTranslator;
+    QString translationsPath = QCoreApplication::applicationDirPath() + "/translations";
     if (appTranslator.load("svojaigra_" + lang, translationsPath)) {
         app.installTranslator(&appTranslator);
-        qDebug() << "[OK] Файл перевода успешно загружен с диска!";
-    } else {
-        qWarning() << "[ERROR] Не удалось загрузить файл перевода!";
     }
-
-    qDebug() << "--- КОНЕЦ ДИАГНОСТИКИ ЛОКАЛИЗАЦИИ ---";
-
-
     QTranslator qtTranslator;
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     if (qtTranslator.load("qtbase_" + lang, QLibraryInfo::path(QLibraryInfo::TranslationsPath))) {
         app.installTranslator(&qtTranslator);
     }
 #endif
-
-    // QSettings settings;
-    //
-    // QColor backgroundColor = QColor(settings.value("#1e1e1e").toString());
-    // QPalette palette = app.palette();
-    // palette.setColor(QPalette::Window, backgroundColor);
-    // palette.setColor(QPalette::WindowText, Qt::white);
-    // app.setPalette(palette);
-    //
-    // app.setAttribute(Qt::AA_UseStyleSheetPropagationInWidgetStyles, true);
-
+    // --------------------
 
     StartWindow startWindow;
     startWindow.setWindowIcon(QIcon(":/icons/icon.ico"));

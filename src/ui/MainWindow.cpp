@@ -214,7 +214,7 @@ void MainWindow::showGameResults(const std::vector<Player> &finalResults) {
 void MainWindow::applyCurrentSettings() {
     QSettings settings;
     QString colorName = settings.value("backgroundColor", "#333333").toString();
-    QString style = QString("QWidget#centralWidget { background-color: %1; } QLabel { color: white; }").arg(colorName);
+    QString style = QString("QWidget#centralWidget { background-color: %1; }").arg(colorName);
     m_centralWidget->setObjectName("centralWidget");
     this->setStyleSheet(style);
 }
