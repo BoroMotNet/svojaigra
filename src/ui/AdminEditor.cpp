@@ -14,9 +14,11 @@
 #include <QStyle>
 #include <QDebug>
 #include <algorithm>
+
 AdminEditor::AdminEditor(QWidget *parent) :
-    QWidget(parent),
-    ui(new Ui::AdminEditor)
+    QDialog(parent),
+    ui(new Ui::AdminEditor),
+    m_isDirty(false)
 {
     ui->setupUi(this);
     setupUi();
@@ -39,13 +41,19 @@ void AdminEditor::setupUi() {
     QHBoxLayout* topLayout = new QHBoxLayout();
     QLabel* titleLabel = new QLabel(tr("Редактор игровых вопросов"), this);
     titleLabel->setFont(QFont("Arial", 18, QFont::Bold));
-    m_saveButton = new QPushButton(tr("Сохранить все изменения в файлы"), this);
+
+    m_saveButton = new QPushButton(tr("Сохранить все изменения"), this);
     m_saveButton->setFont(QFont("Arial", 12));
     m_saveButton->setIcon(QIcon::fromTheme("document-save", style()->standardIcon(QStyle::SP_DialogSaveButton)));
+
+    m_exitButton = new QPushButton(tr("Выход в главное меню"), this);
+    m_exitButton->setFont(QFont("Arial", 12));
+    m_exitButton->setIcon(QIcon::fromTheme("application-exit", style()->standardIcon(QStyle::SP_DialogCancelButton)));
 
     topLayout->addWidget(titleLabel);
     topLayout->addStretch();
     topLayout->addWidget(m_saveButton);
+    topLayout->addWidget(m_exitButton);
     mainLayout->addLayout(topLayout);
 
     m_scrollArea = new QScrollArea(this);
@@ -54,14 +62,17 @@ void AdminEditor::setupUi() {
     mainLayout->addWidget(m_scrollArea);
 
     connect(m_saveButton, &QPushButton::clicked, this, &AdminEditor::saveAllChanges);
+    connect(m_exitButton, &QPushButton::clicked, this, &AdminEditor::handleExit);
 }
 
 void AdminEditor::loadAllQuestions() {
     m_allQuestions = FileManager::loadAllQuestionsForEditor();
-    qDebug() << "Загружено" << m_allQuestions.size() << "категорий для редактирования.";
 }
 
 void AdminEditor::populateBoard() {
+    // Диагностическое сообщение, которое поможет понять, загрузились ли вопросы
+    qDebug() << "Заполняю доску редактора. Загружено категорий:" << m_allQuestions.size();
+
     QWidget* oldBoardContainer = m_scrollArea->takeWidget();
     if (oldBoardContainer) {
         oldBoardContainer->deleteLater();
@@ -135,6 +146,7 @@ void AdminEditor::openQuestionEditor(const QString& category, int points) {
 
     QuestionEditDialog dialog(m_allQuestions[category][points], this);
     if (dialog.exec() == QDialog::Accepted) {
+        m_isDirty = true;
         populateBoard();
 
         if (dialog.isMarkedForDeletion()) {
@@ -166,6 +178,7 @@ void AdminEditor::addNewQuestion(const QString& category) {
 
     QuestionEditDialog dialog(newData, this);
     if (dialog.exec() == QDialog::Accepted) {
+        m_isDirty = true;
         m_allQuestions[newData.category][newData.points] = newData;
         populateBoard();
     }
@@ -179,9 +192,36 @@ void AdminEditor::saveAllChanges() {
     if (reply == QMessageBox::Yes) {
         bool success = FileManager::saveAllQuestionsFromEditor(m_allQuestions);
         if (success) {
+            m_isDirty = false;
             QMessageBox::information(this, tr("Успех"), tr("Все изменения успешно сохранены."));
         } else {
             QMessageBox::critical(this, tr("Ошибка"), tr("Не удалось сохранить изменения в файлы. Проверьте консоль на наличие ошибок."));
         }
+    }
+}
+
+void AdminEditor::handleExit()
+{
+    this->close();
+}
+
+void AdminEditor::closeEvent(QCloseEvent *event)
+{
+    if (m_isDirty) {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, tr("Несохраненные изменения"),
+                                      tr("У вас есть несохраненные изменения. Вы уверены, что хотите выйти?\nВсе несохраненные данные будут потеряны."),
+                                      QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::No) {
+            event->ignore();
+        } else {
+            event->accept(); // Разрешаем закрытие
+            if (parentWidget()) {
+                parentWidget()->show(); // Показываем родительское окно
+            }
+        }
+    } else {
+        event->accept();
     }
 }
