@@ -131,6 +131,24 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="leaderboardButton">
+         <property name="minimumSize">
+          <size>
+           <width>300</width>
+           <height>60</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>Таблица лидеров</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="editButton">
          <property name="minimumSize">
           <size>
