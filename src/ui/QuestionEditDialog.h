@@ -7,8 +7,6 @@
 class QLineEdit;
 class QTextEdit;
 
-// Структура MultilingualQuestionData остается без изменений,
-// так как она используется в других частях программы.
 struct MultilingualQuestionData {
     QString category;
     int points;

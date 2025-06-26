@@ -16,7 +16,6 @@ QuestionEditDialog::QuestionEditDialog(MultilingualQuestionData &questionData, Q
     : QDialog(parent), m_questionData(questionData) {
     setupUi();
     loadData();
-    // Используем отображаемое имя для заголовка окна
     QString title = m_questionData.displayNames.value("ru", m_questionData.category);
     setWindowTitle(m_questionData.category.isEmpty()
                        ? tr("Создание нового вопроса")
@@ -31,7 +30,6 @@ void QuestionEditDialog::setupUi() {
     setMinimumSize(700, 400);
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
-    // Вкладки для языков
     QTabWidget *langTabs = new QTabWidget(this);
     QStringList languages = {"ru", "en", "be"};
 
@@ -54,7 +52,6 @@ void QuestionEditDialog::setupUi() {
 
     mainLayout->addWidget(langTabs);
 
-    // Кнопки управления
     QDialogButtonBox *buttonBox = new QDialogButtonBox(this);
     QPushButton *saveButton = buttonBox->addButton(tr("Сохранить"), QDialogButtonBox::AcceptRole);
     QPushButton *cancelButton = buttonBox->addButton(tr("Отмена"), QDialogButtonBox::RejectRole);
@@ -96,12 +93,13 @@ void QuestionEditDialog::saveChanges() {
     m_questionData.type = Question::TextOnly;
     m_questionData.mediaPath = "";
 
-    if (m_questionData.questionTexts["ru"].isEmpty() || m_questionData.answerTexts["ru"].isEmpty()) {
+    if (m_questionData.questionTexts["ru"].isEmpty() || m_questionData.answerTexts["ru"].isEmpty() || m_questionData.
+        questionTexts["en"].isEmpty() || m_questionData.answerTexts["en"].isEmpty() || m_questionData.questionTexts[
+            "be"].isEmpty() || m_questionData.answerTexts["be"].isEmpty()) {
         QMessageBox::warning(this, tr("Ошибка"),
-                             tr("Текст вопроса и ответ на основном языке (RU) должны быть заполнены."));
+                             tr("Текст вопроса и ответ должны быть заполнены на всех языках."));
         return;
     }
-
     accept();
 }
 

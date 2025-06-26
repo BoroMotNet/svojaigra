@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::StartWindow *ui;
+    QString hashPassword(const QString& password) const;
 };
 
 #endif // STARTWINDOW_H
