@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <vector>
 #include <QMap>
-#include <QCloseEvent> // Добавляем для closeEvent
+#include <QCloseEvent>
 
 #include "../core/Question.h"
 #include "../core/Player.h"
@@ -22,12 +22,10 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    // !!! ИЗМЕНЕНИЕ: Конструктор теперь принимает имена игроков
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow() override = default;
 
 protected:
-    // Объявляем обработчик закрытия окна
     void closeEvent(QCloseEvent *event) override;
     void keyPressEvent(QKeyEvent *event) override;
 
@@ -42,7 +40,6 @@ private slots:
 
 private:
     void setupUi();
-    // Функция теперь принимает имена игроков
     void setupPlayerBar();
     void setupGameBoard();
     void applyCurrentSettings();
@@ -58,8 +55,7 @@ private:
     std::vector<QLabel*> m_playerNameLabels;
     std::vector<QLabel*> m_playerScoreLabels;
 
-    // Карта для хранения указателей на кнопки
     QMap<QString, QMap<int, QPushButton*>> m_questionButtons;
 };
 
-#endif // MAINWINDOW_H
+#endif

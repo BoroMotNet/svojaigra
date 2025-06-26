@@ -3,7 +3,7 @@
 
 #include <QDialog>
 
-class QTableWidget; // Используем предварительное объявление
+class QTableWidget;
 
 class LeaderboardDialog : public QDialog
 {
@@ -14,9 +14,9 @@ public:
 
 private:
     void setupUi();
-    void populateTable(); // Функция для заполнения таблицы данными
+    void populateTable();
 
     QTableWidget* m_tableWidget;
 };
 
-#endif // LEADERBOARDDIALOG_H
+#endif

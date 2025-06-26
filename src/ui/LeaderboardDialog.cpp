@@ -11,22 +11,21 @@ LeaderboardDialog::LeaderboardDialog(QWidget *parent) : QDialog(parent)
     setupUi();
     populateTable();
     setWindowTitle(tr("Таблица лидеров"));
-    setMinimumSize(400, 500); // Задаем минимальный размер окна
+    setMinimumSize(400, 500);
 }
 
 void LeaderboardDialog::setupUi()
 {
     auto* layout = new QVBoxLayout(this);
     m_tableWidget = new QTableWidget(this);
-    m_tableWidget->setColumnCount(3); // 3 колонки: Место, Игрок, Очки
+    m_tableWidget->setColumnCount(3);
     m_tableWidget->setHorizontalHeaderLabels({tr("Место"), tr("Игрок"), tr("Очки")});
 
-    // Настраиваем внешний вид таблицы
-    m_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers); // Запрет редактирования
-    m_tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows); // Выделение всей строки
-    m_tableWidget->verticalHeader()->setVisible(false); // Скрываем номера строк
-    m_tableWidget->horizontalHeader()->setStretchLastSection(true); // Последняя колонка растягивается
-    m_tableWidget->setColumnWidth(0, 60); // Фиксированная ширина для колонки "Место"
+    m_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    m_tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_tableWidget->verticalHeader()->setVisible(false);
+    m_tableWidget->horizontalHeader()->setStretchLastSection(true);
+    m_tableWidget->setColumnWidth(0, 60);
 
     auto* closeButton = new QPushButton(tr("Закрыть"), this);
     connect(closeButton, &QPushButton::clicked, this, &QDialog::accept);
@@ -37,7 +36,6 @@ void LeaderboardDialog::setupUi()
 
 void LeaderboardDialog::populateTable()
 {
-    // Получаем отсортированный список пользователей
     QList<UserScore> scores = UserManager::instance().getAllUserScores();
     m_tableWidget->setRowCount(scores.size());
 
@@ -49,7 +47,6 @@ void LeaderboardDialog::populateTable()
         auto* nameItem = new QTableWidgetItem(userScore.username);
         auto* scoreItem = new QTableWidgetItem(QString::number(userScore.totalScore));
         
-        // Выравниваем текст по центру для наглядности
         rankItem->setTextAlignment(Qt::AlignCenter);
         scoreItem->setTextAlignment(Qt::AlignCenter);
 

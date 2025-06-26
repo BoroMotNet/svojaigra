@@ -1,5 +1,5 @@
 ﻿#include <QApplication>
-#include <QStyleFactory> // <-- НОВЫЙ ВАЖНЫЙ ИНКЛЮД
+#include <QStyleFactory>
 #include <QFile>
 #include <QDebug>
 #include <QDir>
@@ -16,10 +16,8 @@ int main(int argc, char *argv[]) {
     QCoreApplication::setOrganizationName("BorovikIvan");
     QCoreApplication::setApplicationName("SvojaIgra");
 
-    // --- ШАГ 1: ПРИНУДИТЕЛЬНО УСТАНАВЛИВАЕМ СТИЛЬ FUSION ---
     app.setStyle(QStyleFactory::create("Fusion"));
 
-    // --- ШАГ 2: ПРИМЕНЯЕМ НАШУ ТЕМНУЮ ТЕМУ ПОВЕРХ FUSION ---
     const QString darkTheme = R"(
         QWidget {
             background-color: #2b2b2b;
@@ -120,11 +118,9 @@ int main(int argc, char *argv[]) {
     )";
 
     app.setStyleSheet(darkTheme);
-    // ----------------------------------------------------
 
     FileManager::initQuestionsDirectory();
 
-    // --- Локализация ---
     QString lang = FileManager::loadLanguageSetting();
     QTranslator appTranslator;
     QString translationsPath = QCoreApplication::applicationDirPath() + "/translations";
@@ -137,7 +133,6 @@ int main(int argc, char *argv[]) {
         app.installTranslator(&qtTranslator);
     }
 #endif
-    // --------------------
 
     StartWindow startWindow;
     startWindow.setWindowIcon(QIcon(":/icons/icon.ico"));

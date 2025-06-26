@@ -19,11 +19,10 @@ struct Question {
     QString answer;
     bool answered;
 
-    Question(); // Конструктор
+    Question();
 
-    // Оставляем только ОБЪЯВЛЕНИЯ методов
     [[nodiscard]] bool checkAnswer(const QString& userAnswer) const;
     bool isMultimedia() const;
 };
 
-#endif // QUESTION_H
+#endif

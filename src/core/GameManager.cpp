@@ -167,7 +167,6 @@ std::vector<int> GameManager::getPointsForCategory(const QString &category) cons
         for (const auto &pair: it_cat->second) {
             points.push_back(pair.first);
         }
-        // Сортируем, чтобы очки всегда шли по порядку (100, 200, 300...)
         std::sort(points.begin(), points.end());
     }
     return points;

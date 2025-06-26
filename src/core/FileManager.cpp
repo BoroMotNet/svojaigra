@@ -180,7 +180,6 @@ namespace FileManager {
         QFile file(filePath);
 
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            // Если в AppData нет файла, пытаемся загрузить из ресурсов
             file.setFileName(QString(":/questions/questions_%1.json").arg(languageCode));
             if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
                 qWarning() << "Не удалось открыть файл вопросов ни в AppData, ни в ресурсах:" << languageCode;
@@ -192,22 +191,20 @@ namespace FileManager {
         file.close();
 
         QJsonObject rootObject = doc.object();
-        // Итерируемся по ключам корневого объекта (это наши категории)
         for (auto it = rootObject.constBegin(); it != rootObject.constEnd(); ++it) {
             QString category = it.key();
             QJsonArray qArray = it.value().toArray();
             std::vector<Question> questionsInCategory;
 
-            // Итерируемся по вопросам в массиве категории
             for (const QJsonValue &value: qArray) {
                 QJsonObject obj = value.toObject();
                 Question q;
-                q.category = category; // Категория теперь берется из ключа
+                q.category = category;
                 q.points = obj["points"].toInt();
                 q.questionText = obj["questionText"].toString();
                 q.answer = obj["answerText"].toString();
                 q.mediaPath = obj["mediaPath"].toString();
-                q.answered = false; // По умолчанию вопрос не отвечен
+                q.answered = false;
 
                 QString typeStr = obj["type"].toString();
                 if (typeStr == "ImageAndText") q.type = Question::ImageAndText;
@@ -216,7 +213,6 @@ namespace FileManager {
 
                 questionsInCategory.push_back(q);
             }
-            // Сортируем вопросы по очкам, чтобы они шли в правильном порядке
             std::sort(questionsInCategory.begin(), questionsInCategory.end(), [](const Question &a, const Question &b) {
                 return a.points < b.points;
             });
@@ -258,4 +254,4 @@ namespace FileManager {
         QSettings settings;
         return settings.value("language", "ru").toString();
     }
-} // namespace FileManager
+}

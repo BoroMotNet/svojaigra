@@ -19,7 +19,7 @@ bool UserManager::userExists(const QString &username) {
 
 bool UserManager::registerUser(const QString &username, const QString &password) {
     if (userExists(username)) {
-        return false; // Пользователь уже существует
+        return false;
     }
 
     QSettings settings;
@@ -81,7 +81,6 @@ QList<UserScore> UserManager::getAllUserScores() const {
     QSettings settings;
     settings.beginGroup("Users");
 
-    // Проходим по всем подгруппам (пользователям)
     for (const QString &username: settings.childGroups()) {
         settings.beginGroup(username);
         int totalScore = settings.value("totalScore", 0).toInt();
@@ -91,7 +90,6 @@ QList<UserScore> UserManager::getAllUserScores() const {
 
     settings.endGroup();
 
-    // Сортируем список по убыванию очков
     std::sort(scores.begin(), scores.end(), [](const UserScore &a, const UserScore &b) {
         return a.totalScore > b.totalScore;
     });

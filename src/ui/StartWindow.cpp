@@ -1,7 +1,6 @@
 ﻿#include "StartWindow.h"
 #include "ui_StartWindow.h"
 
-// Подключаем все наши диалоговые окна
 #include "GameSetupDialog.h"
 #include "LeaderboardDialog.h"
 #include "SettingsDialog.h"
@@ -22,11 +21,10 @@
 
 StartWindow::StartWindow(QWidget *parent) : QWidget(parent), ui(new Ui::StartWindow) {
     ui->setupUi(this);
-    // Соединяем все кнопки с их обработчиками
     connect(ui->startButton, &QPushButton::clicked, this, &StartWindow::handleStart);
     connect(ui->settingsButton, &QPushButton::clicked, this, &StartWindow::handleSettings);
     connect(ui->editButton, &QPushButton::clicked, this, &StartWindow::handleEdit);
-    connect(ui->leaderboardButton, &QPushButton::clicked, this, &StartWindow::handleLeaderboard); // Соединение для таблицы лидеров
+    connect(ui->leaderboardButton, &QPushButton::clicked, this, &StartWindow::handleLeaderboard);
     connect(ui->exitButton, &QPushButton::clicked, QApplication::instance(), &QApplication::quit);
 
     setWindowTitle(tr("Своя Игра - Меню"));
@@ -36,7 +34,6 @@ StartWindow::~StartWindow() {
     delete ui;
 }
 
-// Хеширование пароля для входа в панель администратора
 QString StartWindow::hashPassword(const QString &password) const {
     const QString PASSWORD_SALT = "a7b3c9d1e5f6g2h4";
     QByteArray dataToHash = (password + PASSWORD_SALT).toUtf8();
@@ -44,7 +41,6 @@ QString StartWindow::hashPassword(const QString &password) const {
     return hash.toHex();
 }
 
-// Открывает лобби для настройки игры
 void StartWindow::handleStart() {
     GameSetupDialog dialog(this);
     if (dialog.exec() == QDialog::Accepted) {
@@ -60,21 +56,17 @@ void StartWindow::handleStart() {
     }
 }
 
-// Открывает настройки
 void StartWindow::handleSettings() {
     SettingsDialog dialog(this);
     dialog.exec();
 }
 
-// *** ВОТ НЕДОСТАЮЩАЯ РЕАЛИЗАЦИЯ ***
-// Открывает таблицу лидеров
 void StartWindow::handleLeaderboard()
 {
     LeaderboardDialog dialog(this);
     dialog.exec();
 }
 
-// Открывает редактор с проверкой пароля администратора
 void StartWindow::handleEdit() {
     QSettings settings;
     QString storedHash = settings.value("admin/passwordHash").toString();

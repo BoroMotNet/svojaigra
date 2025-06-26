@@ -54,4 +54,4 @@ private:
     bool m_markedForDeletion = false;
 };
 
-#endif // QUESTIONEDITDIALOG_H
+#endif

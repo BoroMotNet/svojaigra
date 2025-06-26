@@ -49,4 +49,4 @@ private:
     bool m_isDirty;
 };
 
-#endif // ADMINEDITOR_H
+#endif

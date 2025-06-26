@@ -2,9 +2,8 @@
 #define USERMANAGER_H
 
 #include <QString>
-#include <QList> // Для списка
+#include <QList>
 
-// 1. Добавляем структуру для удобства
 struct UserScore {
     QString username;
     int totalScore;
@@ -20,7 +19,6 @@ public:
     bool validateUser(const QString& username, const QString& password);
     void addUserScore(const QString& username, int score);
 
-    // 2. Добавляем новый метод
     QList<UserScore> getAllUserScores() const;
 
 private:
@@ -32,4 +30,4 @@ private:
     QString hashPassword(const QString& password, const QString& salt) const;
 };
 
-#endif // USERMANAGER_H
+#endif

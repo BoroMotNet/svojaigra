@@ -70,7 +70,6 @@ void AdminEditor::loadAllQuestions() {
 }
 
 void AdminEditor::populateBoard() {
-    // Диагностическое сообщение, которое поможет понять, загрузились ли вопросы
     qDebug() << "Заполняю доску редактора. Загружено категорий:" << m_allQuestions.size();
 
     QWidget* oldBoardContainer = m_scrollArea->takeWidget();
@@ -216,9 +215,9 @@ void AdminEditor::closeEvent(QCloseEvent *event)
         if (reply == QMessageBox::No) {
             event->ignore();
         } else {
-            event->accept(); // Разрешаем закрытие
+            event->accept();
             if (parentWidget()) {
-                parentWidget()->show(); // Показываем родительское окно
+                parentWidget()->show();
             }
         }
     } else {

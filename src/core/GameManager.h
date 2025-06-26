@@ -66,4 +66,4 @@ private:
     QElapsedTimer m_answerTimer;
 };
 
-#endif // GAMEMANAGER_H
+#endif

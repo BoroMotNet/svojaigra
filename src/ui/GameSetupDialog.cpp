@@ -11,7 +11,6 @@
 #include <QLineEdit>
 #include <QCheckBox>
 
-// Конструктор и setupUi остаются без изменений...
 GameSetupDialog::GameSetupDialog(QWidget *parent) : QDialog(parent)
 {
     setupUi();
@@ -111,7 +110,6 @@ void GameSetupDialog::onLoginClicked(int playerIndex)
 }
 
 
-// --- ИЗМЕНЕНИЯ ЗДЕСЬ ---
 void GameSetupDialog::onStartGameClicked()
 {
     m_playerNames.clear();
@@ -122,10 +120,9 @@ void GameSetupDialog::onStartGameClicked()
         QString currentName = nameEdit->text().trimmed();
 
         if (currentName.isEmpty()) {
-            continue; // Пропускаем пустые слоты
+            continue;
         }
 
-        // 1. Проверка на дубликаты имен внутри самого лобби
         if (lobbyNamesForDuplicateCheck.contains(currentName, Qt::CaseInsensitive)) {
             QMessageBox::warning(this, tr("Дубликат имени"),
                                  tr("Имена игроков должны быть уникальными. Игрок '%1' указан несколько раз.")
@@ -134,19 +131,16 @@ void GameSetupDialog::onStartGameClicked()
         }
         lobbyNamesForDuplicateCheck.append(currentName);
 
-        // 2. ГЛАВНАЯ ПРОВЕРКА: если игрок - гость (поле не ReadOnly)...
         if (!nameEdit->isReadOnly()) {
-            // ...проверяем, не занято ли его имя зарегистрированным пользователем
             if (UserManager::instance().userExists(currentName)) {
                 QMessageBox::warning(this, tr("Имя занято"),
                                      tr("Имя '%1' уже используется зарегистрированным пользователем. "
                                         "Пожалуйста, выберите другое имя для гостя или войдите под этим именем.")
                                      .arg(currentName));
-                return; // Прерываем запуск игры
+                return;
             }
         }
 
-        // Если все проверки пройдены, добавляем имя в итоговый список
         m_playerNames.append(currentName);
     }
 
@@ -155,7 +149,7 @@ void GameSetupDialog::onStartGameClicked()
         return;
     }
 
-    accept(); // Все проверки пройдены, закрываем диалог и начинаем игру
+    accept();
 }
 
 void GameSetupDialog::updateStartButtonState()
@@ -181,12 +175,9 @@ QStringList GameSetupDialog::getPlayerNames() const
 bool GameSetupDialog::isGuestGame() const
 {
     for (const auto& nameEdit : m_nameEdits) {
-        // Если хотя бы одно поле заблокировано (т.е. игрок вошел в систему),
-        // то игра уже не считается полностью гостевой.
         if (nameEdit->isReadOnly()) {
             return false;
         }
     }
-    // Если все поля доступны для редактирования - значит, все игроки гости.
     return true;
 }

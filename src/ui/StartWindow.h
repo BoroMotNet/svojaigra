@@ -25,4 +25,4 @@ private:
     QString hashPassword(const QString& password) const;
 };
 
-#endif // STARTWINDOW_H
+#endif
