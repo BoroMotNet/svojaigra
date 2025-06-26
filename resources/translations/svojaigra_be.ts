@@ -14,18 +14,14 @@
         <translation>Рэдактар ​​гульнявых пытанняў</translation>
     </message>
     <message>
-        <source>Сохранить все изменения в файлы</source>
-        <translation type="vanished">Захаваць усе змены ў файлы</translation>
-    </message>
-    <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="45"/>
         <source>Сохранить все изменения</source>
-        <translation type="unfinished"></translation>
+        <translation>Захаваць усе змены</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="49"/>
         <source>Выход в главное меню</source>
-        <translation type="unfinished"></translation>
+        <translation>Выхад у галоўнае меню</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="105"/>
@@ -86,13 +82,14 @@
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="212"/>
         <source>Несохраненные изменения</source>
-        <translation type="unfinished"></translation>
+        <translation>Незахаваныя змены</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="213"/>
         <source>У вас есть несохраненные изменения. Вы уверены, что хотите выйти?
 Все несохраненные данные будут потеряны.</source>
-        <translation type="unfinished"></translation>
+        <translation>У вас ёсць незахаваная змены. Вы ўпэўненыя, што хочаце выйсці?
+Усе незахаваныя дадзеныя будуць страчаныя.</translation>
     </message>
 </context>
 <context>
@@ -103,18 +100,14 @@
         <translation>Не ўдалося загрузіць пытанні. Гульня не можа быць пачата.</translation>
     </message>
     <message>
-        <source>Невозможно выбрать случайный вопрос: игра не в состоянии выбора вопроса.</source>
-        <translation type="vanished">Немагчыма выбраць выпадковае пытанне: гульня не ў стане выбару пытання.</translation>
-    </message>
-    <message>
         <location filename="../../src/core/GameManager.cpp" line="63"/>
         <source>Ошибка загрузки</source>
-        <translation type="unfinished"></translation>
+        <translation>Немагчыма загрузіць</translation>
     </message>
     <message>
         <location filename="../../src/core/GameManager.cpp" line="64"/>
         <source>Не удалось загрузить вопросы. Проверьте файлы игры.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не ўдалося загрузіць пытанні. Праверце файлы гульні.</translation>
     </message>
     <message>
         <location filename="../../src/core/GameManager.cpp" line="122"/>
@@ -122,25 +115,9 @@
         <translation>Выпадковае пытанне</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="122"/>
+        <location filename="../../src/core/GameManager.cpp" line="123"/>
         <source>Нет доступных вопросов для выбора.</source>
         <translation>Няма даступных пытанняў для выбару.</translation>
-    </message>
-    <message>
-        <source>Нет доступных вопросов для выбора случайного.</source>
-        <translation type="vanished">Няма даступных пытанняў для выбару выпадковага.</translation>
-    </message>
-    <message>
-        <source>Выбран случайный вопрос: Категория &apos;</source>
-        <translation type="vanished">Абранае выпадковае пытанне: Катэгорыя &apos;</translation>
-    </message>
-    <message>
-        <source>&apos;, Очки: </source>
-        <translation type="vanished">&apos;, Ачкі: </translation>
-    </message>
-    <message>
-        <source>Попытка выбрать уже сыгранный вопрос!</source>
-        <translation type="vanished">Спроба выбраць ужо згулянае пытанне!</translation>
     </message>
 </context>
 <context>
@@ -391,7 +368,7 @@
     <message>
         <location filename="../../src/ui/StartWindow.cpp" line="37"/>
         <source>Введите хотя бы одно имя игрока!</source>
-        <translation type="unfinished"></translation>
+        <translation>Увядзіце хаця б адно імя гульца!</translation>
     </message>
     <message>
         <location filename="../../src/ui/StartWindow.cpp" line="62"/>

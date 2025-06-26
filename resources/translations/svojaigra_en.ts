@@ -14,18 +14,14 @@
         <translation>Game questions Editor</translation>
     </message>
     <message>
-        <source>Сохранить все изменения в файлы</source>
-        <translation type="vanished">Save all changes to files</translation>
-    </message>
-    <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="45"/>
         <source>Сохранить все изменения</source>
-        <translation type="unfinished"></translation>
+        <translation>Save All Changes</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="49"/>
         <source>Выход в главное меню</source>
-        <translation type="unfinished"></translation>
+        <translation>Exit to Main Menu</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="105"/>
@@ -46,12 +42,12 @@
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="157"/>
         <source>Вопрос был удален. Не забудьте сохранить изменения.</source>
-        <translation>The question has been deleted. Don&apos;t forget to save your changes.</translation>
+        <translation>The question has been deleted. Don't forget to save your changes.</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="159"/>
         <source>Вопрос обновлен. Не забудьте сохранить изменения.</source>
-        <translation>Question updated. Don&apos;t forget to save your changes.</translation>
+        <translation>Question updated. Don't forget to save your changes.</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="189"/>
@@ -86,13 +82,14 @@
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="212"/>
         <source>Несохраненные изменения</source>
-        <translation type="unfinished"></translation>
+        <translation>Unsaved Changes</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="213"/>
         <source>У вас есть несохраненные изменения. Вы уверены, что хотите выйти?
 Все несохраненные данные будут потеряны.</source>
-        <translation type="unfinished"></translation>
+        <translation>You have unsaved changes. Are you sure you want to exit?
+All unsaved data will be lost.</translation>
     </message>
 </context>
 <context>
@@ -103,18 +100,14 @@
         <translation>Failed to load questions. The game cannot be started.</translation>
     </message>
     <message>
-        <source>Невозможно выбрать случайный вопрос: игра не в состоянии выбора вопроса.</source>
-        <translation type="vanished">Unable to choose random question: The game is unable to choose a question.</translation>
-    </message>
-    <message>
         <location filename="../../src/core/GameManager.cpp" line="63"/>
         <source>Ошибка загрузки</source>
-        <translation type="unfinished"></translation>
+        <translation>Download Failed</translation>
     </message>
     <message>
         <location filename="../../src/core/GameManager.cpp" line="64"/>
         <source>Не удалось загрузить вопросы. Проверьте файлы игры.</source>
-        <translation type="unfinished"></translation>
+        <translation>Failed to load questions. Check game files.</translation>
     </message>
     <message>
         <location filename="../../src/core/GameManager.cpp" line="122"/>
@@ -122,25 +115,9 @@
         <translation>Random question</translation>
     </message>
     <message>
-        <location filename="../../src/core/GameManager.cpp" line="122"/>
+        <location filename="../../src/core/GameManager.cpp" line="123"/>
         <source>Нет доступных вопросов для выбора.</source>
         <translation>There are no questions available to choose from.</translation>
-    </message>
-    <message>
-        <source>Нет доступных вопросов для выбора случайного.</source>
-        <translation type="vanished">There are no questions available for random selection.</translation>
-    </message>
-    <message>
-        <source>Выбран случайный вопрос: Категория &apos;</source>
-        <translation type="vanished">Random question selected: Category &apos;</translation>
-    </message>
-    <message>
-        <source>&apos;, Очки: </source>
-        <translation type="vanished">&apos;, Points: </translation>
-    </message>
-    <message>
-        <source>Попытка выбрать уже сыгранный вопрос!</source>
-        <translation type="vanished">Trying to choose a question that has already been played!</translation>
     </message>
 </context>
 <context>
@@ -391,7 +368,7 @@
     <message>
         <location filename="../../src/ui/StartWindow.cpp" line="37"/>
         <source>Введите хотя бы одно имя игрока!</source>
-        <translation type="unfinished"></translation>
+        <translation>Please enter at least one player name!</translation>
     </message>
     <message>
         <location filename="../../src/ui/StartWindow.cpp" line="62"/>
