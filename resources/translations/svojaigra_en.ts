@@ -42,12 +42,12 @@
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="156"/>
         <source>Вопрос был удален. Не забудьте сохранить изменения.</source>
-        <translation>The question has been deleted. Don&apos;t forget to save your changes.</translation>
+        <translation>The question has been deleted. Don't forget to save your changes.</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="158"/>
         <source>Вопрос обновлен. Не забудьте сохранить изменения.</source>
-        <translation>Question updated. Don&apos;t forget to save your changes.</translation>
+        <translation>Question updated. Don't forget to save your changes.</translation>
     </message>
     <message>
         <location filename="../../src/ui/AdminEditor.cpp" line="188"/>
@@ -247,11 +247,7 @@ All unsaved data will be lost.</translation>
     <message>
         <location filename="../../src/ui/GameSetupDialog.cpp" line="148"/>
         <source>Для начала игры необходимо 4 игрока.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Добавьте хотя бы одного игрока.</source>
-        <translation type="vanished">Add at least one player.</translation>
+        <translation>To start the game you need 4 players.</translation>
     </message>
 </context>
 <context>
@@ -259,17 +255,17 @@ All unsaved data will be lost.</translation>
     <message>
         <location filename="../../src/ui/HelpDialog.cpp" line="15"/>
         <source>Справка</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
     <message>
         <location filename="../../src/ui/HelpDialog.cpp" line="25"/>
         <source>Закрыть</source>
-        <translation type="unfinished">Close</translation>
+        <translation>Close</translation>
     </message>
     <message>
         <location filename="../../src/ui/HelpDialog.cpp" line="49"/>
         <source>&lt;h2&gt;Ошибка&lt;/h2&gt;&lt;p&gt;Не удалось загрузить файл справки: %1&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;Error&lt;/h2&gt;&lt;p&gt;Failed to load help file: %1&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -393,6 +389,11 @@ All unsaved data will be lost.</translation>
         <translation>Create a new question</translation>
     </message>
     <message>
+        <location filename="../../src/ui/QuestionEditDialog.cpp" line="22"/>
+        <source>Редактирование: %1</source>
+        <translation>Edit: %1</translation>
+    </message>
+    <message>
         <location filename="../../src/ui/QuestionEditDialog.cpp" line="41"/>
         <source>Текст вопроса:</source>
         <translation>Question text:</translation>
@@ -401,11 +402,6 @@ All unsaved data will be lost.</translation>
         <location filename="../../src/ui/QuestionEditDialog.cpp" line="45"/>
         <source>Ответ:</source>
         <translation>Answer:</translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/QuestionEditDialog.cpp" line="22"/>
-        <source>Редактирование: %1</source>
-        <translation>Edit: %1</translation>
     </message>
     <message>
         <location filename="../../src/ui/QuestionEditDialog.cpp" line="56"/>
@@ -446,11 +442,6 @@ All unsaved data will be lost.</translation>
 <context>
     <name>SettingsDialog</name>
     <message>
-        <location filename="../../src/ui/SettingsDialog.cpp" line="36"/>
-        <source>Настройки</source>
-        <translation>Settings</translation>
-    </message>
-    <message>
         <location filename="../../src/ui/SettingsDialog.cpp" line="21"/>
         <source>Русский</source>
         <translation>Русский</translation>
@@ -464,6 +455,11 @@ All unsaved data will be lost.</translation>
         <location filename="../../src/ui/SettingsDialog.cpp" line="23"/>
         <source>Беларуская</source>
         <translation>Беларуская</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/SettingsDialog.cpp" line="36"/>
+        <source>Настройки</source>
+        <translation>Settings</translation>
     </message>
     <message>
         <location filename="../../src/ui/SettingsDialog.cpp" line="73"/>
@@ -487,22 +483,6 @@ All unsaved data will be lost.</translation>
         <location filename="../../src/ui/StartWindow.cpp" line="32"/>
         <source>Своя Игра - Меню</source>
         <translation>Jeopardy - Menu</translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="98"/>
-        <source>Авторизация</source>
-        <translation>Authentication</translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="98"/>
-        <source>Введите пароль администратора:</source>
-        <translation>Enter administrator password:</translation>
-    </message>
-    <message>
-        <location filename="../../src/ui/StartWindow.cpp" line="92"/>
-        <location filename="../../src/ui/StartWindow.cpp" line="109"/>
-        <source>Ошибка</source>
-        <translation>Error</translation>
     </message>
     <message>
         <location filename="../../src/ui/StartWindow.cpp" line="81"/>
@@ -534,6 +514,22 @@ All unsaved data will be lost.</translation>
         <location filename="../../src/ui/StartWindow.cpp" line="92"/>
         <source>Пароль не может быть пустым!</source>
         <translation>Password cannot be empty!</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="98"/>
+        <source>Авторизация</source>
+        <translation>Authentication</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="98"/>
+        <source>Введите пароль администратора:</source>
+        <translation>Enter administrator password:</translation>
+    </message>
+    <message>
+        <location filename="../../src/ui/StartWindow.cpp" line="92"/>
+        <location filename="../../src/ui/StartWindow.cpp" line="109"/>
+        <source>Ошибка</source>
+        <translation>Error</translation>
     </message>
     <message>
         <location filename="../../src/ui/StartWindow.cpp" line="109"/>
@@ -579,7 +575,7 @@ All unsaved data will be lost.</translation>
     <message>
         <location filename="../../src/ui/StartWindow.ui" line="220"/>
         <source>Справка</source>
-        <translation type="unfinished"></translation>
+        <translation>Help</translation>
     </message>
 </context>
 </TS>
