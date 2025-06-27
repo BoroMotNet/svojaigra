@@ -1,8 +1,8 @@
 # Changelog
 
-## [v.0.1.1](https://github.com/BoroMotNet/svojaigra/tree/v.0.1.1) (2025-06-27)
+## [v1.0.1](https://github.com/BoroMotNet/svojaigra/tree/v1.0.1) (2025-06-27)
 
-[Full Changelog](https://github.com/BoroMotNet/svojaigra/compare/v1.0.0...v.0.1.1)
+[Full Changelog](https://github.com/BoroMotNet/svojaigra/compare/v1.0.0...v1.0.1)
 
 **Implemented enhancements:**
 
