@@ -247,7 +247,7 @@
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="148"/>
       <source>Для начала игры необходимо 4 игрока.</source>
-      <translation type="unfinished">Для начала игры необходимо 4 игрока.</translation>
+      <translation>Для пачатку гульні неабходна 4 гульца.</translation>
     </message>
   </context>
   <context>
@@ -255,7 +255,7 @@
     <message>
       <location filename="../../src/ui/HelpDialog.cpp" line="15"/>
       <source>Справка</source>
-      <translation type="unfinished">Справка</translation>
+      <translation>Даведка</translation>
     </message>
     <message>
       <location filename="../../src/ui/HelpDialog.cpp" line="25"/>
@@ -265,7 +265,7 @@
     <message>
       <location filename="../../src/ui/HelpDialog.cpp" line="49"/>
       <source>&lt;h2&gt;Ошибка&lt;/h2&gt;&lt;p&gt;Не удалось загрузить файл справки: %1&lt;/p&gt;</source>
-      <translation type="unfinished">&lt;h2&gt;Ошибка&lt;/h2&gt;&lt;p&gt;Не удалось загрузить файл справки: %1&lt;/p&gt;</translation>
+      <translation>&lt;h2&gt;Памылка&lt;/h2&gt;&lt;p&gt;Не атрымалася загрузіць файл даведкі: %1&lt;/p&gt;</translation>
     </message>
   </context>
   <context>
@@ -575,7 +575,7 @@
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="220"/>
       <source>Справка</source>
-      <translation type="unfinished">Справка</translation>
+      <translation>Даведка</translation>
     </message>
   </context>
 </TS>
