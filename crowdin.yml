@@ -1,3 +1,5 @@
 files:
   - source: /resources/translations/svojaigra_ru.ts
     translation: /resources/translations/svojaigra_%two_letters_code%.ts
+  - source: /resources/help/help_ru.md
+    translation: /resources/help/help_%two_letters_code%.md
