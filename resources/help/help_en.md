@@ -1,44 +1,44 @@
-## Справка по приложению "Своя Игра"
+## Help for the "Jeopardy" application
 
-### О приложении
+### About
 
-"Своя Игра" - это увлекательная викторина, созданная по мотивам одноименной телевизионной игры. Приложение позволяет игрокам соревноваться друг с другом, отвечая на вопросы из различных категорий и зарабатывая очки.
+"Jeopardy" is a fascinating quiz show based on the TV game of the same name. The app allows players to compete against each other by answering questions from different categories and earning points.
 
-### Основные возможности
+### Main features
 
-- Игровой процесс:
-    - Подготовка к игре: Перед началом игры участники вводят свои имена. Есть возможность играть как гость или войти под своей учетной записью.
-    - Выбор вопроса: Игроки по очереди выбирают вопросы из разных категорий и с разной стоимостью.
-    - Случайный вопрос: Существует опция выбора случайного вопроса, если игрок не может определиться.
-    - Ответ на вопрос: После выбора вопроса на экране появляется текст вопроса и, в некоторых случаях, медиафайл (изображение или звук). Игрок должен ввести свой ответ в специальное поле.
-    - Подсчет очков: За правильные ответы игроки получают очки, соответствующие стоимости вопроса. В случае неверного ответа очки не начисляются.
-    - Завершение игры: Игра заканчивается, когда все вопросы на игровом поле отвечены. Победителем становится игрок, набравший наибольшее количество очков. Также есть возможность завершить игру досрочно.
+- Gameplay:
+    - Preparation for the game: Before the game begins, participants enter their names. It is possible to play as a guest or log in with your own account.
+    - Question Selection: Players take turns selecting questions from different categories and with different values.
+    - Random Question: There is an option to select a random question if the player cannot decide.
+    - Answer to question: After selecting a question, the text of the question and, in some cases, a media file (image or sound) appears on the screen. The player must enter his answer in a special field.
+    - Scoring: For correct answers, players receive points corresponding to the value of the question. In case of an incorrect answer, no points are awarded.
+    - End of the game: The game ends when all questions on the game board have been answered. The winner is the player with the most points. There is also an option to end the game early.
 
-- Учетные записи и таблица лидеров:
-    - Регистрация и вход: Пользователи могут создавать свои учетные записи, чтобы сохранять свои результаты.
-    - Таблица лидеров: В приложении ведется таблица лидеров, где отображаются лучшие результаты зарегистрированных игроков.
+- Accounts and Leaderboard:
+    - Registration and Login: Users can create their own accounts to save their results.
+    - Leaderboard: The app maintains a leaderboard that displays scores of registered players.
 
-- Редактирование вопросов:
-    - Административная панель: Для администратора предусмотрен специальный режим, защищенный паролем, где можно редактировать, добавлять и удалять вопросы.
-    - Многоязычность: Вопросы и ответы можно редактировать на нескольких языках: русском, английском и белорусском.
+- Editing questions:
+    - Administrative panel: There is a special password-protected mode for the administrator, where you can edit, add and delete questions.
+    - Multilingual: Questions and answers can be edited in several languages: Russian, English and Belarusian.
 
-- Настройки:
-    - Язык: Пользователь может изменить язык интерфейса. Изменения вступят в силу после перезапуска приложения.
-    - Внешний вид: Можно настроить цвет фона приложения.
-    - Громкость: Есть возможность регулировать громкость звуковых эффектов и медиафайлов.
+- Settings:
+    - Language: The user can change the interface language. The changes will take effect after you restart the application.
+    - Appearance: You can customize the background color of the application.
+    - Volume: It is possible to adjust the volume of sound effects and media files.
 
-### Как пользоваться
+### How to use
 
-1. Запуск и главное меню: При запуске приложения открывается главное меню, где можно выбрать одно из следующих действий: "Начать", "Настройки", "Таблица лидеров", "Редактирование" или "Выход".
-2. Начало игры:
-    - Нажмите "Начать", чтобы перейти к экрану подготовки к игре.
-    - Введите имена игроков. Вы можете играть как гость или войти в свою учетную запись, нажав кнопку "Войти" рядом с полем ввода имени.
-    - После ввода имен всех игроков нажмите "Начать игру".
-3. Игровой процесс:
-    - Игроки по очереди выбирают категорию и стоимость вопроса на игровом поле.
-    - После появления вопроса введите свой ответ и нажмите "Ок".
-    - Игра продолжается до тех пор, пока не будут отвечены все вопросы.
-4. Редактирование вопросов (для администратора):
-    - В главном меню выберите "Редактирование".
-    - Введите пароль администратора. Если пароль еще не установлен, система предложит его создать.
-    - В редакторе вы можете изменять существующие вопросы, добавлять новые или удалять их. Не забудьте сохранить изменения перед выходом.
+1. Launch and Main Menu: When you launch the application, the main menu opens, where you can choose one of the following actions: "Start", "Settings", "Leaderboard", "Edit" or "Exit".
+2. Start of the game:
+    - Click "Start" to proceed to the game setup screen.
+    - Enter the names of the players. You can play as a guest or log in to your account by clicking the "Login" button next to the name input field.
+    - After entering the names of all players, click "Start Game".
+3. Gameplay:
+    - Players take turns choosing a category and the cost of a question on the playing field.
+    - After the question appears, enter your answer and click "OK".
+    - The game continues until all questions are answered.
+4. Editing questions (for administrator):
+    - From the main menu, select "Edit".
+    - Enter administrator password. If a password has not yet been set, the system will prompt you to create one.
+    - In the editor you can edit existing questions, add new ones or delete them. Don't forget to save your changes before exiting.
