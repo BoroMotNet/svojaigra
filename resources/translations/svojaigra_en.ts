@@ -247,7 +247,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/GameSetupDialog.cpp" line="148"/>
       <source>Для начала игры необходимо 4 игрока.</source>
-      <translation type="unfinished">Для начала игры необходимо 4 игрока.</translation>
+      <translation>To start the game you need 4 players.</translation>
     </message>
   </context>
   <context>
@@ -255,7 +255,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/HelpDialog.cpp" line="15"/>
       <source>Справка</source>
-      <translation type="unfinished">Справка</translation>
+      <translation>Help</translation>
     </message>
     <message>
       <location filename="../../src/ui/HelpDialog.cpp" line="25"/>
@@ -265,7 +265,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/HelpDialog.cpp" line="49"/>
       <source>&lt;h2&gt;Ошибка&lt;/h2&gt;&lt;p&gt;Не удалось загрузить файл справки: %1&lt;/p&gt;</source>
-      <translation type="unfinished">&lt;h2&gt;Ошибка&lt;/h2&gt;&lt;p&gt;Не удалось загрузить файл справки: %1&lt;/p&gt;</translation>
+      <translation>&lt;h2&gt;Error&lt;/h2&gt;&lt;p&gt;Failed to load help file: %1&lt;/p&gt;</translation>
     </message>
   </context>
   <context>
@@ -575,7 +575,7 @@ All unsaved data will be lost.</translation>
     <message>
       <location filename="../../src/ui/StartWindow.ui" line="220"/>
       <source>Справка</source>
-      <translation type="unfinished">Справка</translation>
+      <translation>Help</translation>
     </message>
   </context>
 </TS>
