@@ -33,6 +33,7 @@ void HelpDialog::loadHelpContent()
 {
     QString lang = FileManager::loadLanguageSetting();
     QString filePath = QCoreApplication::applicationDirPath() + "/help/help_" + lang + ".md";
+    qDebug() << filePath.toStdString();
 
     if (!QFile::exists(filePath)) {
         qWarning() << "Help file for lang" << lang << "not found, falling back to ru";
